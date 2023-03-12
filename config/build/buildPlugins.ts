@@ -1,7 +1,8 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack, {WebpackPluginInstance} from 'webpack';
-import {BuildOptions} from './types/config'
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import {BuildOptions} from './types/config';
 
 
 export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => {
@@ -15,6 +16,9 @@ export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => 
         new MiniCssExtractPlugin(),
         new webpack.DefinePlugin({
             __IS_DEV__: isDev
+        }),
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false,
         })
     ]
 }
