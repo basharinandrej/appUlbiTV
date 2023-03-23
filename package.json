@@ -9,7 +9,7 @@
     "build:prod": "npx webpack --env mode=production",
     "eslint": "npx eslint src/**",
     "eslint:fix": "npx eslint --fix src/**",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "npx kill-port 6006 && start-storybook -p 6006 -c config/.storybook",
     "build-storybook": "build-storybook"
   },
   "keywords": [],

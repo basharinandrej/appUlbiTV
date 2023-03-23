@@ -1,6 +1,6 @@
 import {ResolveOptions} from 'webpack'
-import path from 'path';
 import {BuildOptions} from './types/config'
+import {getAliases} from "./aliases/getAliases";
 
 export const buildResolvers = (options: BuildOptions): ResolveOptions => {
     const {paths} = options
@@ -8,12 +8,6 @@ export const buildResolvers = (options: BuildOptions): ResolveOptions => {
     return {
         extensions: ['.ts', '.js', '.tsx', 'json'],
         preferAbsolute: true,
-        alias: {
-            "@app": path.resolve(paths.src, 'app'),
-            "@pages": path.resolve(paths.src, 'pages'),
-            "@widgets": path.resolve(paths.src, 'widgets'),
-            "@shared": path.resolve(paths.src, 'shared'),
-            "@features": path.resolve(paths.src, 'features'),
-        }
+        alias: getAliases(paths.src)
     }
 }
