@@ -1,0 +1,18 @@
+@mixin full-position
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+
+@mixin position-full-fixed
+  position: fixed
+  @include full-position
+
+@mixin position-full-absolute
+  position: absolute
+  @include full-position
+
+@mixin flex-center-center
+  display: flex
+  justify-content: center
+  align-items: center

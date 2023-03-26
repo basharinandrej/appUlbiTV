@@ -1,0 +1,30 @@
+@use './styles/mixins'
+@use './styles/functions'
+
+.modal
+  @include mixins.position-full-fixed
+  @include  mixins.flex-center-center
+
+  opacity: 0
+  pointer-events: none
+
+  &.open
+    opacity: 1
+    pointer-events: auto
+
+.overlay
+  @include  mixins.position-full-absolute
+
+  width: 100%
+  height: 100%
+
+  cursor: pointer
+
+  background: var(--overlay-background)
+
+.content
+  padding: functions.base(3) functions.base(6)
+  border-radius: functions.base(3)
+  position: absolute
+
+  background: var(--background-secondary)

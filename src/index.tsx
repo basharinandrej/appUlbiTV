@@ -4,7 +4,6 @@ import { ContextThemeProvider } from '@app/providers/ThemeProvider'
 import { ErrorBoundary } from '@app/providers/ErrorBoundary'
 import {App} from '@app/index'
 
-import { i18n } from '@shared/index'
 
 import '../styles/index.sass'
 
