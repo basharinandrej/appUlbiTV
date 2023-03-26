@@ -1,4 +1,4 @@
-import { setClassNames } from '@shared/lib/setClassNames'
+import { setClassNames } from '@shared/libs/setClassNames'
 import {ButtonHTMLAttributes, FC} from 'react'
 import { ButtonType } from './types/interface'
 
