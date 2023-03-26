@@ -7,5 +7,6 @@ export const getAliases = (pathSrc: string) => {
         "@widgets": path.resolve(pathSrc, 'widgets'),
         "@shared": path.resolve(pathSrc, 'shared'),
         "@features": path.resolve(pathSrc, 'features'),
+        "@entities": path.resolve(pathSrc, 'entities'),
     }
 }

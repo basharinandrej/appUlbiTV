@@ -8,7 +8,6 @@ import styles from './Navbar.module.sass'
 export const Navbar = () => {
     const { t } = useTranslation()
     const [isOpen, setIsOpen] = useState(false)
-    const [isShow, setIsShow] = useState(true)
 
     return (
         <div className={styles.navbar}>
@@ -17,14 +16,13 @@ export const Navbar = () => {
             <ThemeSwitcher className={styles.gapThemeSwitcher} />
             <LangSwitcher />
             <Button onClick={()=> setIsOpen(true)} buttonType={ButtonType.GHOST}>Вход</Button>
-            <Button onClick={()=> setIsShow(false)} buttonType={ButtonType.GHOST}>hide</Button>
 
-            {isShow && <Modal
+            <Modal
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
             >
                 <p>children</p>
-            </Modal>}
+            </Modal>
         </div>
     )
 }
