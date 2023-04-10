@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "npx kill-port 4200 && npx webpack serve --env port=4200",
+    "start:dev:server": "node ./json-server/index.js",
     "build:dev": "npx webpack --env mode=development",
     "build:prod": "npx webpack --env mode=production",
     "eslint": "npx eslint src/**",
@@ -40,6 +41,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.11",
     "html-webpack-plugin": "^5.5.0",
+    "json-server": "^0.17.3",
     "mini-css-extract-plugin": "^2.5.3",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
