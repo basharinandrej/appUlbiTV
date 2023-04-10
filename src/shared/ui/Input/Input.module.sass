@@ -1,0 +1,28 @@
+@use './styles/functions'
+
+.inputBox
+    display: flex
+    flex-direction: column
+    position: relative
+
+
+.placeholder 
+    color: var(--color-primitive-200)
+    line-height: 100%
+
+    position: absolute
+    top: 0
+    left: functions.base(4)
+
+    transform: translateY(50%)
+
+
+.input 
+    padding: functions.base(2) functions.base(4)
+    border-radius: functions.base(2)
+    
+    border: 1px solid var(--color-main-border)
+
+.err
+    color: var(--color-danger)
+    padding-bottom: functions.base(1)
