@@ -1,6 +1,6 @@
 import {FC} from 'react'
 import {Page404Props} from '../types/types'
-import {useTranslation} from "react-i18next";
+import {useTranslation} from 'react-i18next'
 
 const Page404: FC<Page404Props> = ({error}) => {
     const { t } = useTranslation()

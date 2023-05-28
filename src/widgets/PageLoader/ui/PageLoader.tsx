@@ -1,8 +1,8 @@
 import {FC} from 'react'
-import {Loader} from "@shared/ui/Loader/Loader";
-import {PageLoaderProps} from "../types/interfaces/page-loader-props";
-import {setClassNames} from "@shared/libs/setClassNames";
-import {PageLoaderType} from "@widgets/PageLoader/types/enums/page-loader-type";
+import {Loader} from '@shared/ui/Loader/Loader'
+import {PageLoaderProps} from '../types/interfaces/page-loader-props'
+import {setClassNames} from '@shared/libs/setClassNames'
+import {PageLoaderType} from '@widgets/PageLoader/types/enums/page-loader-type'
 
 import styles from './PageLoader.module.sass'
 

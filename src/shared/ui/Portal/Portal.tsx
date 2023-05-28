@@ -1,5 +1,5 @@
-import {FC, ReactNode} from "react";
-import ReactDOM from "react-dom";
+import {FC, ReactNode} from 'react'
+import ReactDOM from 'react-dom'
 
 
 export const Portal: FC<PortalProps> = ({container=document.body,children}) => {

@@ -1,11 +1,11 @@
 import {Suspense} from 'react'
-import {useTheme} from '../providers/ThemeProvider/lib/useTheme'
+import {useTheme} from '@app/providers/ThemeProvider'
 import {Navbar} from '@widgets/index'
 
 import {MainLayout} from '@widgets/MainLayout'
 import {AppRoutes} from '@app/providers/AppRoutes'
-import {PageLoader} from "@widgets/PageLoader/ui/PageLoader";
-import {PageLoaderType} from "@widgets/PageLoader/types/enums/page-loader-type";
+import {PageLoader} from '@widgets/PageLoader/ui/PageLoader'
+import {PageLoaderType} from '@widgets/PageLoader/types/enums/page-loader-type'
 
 
 function App() {

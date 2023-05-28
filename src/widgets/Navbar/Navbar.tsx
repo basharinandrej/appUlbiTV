@@ -1,5 +1,5 @@
 import {useTranslation} from 'react-i18next'
-import {useState} from "react";
+import {useState} from 'react'
 import {AppLink, Button, ButtonType, Modal} from '@shared/index'
 import {LangSwitcher, ThemeSwitcher} from '@features/index'
 import styles from './Navbar.module.sass'

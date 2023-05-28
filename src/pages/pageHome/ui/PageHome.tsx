@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import {Counter} from "@entities/counter/ui/counter";
-import {Fragment} from "react";
+import {Counter} from '@entities/counter/ui/counter'
+import {Fragment} from 'react'
 
 const PageHome = () => {
     const { t } = useTranslation()

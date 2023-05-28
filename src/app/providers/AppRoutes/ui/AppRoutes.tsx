@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { mapRoutes } from '@app/providers/AppRoutes'
-import {PageLoader} from "@widgets/PageLoader/ui/PageLoader";
+import {PageLoader} from '@widgets/PageLoader/ui/PageLoader'
 import { Suspense } from 'react'
 
 export const AppRoutes = () => {

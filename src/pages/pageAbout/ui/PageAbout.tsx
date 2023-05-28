@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
-import {Counter} from "@entities/counter/ui/counter";
+import {Counter} from '@entities/counter/ui/counter'
 
 import styles from './pageAbout.module.sass'
 

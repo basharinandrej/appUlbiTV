@@ -1,5 +1,5 @@
 import {Input} from '../Input'
-import {ComponentStory} from "@storybook/react";
+import {ComponentStory} from '@storybook/react'
 
 export default {
     title: 'Input',

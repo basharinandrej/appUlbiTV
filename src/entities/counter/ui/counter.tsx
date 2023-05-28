@@ -1,10 +1,10 @@
-import {Button, ButtonType} from "@shared/index";
-import {FC} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {Button, ButtonType} from '@shared/index'
+import {FC} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import {decrement, increment} from '../model/slices/counterSlice'
 
 import styles from './counter.module.sass'
-import {getCounterValue} from "@entities/counter/model/selectors/getCounterValue";
+import {getCounterValue} from '@entities/counter/model/selectors/getCounterValue'
 export const Counter: FC = () => {
     const dispatch = useDispatch()
     const count = useSelector(getCounterValue)

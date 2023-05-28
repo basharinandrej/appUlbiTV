@@ -1,8 +1,8 @@
-import {FC, ReactNode, useCallback} from "react";
-import {setClassNames} from "@shared/libs/setClassNames";
-import {Portal} from "@shared/ui/Portal/Portal";
-import {useUnMount} from "../../libs/hooks/useUnMount"
-import {useMount} from "../../libs/hooks/useMount"
+import {FC, ReactNode, useCallback} from 'react'
+import {setClassNames} from '@shared/libs/setClassNames'
+import {Portal} from '@shared/ui/Portal/Portal'
+import {useUnMount} from '../../libs/hooks/useUnMount'
+import {useMount} from '../../libs/hooks/useMount'
 
 import styles from './Modal.module.sass'
 
@@ -11,7 +11,6 @@ export const Modal: FC<ModalProps> = (props) => {
     const {children, isOpen, onClose} = props
 
     const handlerKeyDown = useCallback((e: KeyboardEvent) => {
-        console.log('>>> 4');
 
         if(e.key === 'Escape') {
             onClose()

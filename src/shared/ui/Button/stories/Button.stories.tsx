@@ -1,13 +1,13 @@
-import {Button} from "../Button";
-import {ComponentStory} from "@storybook/react";
-import {ButtonType} from "@shared/ui/Button/types/interface";
+import {Button} from '../Button'
+import {ComponentStory} from '@storybook/react'
+import {ButtonType} from '@shared/ui/Button/types/interface'
 
 export default {
     title: 'Button',
     component: Button
 }
 
-const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const ButtonPrimary = ButtonTemplate.bind({}) as typeof ButtonTemplate
 ButtonPrimary.args = {
