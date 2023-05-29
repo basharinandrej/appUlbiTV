@@ -1,4 +1,5 @@
-import {VFC, ChangeEventHandler, useState} from 'react'
+import {VFC, ChangeEventHandler, useState, InputHTMLAttributes, useEffect, HTMLInputTypeAttribute} from 'react'
+import {setClassNames} from "@shared/libs/setClassNames"
 
 import cls from './Input.module.sass'
 
@@ -6,31 +7,43 @@ export const Input: VFC<InputProps> = ({
     externalValue,
     placeholder,
     externalErr,
-    onChange
+    onChange,
+    className,
+    type = 'text'
 }) => {
     const [value, setValue] = useState(externalValue)
-    const [errors, setErrors] = useState(['asdadsd', 'asdasd'])
+    const [errors, setErrors] = useState([])
+
+    useEffect(() => setValue(externalValue), [externalValue])
+    useEffect(() => setErrors(externalErr), [externalErr])
 
     const isShowPlaceholder = (!value && placeholder)
 
-    const hangleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         const value = e.target?.value
         onChange(value)
         setValue(value)
     }
 
-    return <div className={cls.inputBox}>
+    return <div className={setClassNames(cls.inputBox, {}, [className])}>
         {isShowPlaceholder && <span className={cls.placeholder}>{placeholder}</span>}
-        <input className={cls.input} value={value} onChange={hangleChange} />
+
+        <input className={cls.input} type={type} value={value} onChange={handleChange} />
+
         {Array.isArray(errors) && errors.map((err) => {
             return <span className={cls.err}>{err}</span>
         })}
     </div>
 }
 
-interface InputProps extends HTMLInputElement {
-    externalValue: string
-    placeholder: string
+
+type HTMLInput = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
+
+interface InputProps extends HTMLInput {
     onChange: (value: string) => void
+    className: string
     externalErr?: [string]
+    externalValue?: string
+    placeholder?: string
+    type?: HTMLInputTypeAttribute
 }

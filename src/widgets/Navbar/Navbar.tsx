@@ -1,8 +1,9 @@
 import {useTranslation} from 'react-i18next'
 import {useState} from 'react'
-import {AppLink, Button, ButtonType, Modal} from '@shared/index'
+import {AppLink, Button, ButtonType} from '@shared/index'
 import {LangSwitcher, ThemeSwitcher} from '@features/index'
 import styles from './Navbar.module.sass'
+import {ModalAuth} from "@features/AuthByUsername";
 
 
 export const Navbar = () => {
@@ -17,12 +18,10 @@ export const Navbar = () => {
             <LangSwitcher />
             <Button onClick={()=> setIsOpen(true)} buttonType={ButtonType.GHOST}>Вход</Button>
 
-            <Modal
+            <ModalAuth
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
-            >
-                <p>children</p>
-            </Modal>
+            />
         </div>
     )
 }
