@@ -6,7 +6,7 @@ import {FormAuth} from "../FormAuth/FormAuth";
 export const ModalAuth: FC<ModalAuthProps> = (props) => {
     const {isOpen, onClose} = props
 
-    return <Modal isOpen={isOpen} onClose={onClose}>
+    return <Modal isLazy={true} isOpen={isOpen} onClose={onClose}>
         <FormAuth/>
     </Modal>
 }

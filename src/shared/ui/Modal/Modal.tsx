@@ -1,4 +1,4 @@
-import {FC, ReactNode, useCallback} from 'react'
+import {FC, ReactNode, useCallback, useEffect, useState} from 'react'
 import {setClassNames} from '@shared/libs/setClassNames'
 import {Portal} from '@shared/ui/Portal/Portal'
 import {useUnMount} from '../../libs/hooks/useUnMount'
@@ -8,7 +8,11 @@ import styles from './Modal.module.sass'
 
 
 export const Modal: FC<ModalProps> = (props) => {
-    const {children, isOpen, onClose} = props
+    const {children, isOpen, isLazy, onClose} = props
+
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => isOpen && setIsMounted(true), [isOpen])
 
     const handlerKeyDown = useCallback((e: KeyboardEvent) => {
 
@@ -20,8 +24,10 @@ export const Modal: FC<ModalProps> = (props) => {
     useMount(() => document.addEventListener('keydown', handlerKeyDown))
     useUnMount(() => document.removeEventListener('keydown', handlerKeyDown))
 
+    if(isLazy && !isMounted) return null
+
     return (
-        <Portal container={document.body}>
+        isMounted && <Portal container={document.body}>
             <div
                 className={setClassNames(
                 styles.modal,
@@ -38,4 +44,5 @@ interface ModalProps {
     children: ReactNode
     isOpen: boolean
     onClose: () => void
+    isLazy?: boolean
 }
