@@ -3,7 +3,7 @@ import { Button, Input } from "@shared/index";
 import {useTranslation} from "react-i18next";
 import styles from './FormAuth.module.sass'
 
-export const FormAuth: FC<FormAuthProps> = () => {
+const FormAuth: FC = () => {
     const { t } = useTranslation();
 
     const onChangeUsernameHandler = () => {}
@@ -16,6 +16,4 @@ export const FormAuth: FC<FormAuthProps> = () => {
     </form>
 }
 
-interface FormAuthProps {
-
-}
+export default FormAuth

@@ -25,7 +25,7 @@ export const Input: VFC<InputProps> = ({
         setValue(value)
     }
 
-    return <div className={setClassNames(cls.inputBox, {[cls.errInput]: !!errors.length}, [className])}>
+    return <div className={setClassNames(cls.inputBox, {[cls.errInput]: !!errors?.length}, [className])}>
         {isShowPlaceholder && <span className={cls.placeholder}>{placeholder}</span>}
 
         <input className={cls.input} type={type} value={value} onChange={handleChange} />
