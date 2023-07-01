@@ -9,7 +9,7 @@ import {getPasswordValue} from "../../model/selectors/getPasswordValue";
 import styles from './FormAuth.module.sass'
 
 const FormAuth: FC = () => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('formAuth');
 
     const dispatch = useDispatch()
     const usernameValue = useSelector(getUsernameValue)
@@ -27,12 +27,13 @@ const FormAuth: FC = () => {
             className={styles.input}
             externalValue={usernameValue}
             onChange={onChangeUsernameHandler}
-
+            placeholder={t('Имя пользователя')}
         />
         <Input
             className={styles.input}
             onChange={onChangePasswordHandler}
             externalValue={passwordValue}
+            placeholder={t('Пароль')}
             type={'password'}
         />
         <Button>{t('Войти')}</Button>
