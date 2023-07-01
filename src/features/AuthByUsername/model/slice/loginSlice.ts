@@ -18,11 +18,6 @@ const loginSlice = createSlice({
         },
         setUsername: (state, action: PayloadAction<string>) => {
             state.username = action.payload
-        },
-        resetState: (state) => {
-            state.username = ''
-            state.password = ''
-            state.isLoading = false
         }
     },
     extraReducers: (builder) => {
@@ -33,6 +28,8 @@ const loginSlice = createSlice({
             })
             .addCase(loginByUsername.fulfilled, (state) => {
                 state.isLoading = false
+                state.password = ''
+                state.username = ''
             })
             .addCase(loginByUsername.rejected, (state, action) => {
                 state.isLoading = false
@@ -42,5 +39,5 @@ const loginSlice = createSlice({
 })
 
 
-export const {setPassword, setUsername, resetState} = loginSlice.actions
+export const {setPassword, setUsername} = loginSlice.actions
 export const loginReducer = loginSlice.reducer

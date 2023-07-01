@@ -28,9 +28,8 @@ server.post('/login', (req, res) => {
             (user) => user.username === username && user.password === password,
         );
 
-        delete userFromBd.password
-
         if (userFromBd) {
+            delete userFromBd.password
             return res.json(userFromBd);
         }
 

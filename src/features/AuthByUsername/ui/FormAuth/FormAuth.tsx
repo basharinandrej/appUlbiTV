@@ -2,7 +2,7 @@ import {FC, MouseEventHandler, useCallback} from "react";
 import { Button, Input } from "@shared/index";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import { setUsername, setPassword, resetState } from "../../model/slice/loginSlice";
+import { setUsername, setPassword } from "../../model/slice/loginSlice";
 import {getUsername} from "../../model/selectors/getUsername";
 import {getPassword} from "../../model/selectors/getPassword";
 import {loginByUsername} from "../../model/asyncActions/loginByUsername";
@@ -32,7 +32,6 @@ const FormAuth: FC = () => {
     const onClickEnteredHandler: MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
         e.preventDefault()
         dispatch(loginByUsername({username, password}))
-        dispatch(resetState())
     }, [username, password, dispatch, loginByUsername])
 
     return <form className={styles.form}>
