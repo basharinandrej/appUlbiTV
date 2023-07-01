@@ -3,7 +3,7 @@ import {LoginSchema} from "../types/LoginSchema";
 
 const initialState: LoginSchema = {
     password: '',
-    login: '',
+    username: '',
     isLoading: false
 }
 
@@ -15,7 +15,7 @@ const loginSlice = createSlice({
             state.password = action.payload
         },
         setLogin: (state, action: PayloadAction<string>) => {
-            state.password = action.payload
+            state.username = action.payload
         }
     }
 })
