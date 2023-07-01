@@ -1,6 +1,6 @@
 import {StateSchema} from "@app/providers/StoreProvider";
 
 
-export const getUsernameValue = (state: StateSchema) => {
+export const getUsername = (state: StateSchema) => {
     return state.login.username
 }
