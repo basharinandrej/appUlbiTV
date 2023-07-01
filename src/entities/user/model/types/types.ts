@@ -1,4 +1,4 @@
 export interface UserSchema {
-    id: number
-    name: string
+    id: number | null
+    username: string
 }

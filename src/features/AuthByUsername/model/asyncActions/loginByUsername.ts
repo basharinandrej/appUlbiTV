@@ -1,6 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {UserSchema} from "@entities/user";
+import {setUser, UserSchema} from "@entities/user";
 import axios from "axios";
+import {LOCALSTORAGE_USER_KEY} from "@shared/constans/constans";
 
 interface AuthData {
     username: string
@@ -13,6 +14,8 @@ export const loginByUsername = createAsyncThunk<UserSchema, AuthData, {rejectVal
         try {
             const response = await axios.post<UserSchema>('http://localhost:8000/login', authData)
 
+            localStorage.setItem(LOCALSTORAGE_USER_KEY, JSON.stringify(response.data))
+            thunkAPI.dispatch(setUser(response.data))
             return response.data
         } catch (err) {
             return thunkAPI.rejectWithValue({msg: err.response.data.message || err.message})

@@ -8,6 +8,7 @@ export { Input } from './ui/Input/Input'
 export { Portal } from './ui/Portal/Portal'
 export { useUnMount } from './libs/hooks/useUnMount'
 export { useMount } from './libs/hooks/useMount'
+export { LOCALSTORAGE_USER_KEY } from './constans/constans'
 
 import i18n from './config/i18next'
 export {i18n}
