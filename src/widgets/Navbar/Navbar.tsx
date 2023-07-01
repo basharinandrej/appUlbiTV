@@ -16,7 +16,7 @@ export const Navbar = () => {
             <AppLink to={'/about'}>{t('About')}</AppLink>
             <ThemeSwitcher className={styles.gapThemeSwitcher} />
             <LangSwitcher />
-            <Button onClick={()=> setIsOpen(true)} buttonType={ButtonType.GHOST}>Вход</Button>
+            <Button onClick={()=> setIsOpen(true)} buttonType={ButtonType.GHOST}>{t('Вход')}</Button>
 
             <ModalAuth
                 isOpen={isOpen}
