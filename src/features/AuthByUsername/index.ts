@@ -1,1 +1,1 @@
-export {ModalAuth} from './ModalAuth/ModalAuth'
+export {ModalAuth} from './ui/ModalAuth/ModalAuth'

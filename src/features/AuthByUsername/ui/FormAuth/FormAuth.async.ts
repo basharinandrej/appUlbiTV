@@ -8,4 +8,4 @@ const factory = (): Promise<{default: FC}> => {
     })
 }
 
-export default lazy<FC>(factory)
+export default lazy(factory)
