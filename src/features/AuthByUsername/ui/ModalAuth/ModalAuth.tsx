@@ -1,5 +1,5 @@
 import {FC, Suspense} from "react";
-import FormAuth from "../FormAuth/FormAuth.async";
+import FormAuth from "../FormAuth/ui/FormAuth.async";
 import {Loader, Modal} from "@shared/index"
 
 

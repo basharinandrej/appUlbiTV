@@ -3,7 +3,7 @@ import {ComponentStory} from '@storybook/react'
 import {initialProps, controls} from "@shared/ui/Button/stories/constans";
 
 export default {
-    title: 'Input',
+    title: 'SHARED/Input',
     component: Input
 }
 
