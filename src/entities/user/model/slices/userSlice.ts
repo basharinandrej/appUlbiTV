@@ -19,9 +19,14 @@ export const userSlice = createSlice({
             const user: UserSchema = JSON.parse(localStorage.getItem(LOCALSTORAGE_USER_KEY))
             state.id = user?.id
             state.username = user?.username
+        },
+        logout: (state) => {
+            localStorage.removeItem(LOCALSTORAGE_USER_KEY)
+            state.id = null
+            state.username = ''
         }
     }
 })
 
 export const userReducer = userSlice.reducer
-export const { setUser, initUser } = userSlice.actions
+export const { setUser, initUser, logout } = userSlice.actions

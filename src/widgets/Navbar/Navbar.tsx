@@ -4,15 +4,20 @@ import {AppLink, Button, ButtonType} from '@shared/index'
 import {LangSwitcher, ThemeSwitcher} from '@features/index'
 import styles from './Navbar.module.sass'
 import {ModalAuth} from "@features/AuthByUsername";
-import {getIsAuth} from "@entities/user";
-import {useSelector} from "react-redux";
+import {getIsAuth, logout} from "@entities/user";
+import {useDispatch, useSelector} from "react-redux";
 
 
 export const Navbar = () => {
     const { t } = useTranslation()
     const [isOpen, setIsOpen] = useState(false)
+    const dispatch = useDispatch()
 
     const isAuth = useSelector(getIsAuth)
+
+    const handleLogout = () => {
+        dispatch(logout())
+    }
 
     const commonPartNavbar = (
         <Fragment>
@@ -27,7 +32,7 @@ export const Navbar = () => {
         return (
             <div className={styles.navbar}>
                 {commonPartNavbar}
-                <Button buttonType={ButtonType.SECONDARY}>{t('Выход')}</Button>
+                <Button onClick={handleLogout} buttonType={ButtonType.SECONDARY}>{t('Выход')}</Button>
             </div>
         )
     }
