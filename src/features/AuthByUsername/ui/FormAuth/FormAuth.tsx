@@ -35,7 +35,6 @@ const FormAuth: FC = () => {
     }, [username, password, dispatch, loginByUsername])
 
     return <form className={styles.form}>
-        <h2>{t("Авторизация")}</h2>
         <Input
             className={styles.input}
             externalValue={username}
