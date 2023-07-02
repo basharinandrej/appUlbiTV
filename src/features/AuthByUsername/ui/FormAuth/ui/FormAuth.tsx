@@ -2,11 +2,11 @@ import {FC, MouseEventHandler, useCallback} from "react";
 import { Button, Input } from "@shared/index";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
-import { setUsername, setPassword } from "../../model/slice/loginSlice";
-import {getUsername} from "../../model/selectors/getUsername";
-import {getPassword} from "../../model/selectors/getPassword";
-import {loginByUsername} from "../../model/asyncActions/loginByUsername";
-import {getError} from "../../model/selectors/getError";
+import { setUsername, setPassword } from "../../../model/slice/loginSlice";
+import {getUsername} from "../../../model/selectors/getUsername";
+import {getPassword} from "../../../model/selectors/getPassword";
+import {loginByUsername} from "../../../model/asyncActions/loginByUsername";
+import {getError} from "../../../model/selectors/getError";
 
 import styles from './FormAuth.module.sass'
 

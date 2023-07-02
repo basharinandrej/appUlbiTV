@@ -5,7 +5,6 @@ import { ErrorBoundary } from '@app/providers/ErrorBoundary'
 import { StoreProvider } from '@app/providers/StoreProvider'
 import {App} from '@app/index'
 
-
 import '../styles/index.sass'
 
 

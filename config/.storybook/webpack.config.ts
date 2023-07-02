@@ -15,5 +15,13 @@ export default ({ config }: { config: webpack.Configuration}) => {
     }
 
     config.module.rules.push(getStyleLoader(isDev))
+
+    const plugins = [
+        new webpack.DefinePlugin({
+            __IS_DEV__: isDev
+        })
+    ]
+    config.plugins.push(...plugins)
+
     return config
 }
