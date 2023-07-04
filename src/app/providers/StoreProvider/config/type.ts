@@ -1,9 +1,24 @@
 import {CounterSchema} from '@entities/counter'
 import {UserSchema} from '@entities/user'
 import {LoginSchema} from "@features/index";
+import {EnhancedStore} from "@reduxjs/toolkit/src/configureStore";
+import {AnyAction, Reducer} from "@reduxjs/toolkit";
+import {CombinedState} from "redux";
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
-    login: LoginSchema
+    login?: LoginSchema
+}
+
+export type StateSchemaKey = keyof StateSchema
+
+export interface ReducerManager {
+    reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>,
+    add:(key: StateSchemaKey, reducer: Reducer) => void,
+    remove:(key: StateSchemaKey) => void
+}
+
+export interface StoreWithStoreManager extends EnhancedStore<StateSchema> {
+    reducerManager: ReducerManager
 }

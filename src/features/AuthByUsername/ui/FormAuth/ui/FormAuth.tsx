@@ -1,12 +1,13 @@
 import {FC, MouseEventHandler, useCallback} from "react";
-import { Button, Input } from "@shared/index";
+import {Button, Input, useMount, useUnMount} from "@shared/index";
 import {useTranslation} from "react-i18next";
-import {useDispatch, useSelector} from "react-redux";
-import { setUsername, setPassword } from "../../../model/slice/loginSlice";
+import {useDispatch, useSelector, useStore} from "react-redux";
+import {setUsername, setPassword, loginReducer} from "../../../model/slice/loginSlice";
 import {getUsername} from "../../../model/selectors/getUsername";
 import {getPassword} from "../../../model/selectors/getPassword";
 import {loginByUsername} from "../../../model/asyncActions/loginByUsername";
 import {getError} from "../../../model/selectors/getError";
+import {StoreWithStoreManager} from "@app/providers/StoreProvider/config/type";
 
 import styles from './FormAuth.module.sass'
 
@@ -18,6 +19,17 @@ const FormAuth: FC = () => {
     const username = useSelector(getUsername)
     const password = useSelector(getPassword)
     const error = useSelector(getError)
+
+    const store = useStore() as StoreWithStoreManager
+
+    useMount(() => {
+        dispatch({type: 'INIT_LoginReducer'})
+        store.reducerManager.add('login', loginReducer)
+    })
+    useUnMount(() => {
+        dispatch({type: 'UNINIT_LoginReducer'})
+        store.reducerManager.remove('login')
+    })
 
     const isDisabled = !password && !username
 
