@@ -21,8 +21,6 @@ export const Navbar = () => {
 
     const commonPartNavbar = (
         <Fragment>
-            <AppLink to={'/'} className={styles.linkGap}>{t('Home')}</AppLink>
-            <AppLink to={'/about'}>{t('About')}</AppLink>
             <ThemeSwitcher className={styles.gapThemeSwitcher} />
             <LangSwitcher />
         </Fragment>
