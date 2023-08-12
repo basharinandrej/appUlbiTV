@@ -25,5 +25,12 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "andrej",
+    "surname": "basharin",
+    "age": 24,
+    "country": "RUS",
+    "currency": "RUB",
+    "city": "St. P."
+  }
 }
