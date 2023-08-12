@@ -5,7 +5,6 @@ import {setClassNames} from '@shared/index'
 import styles from './AppLink.module.sass'
 
 
-
 export const AppLink:FC<AppLink> = props => {
     const {to, children, className} = props
     return (
