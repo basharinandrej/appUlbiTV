@@ -11,8 +11,8 @@ export const SidebarList: VFC<SidebarListProps> = memo((props) => {
 
     return (
         <ul className={setClassNames(styles.sidebarList, {}, [className])}>
-            {sidebarItems.map((sidebarItem) => {
-                return <li className={styles.listItem}>
+            {sidebarItems.map((sidebarItem, idx) => {
+                return <li key={idx} className={styles.listItem}>
                     <AppLink to={sidebarItem.path}>
                         {sidebarItem.icon}&nbsp;{t(sidebarItem.text)}
                     </AppLink>
