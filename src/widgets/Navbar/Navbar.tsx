@@ -1,6 +1,6 @@
 import {useTranslation} from 'react-i18next'
 import {Fragment, useState} from 'react'
-import {AppLink, Button, ButtonType, Container} from '@shared/index'
+import {Button, ButtonType, Container} from '@shared/index'
 import {LangSwitcher, ThemeSwitcher} from '@features/index'
 import {ModalAuth} from "@features/AuthByUsername";
 import {getIsAuth, logout} from "@entities/user";

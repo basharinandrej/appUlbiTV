@@ -12,9 +12,11 @@ export const MainLayout:FC<MainLayoutProps> = ({children}) => {
             <Sidebar />
             <Navbar />
 
-            <Container className={styles.container} directionChildren={'column'}>
-                {children}
-            </Container>
+            <main className={styles.main}>
+                <Container className={styles.container} directionChildren={'column'}>
+                    {children}
+                </Container>
+            </main>
         </div>
     )
 }
