@@ -1,7 +1,7 @@
 import {FC, MouseEventHandler, useCallback} from "react";
-import {Button, Input, useMount, useUnMount} from "@shared/index";
+import {Button, Input, RequestStatus, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {useTranslation} from "react-i18next";
-import {useDispatch, useSelector, useStore} from "react-redux";
+import {useSelector, useStore} from "react-redux";
 import {setUsername, setPassword, loginReducer} from "../../../model/slice/loginSlice";
 import {getUsername} from "../../../model/selectors/getUsername";
 import {getPassword} from "../../../model/selectors/getPassword";
@@ -11,11 +11,12 @@ import {StoreWithStoreManager} from "@app/providers/StoreProvider/config/type";
 
 import styles from './FormAuth.module.sass'
 
-
-const FormAuth: FC = () => {
+const FormAuth: FC<FormAuthProps> = ({
+  onSuccess
+}) => {
     const { t } = useTranslation('formAuth');
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const username = useSelector(getUsername)
     const password = useSelector(getPassword)
     const error = useSelector(getError)
@@ -41,9 +42,14 @@ const FormAuth: FC = () => {
         dispatch(setPassword(value))
     }, [dispatch])
 
-    const onClickEnteredHandler: MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
+    const onClickEnteredHandler: MouseEventHandler<HTMLButtonElement> = useCallback( async(e) => {
         e.preventDefault()
-        dispatch(loginByUsername({username, password}))
+        const result = await dispatch(loginByUsername({username, password}))
+
+        if(result.meta.requestStatus === RequestStatus.FULFILLED) {
+            onSuccess()
+        }
+
     }, [username, password, dispatch, loginByUsername])
 
     return <form className={styles.form}>
@@ -70,3 +76,7 @@ const FormAuth: FC = () => {
 }
 
 export default FormAuth
+
+export interface FormAuthProps {
+    onSuccess: () => void
+}

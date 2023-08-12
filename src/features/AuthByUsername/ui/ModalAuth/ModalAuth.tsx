@@ -8,7 +8,7 @@ export const ModalAuth: FC<ModalAuthProps> = (props) => {
 
     return <Modal isLazy={true} isOpen={isOpen} onClose={onClose}>
         <Suspense fallback={<Loader />}>
-            <FormAuth/>
+            <FormAuth onSuccess={onClose}/>
         </Suspense>
     </Modal>
 }

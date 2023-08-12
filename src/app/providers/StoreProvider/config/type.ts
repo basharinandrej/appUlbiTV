@@ -4,6 +4,7 @@ import {LoginSchema} from "@features/index";
 import {EnhancedStore} from "@reduxjs/toolkit/src/configureStore";
 import {AnyAction, Reducer} from "@reduxjs/toolkit";
 import {CombinedState} from "redux";
+import {createReduxStore} from "@app/providers/StoreProvider/config/createStore";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -22,3 +23,5 @@ export interface ReducerManager {
 export interface StoreWithStoreManager extends EnhancedStore<StateSchema> {
     reducerManager: ReducerManager
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

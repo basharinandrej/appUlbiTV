@@ -1,2 +1,2 @@
 export {StoreProvider} from '../StoreProvider/ui/storeProvider'
-export {StateSchema} from '../StoreProvider/config/type'
+export {StateSchema, AppDispatch} from '../StoreProvider/config/type'
