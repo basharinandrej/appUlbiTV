@@ -11,6 +11,7 @@ export { useMount } from './libs/hooks/useMount'
 export { LOCALSTORAGE_USER_KEY } from './constans/constans'
 export { useAppDispatch } from './libs/hooks/appDispatch'
 export { RequestStatus } from './types/enums/requestStatus'
+export { Container } from './ui/Container/Container'
 
 import i18n from './config/i18next'
 export {i18n}

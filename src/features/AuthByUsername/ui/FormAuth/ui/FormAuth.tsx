@@ -2,12 +2,12 @@ import {FC, MouseEventHandler, useCallback} from "react";
 import {Button, Input, RequestStatus, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {useTranslation} from "react-i18next";
 import {useSelector, useStore} from "react-redux";
+import {StoreWithStoreManager} from "@app/providers/StoreProvider/config/type";
 import {setUsername, setPassword, loginReducer} from "../../../model/slice/loginSlice";
 import {getUsername} from "../../../model/selectors/getUsername";
 import {getPassword} from "../../../model/selectors/getPassword";
 import {loginByUsername} from "../../../model/asyncActions/loginByUsername";
 import {getError} from "../../../model/selectors/getError";
-import {StoreWithStoreManager} from "@app/providers/StoreProvider/config/type";
 
 import styles from './FormAuth.module.sass'
 
@@ -50,7 +50,7 @@ const FormAuth: FC<FormAuthProps> = ({
             onSuccess()
         }
 
-    }, [username, password, dispatch, loginByUsername])
+    }, [onSuccess, username, password, dispatch, loginByUsername])
 
     return <form className={styles.form}>
         <Input

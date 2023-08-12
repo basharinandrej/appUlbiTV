@@ -10,7 +10,6 @@ export const Button:FC<ButtonProps> = props => {
 
     return (
         <button
-            {...props}
             className={setClassNames(styles.Button, {
                 [styles.primary]: ButtonType.PRIMARY === buttonType,
                 [styles.secondary]: ButtonType.SECONDARY === buttonType,
