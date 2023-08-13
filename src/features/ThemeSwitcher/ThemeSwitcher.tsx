@@ -14,7 +14,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
             className={className}
             onClick={toggleTheme}
         >
-            {t('Toggle theme')}
+            {theme === Theme.DARK ? t('Light') : t('Dark')}
         </Button>
     )
 }

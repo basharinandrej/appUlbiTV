@@ -14,6 +14,8 @@ export { RequestStatus } from './types/enums/requestStatus'
 export { Container } from './ui/Container/Container'
 export { ContainerSize } from './ui/Container/types/ContainerSize'
 export { $api } from './api/api'
+export { Country } from './types/enums/country'
+export { Currency } from './types/enums/currency'
 
 import i18n from './config/i18next'
 export {i18n}

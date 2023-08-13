@@ -6,10 +6,12 @@ import {LoginSchema} from "@features/index";
 import {EnhancedStore} from "@reduxjs/toolkit/src/configureStore";
 import {AnyAction, Reducer} from "@reduxjs/toolkit";
 import {createReduxStore} from "@app/providers/StoreProvider/config/createStore";
+import {ProfileSchema} from "@pages/index";
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+    profile:ProfileSchema
     login?: LoginSchema
 }
 
