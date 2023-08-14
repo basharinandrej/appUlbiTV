@@ -11,7 +11,7 @@ import {ProfileSchema} from "@pages/index";
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
-    profile:ProfileSchema
+    profile?: ProfileSchema
     login?: LoginSchema
 }
 

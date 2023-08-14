@@ -2,7 +2,6 @@ import {Profile, ProfileSchema} from "@pages/pageProfile/model/types/types";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchDataProfile} from "@pages/pageProfile/model/asyncActions/fetchDataProfile";
 
-
 const initialState: ProfileSchema = {
     data: null,
     isLoading: false,
