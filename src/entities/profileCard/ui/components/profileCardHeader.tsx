@@ -6,7 +6,7 @@ import {Button, ButtonType} from "@shared/index";
 import styles from './profileCardHeader.module.sass'
 
 export const ProfileCardHeader: VFC<ProfileCardHeaderProps> = (props) => {
-    const {className, isEditable, isFormValue, onEdit, onCancel, onSave} = props
+    const {className, isEditable, isChangeValues, onEdit, onCancel, onSave} = props
     const {t} = useTranslation('profile')
 
     return (
@@ -22,7 +22,7 @@ export const ProfileCardHeader: VFC<ProfileCardHeaderProps> = (props) => {
                     buttonType={ButtonType.PRIMARY}
                     onClick={onSave}
                     className={styles.saveBtn}
-                    disabled={!isFormValue}
+                    disabled={!isChangeValues}
                 >
                     {t('Сохранить')}
                 </Button>
@@ -43,6 +43,6 @@ interface ProfileCardHeaderProps {
     onEdit: () => void
     onCancel: () => void
     onSave: () => void
-    isFormValue?: boolean
+    isChangeValues?: boolean
     className?: string
 }

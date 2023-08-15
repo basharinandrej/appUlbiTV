@@ -11,7 +11,7 @@ import {fetchDataProfile} from "../model/asyncActions/fetchDataProfile";
 import { getProfileData } from "../model/selectors/getProfileData";
 import {getIsLoading} from "../model/selectors/getIsLoading";
 import {getEditable} from "../model/selectors/getEditable";
-import {getIsFormValue} from "../model/selectors/getIsFormValue";
+import {getIsChangeValues} from "../model/selectors/getIsChangeValues";
 import {updateProfile} from "../model/asyncActions/updateProfile";
 
 const PageProfile: VFC<PageProfileProps> = (props) => {
@@ -22,7 +22,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     const profile = useSelector(getProfileData)
     const isLoading = useSelector(getIsLoading)
     const isEditable = useSelector(getEditable)
-    const isFormValue = useSelector(getIsFormValue)
+    const isChangeValues = useSelector(getIsChangeValues)
 
     useMount(() => {
         dispatch({type: 'INIT_ProfileReducer'})
@@ -51,7 +51,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
             [key]: value
         }
         dispatch(editProfile(form))
-    }, [])
+    }, [dispatch])
 
     if(isLoading) {
         return (
@@ -68,7 +68,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
                 onEdit={onClickEditProfile}
                 onCancel={onClickCancelProfile}
                 onSave={onSaveProfile}
-                isFormValue={isFormValue}
+                isChangeValues={isChangeValues}
             />
 
             <ProfileCard
