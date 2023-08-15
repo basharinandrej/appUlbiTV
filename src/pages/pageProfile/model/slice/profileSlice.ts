@@ -5,6 +5,7 @@ import {updateProfile} from "../../model/asyncActions/updateProfile";
 
 const initialState: ProfileSchema = {
     data: null,
+    form: null,
     isLoading: false,
     isEditable: false,
     error: null
@@ -19,9 +20,11 @@ export const profileSlice = createSlice({
         },
         cancelIsEditable: (state) => {
             state.isEditable = false
+            state.form = state.data
         },
         editProfile: (state, action: PayloadAction<Profile>) => {
-            state.data = {
+            state.form = {
+                ...state.form,
                 ...state.data,
                 ...action.payload
             }

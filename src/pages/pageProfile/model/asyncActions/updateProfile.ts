@@ -8,7 +8,7 @@ export const updateProfile = createAsyncThunk<Profile, void, ThunkApiConfig<stri
     async (_, thunkAPI) => {
         const {extra, rejectWithValue, getState} = thunkAPI
 
-        const profileData = getState().profile.data
+        const profileData = getState().profile.form
 
         try {
             const response = await extra.api.post<Profile>('/profile', profileData)
