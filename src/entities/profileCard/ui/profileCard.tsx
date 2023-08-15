@@ -11,7 +11,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
 
     return (
         <div className={setClassNames(styles.profileCard, {}, [className])}>
-            <div className={setClassNames(styles.paragraph, {}, [])}>
+            <div className={setClassNames(styles.field, {}, [])}>
                 <strong>{t('Имя')}</strong>:&nbsp;
                 {isEditable
                     ? <Input
@@ -21,7 +21,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
                         typeInput={TypeInput.GHOST}
                     /> : profile.name}
             </div>
-            <div className={setClassNames(styles.paragraph, {}, [])}>
+            <div className={setClassNames(styles.field, {}, [])}>
                 <strong>{t('Фамилия')}</strong>:&nbsp;
                 {isEditable
                     ? <Input
@@ -31,7 +31,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
                         typeInput={TypeInput.GHOST}
                     /> : profile.surname}
             </div>
-            <div className={setClassNames(styles.paragraph, {}, [])}>
+            <div className={setClassNames(styles.field, {}, [])}>
                 <strong>{t('Возраст')}</strong>:&nbsp;
                 {isEditable
                     ? <Input

@@ -6,8 +6,9 @@ import {Button, ButtonType} from "@shared/index";
 import styles from './profileCardHeader.module.sass'
 
 export const ProfileCardHeader: VFC<ProfileCardHeaderProps> = (props) => {
-    const {className, isEditable, onEdit, onCancel} = props
-    const {t} = useTranslation()
+    const {className, isEditable, onEdit, onCancel, onSave} = props
+    const {t} = useTranslation('profile')
+
     return (
         <div className={setClassNames(styles.profileCardHeader, {}, [className])}>
             {!isEditable && <Button
@@ -16,12 +17,22 @@ export const ProfileCardHeader: VFC<ProfileCardHeaderProps> = (props) => {
             >
                 {t('Редактировать')}
             </Button>}
-            {isEditable && <Button
-                buttonType={ButtonType.GHOST_CANCEL}
-                onClick={onCancel}
-            >
-                {t('Отменить')}
-            </Button>}
+            {isEditable && <>
+                <Button
+                    buttonType={ButtonType.PRIMARY}
+                    onClick={onSave}
+                    className={styles.saveBtn}
+                >
+                    {t('Сохранить')}
+                </Button>
+
+                <Button
+                    buttonType={ButtonType.GHOST_CANCEL}
+                    onClick={onCancel}
+                >
+                    {t('Отменить')}
+                </Button>
+            </>}
         </div>
     )
 }
@@ -31,4 +42,5 @@ interface ProfileCardHeaderProps {
     isEditable: boolean
     onEdit: () => void
     onCancel: () => void
+    onSave: () => void
 }

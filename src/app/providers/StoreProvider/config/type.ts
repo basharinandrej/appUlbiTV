@@ -35,6 +35,7 @@ export interface thunkMiddleware {
 
 export interface ThunkApiConfig<T> {
     extra: thunkMiddleware
+    state: StateSchema
     rejectValue: {msg: T}
 }
 

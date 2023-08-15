@@ -11,6 +11,7 @@ import {fetchDataProfile} from "../model/asyncActions/fetchDataProfile";
 import { getProfileData } from "../model/selectors/getProfileData";
 import {getIsLoading} from "../model/selectors/getIsLoading";
 import {getEditable} from "../model/selectors/getEditable";
+import {updateProfile} from "../model/asyncActions/updateProfile";
 
 const PageProfile: VFC<PageProfileProps> = (props) => {
     const {className} = props
@@ -30,6 +31,10 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
         dispatch({type: 'UNINIT_ProfileReducer'})
         store.reducerManager.remove('profile')
     })
+
+    const onSaveProfile = useCallback(() => {
+        dispatch(updateProfile())
+    }, [dispatch])
 
     const onClickEditProfile = useCallback(() => {
         dispatch(setIsEditable())
@@ -57,6 +62,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
                 isEditable={isEditable}
                 onEdit={onClickEditProfile}
                 onCancel={onClickCancelProfile}
+                onSave={onSaveProfile}
             />
 
             <ProfileCard
