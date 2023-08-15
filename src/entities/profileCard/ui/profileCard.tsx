@@ -11,36 +11,45 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
 
     return (
         <div className={setClassNames(styles.profileCard, {}, [className])}>
+
             <div className={setClassNames(styles.field, {}, [])}>
                 <strong>{t('Имя')}</strong>:&nbsp;
                 {isEditable
                     ? <Input
                         className={''}
                         onChange={(value) => onChangeFormProfile('name', value)}
-                        externalValue={profile.name}
+                        externalValue={profile?.name}
                         typeInput={TypeInput.GHOST}
-                    /> : profile.name}
+                    />
+                    : profile?.name}
             </div>
+
+
             <div className={setClassNames(styles.field, {}, [])}>
                 <strong>{t('Фамилия')}</strong>:&nbsp;
                 {isEditable
                     ? <Input
                         className={''}
                         onChange={(value) => onChangeFormProfile('surname', value)}
-                        externalValue={profile.surname}
+                        externalValue={profile?.surname}
                         typeInput={TypeInput.GHOST}
-                    /> : profile.surname}
+                    />
+                    : profile?.surname}
             </div>
+
+
             <div className={setClassNames(styles.field, {}, [])}>
                 <strong>{t('Возраст')}</strong>:&nbsp;
                 {isEditable
                     ? <Input
                         className={''}
                         onChange={(value) => onChangeFormProfile('age', value)}
-                        externalValue={profile.age}
+                        externalValue={profile?.age}
                         typeInput={TypeInput.GHOST}
-                    /> : profile.age}
+                    />
+                    : profile?.age}
             </div>
+
         </div>
     )
 }

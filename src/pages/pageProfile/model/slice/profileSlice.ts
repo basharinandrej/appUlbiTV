@@ -25,8 +25,7 @@ export const profileSlice = createSlice({
         editProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
                 ...state.form,
-                ...state.data,
-                ...action.payload
+                ...action.payload,
             }
         }
     },
@@ -44,12 +43,18 @@ export const profileSlice = createSlice({
                 state.error = action.payload.msg
             })
 
+            .addCase(updateProfile.pending, (state) => {
+                state.isLoading = true
+            })
             .addCase(updateProfile.fulfilled, (state, action: PayloadAction<Profile>) => {
                 state.isEditable = false
+                state.isLoading = false
                 state.data = action.payload
+                state.form = null
             })
             .addCase(updateProfile.rejected, (state, action) => {
                 state.error = action.payload.msg
+                state.isLoading = false
             })
     }
 })
