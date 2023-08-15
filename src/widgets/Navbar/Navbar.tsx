@@ -22,7 +22,7 @@ export const Navbar = () => {
     const commonPartNavbar = (
         <Fragment>
             <ThemeSwitcher className={styles.gapThemeSwitcher} />
-            <LangSwitcher />
+            <LangSwitcher className={styles.gapLangSwitcher} />
         </Fragment>
     )
 

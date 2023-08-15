@@ -20,7 +20,6 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
             <p className={setClassNames(styles.paragraph, {}, [])}>
                 <strong>{t('Возраст')}</strong>: {profile.age}
             </p>
-
         </div>
     )
 }
