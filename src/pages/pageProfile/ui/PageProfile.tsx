@@ -5,7 +5,8 @@ import {useSelector, useStore} from "react-redux";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 import {ProfileCard} from "@entities/profileCard";
 import {ProfileCardHeader} from "@entities/profileCard/ui/components/profileCardHeader";
-import {profileReducer, setIsEditable, cancelIsEditable} from "../model/slice/profileSlice";
+import {profileReducer, setIsEditable, editProfile, cancelIsEditable} from "../model/slice/profileSlice";
+import {Profile} from "../model/types/types";
 import {fetchDataProfile} from "../model/asyncActions/fetchDataProfile";
 import { getProfileData } from "../model/selectors/getProfileData";
 import {getIsLoading} from "../model/selectors/getIsLoading";
@@ -38,6 +39,10 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
         dispatch(cancelIsEditable())
     }, [dispatch, cancelIsEditable])
 
+    const onChangeFormProfile = useCallback((key: keyof Profile, value: Profile[keyof Profile]) => {
+        dispatch(editProfile({[key]: value}))
+    }, [])
+
     if(isLoading) {
         return (
             <div className={setClassNames('', {}, [className])}>
@@ -54,7 +59,11 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
                 onCancel={onClickCancelProfile}
             />
 
-            <ProfileCard profile={profile} isEditable={isEditable}/>
+            <ProfileCard
+                profile={profile}
+                isEditable={isEditable}
+                onChangeFormProfile={onChangeFormProfile}
+            />
         </div>
     )
 }

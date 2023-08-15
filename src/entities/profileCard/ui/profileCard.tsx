@@ -6,7 +6,7 @@ import {Profile} from "@pages/index";
 import styles from './profileCard.module.sass'
 
 export const ProfileCard: VFC<ProfileCardProps> = (props) => {
-    const {className, profile, isEditable} = props
+    const {className, profile, isEditable, onChangeFormProfile} = props
     const {t} = useTranslation('profile')
 
     return (
@@ -16,7 +16,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
                 {isEditable
                     ? <Input
                         className={''}
-                        onChange={() => {}}
+                        onChange={(value) => onChangeFormProfile('name', value)}
                         externalValue={profile.name}
                         typeInput={TypeInput.GHOST}
                     /> : profile.name}
@@ -26,7 +26,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
                 {isEditable
                     ? <Input
                         className={''}
-                        onChange={() => {}}
+                        onChange={(value) => onChangeFormProfile('surname', value)}
                         externalValue={profile.surname}
                         typeInput={TypeInput.GHOST}
                     /> : profile.surname}
@@ -36,7 +36,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
                 {isEditable
                     ? <Input
                         className={''}
-                        onChange={() => {}}
+                        onChange={(value) => onChangeFormProfile('age', value)}
                         externalValue={profile.age}
                         typeInput={TypeInput.GHOST}
                     /> : profile.age}
@@ -49,4 +49,5 @@ interface ProfileCardProps {
     className?: string
     profile: Profile
     isEditable: boolean
+    onChangeFormProfile: (key: keyof Profile, value: Profile[keyof Profile]) => void
 }

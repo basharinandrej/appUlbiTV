@@ -18,6 +18,12 @@ export const profileSlice = createSlice({
         },
         cancelIsEditable: (state) => {
             state.isEditable = false
+        },
+        editProfile: (state, action: PayloadAction<Profile>) => {
+            state.data = {
+                ...state.data,
+                ...action.payload
+            }
         }
     },
     extraReducers: (builder) => {
@@ -37,4 +43,4 @@ export const profileSlice = createSlice({
 })
 
 export const profileReducer = profileSlice.reducer
-export const {setIsEditable, cancelIsEditable} = profileSlice.actions
+export const {setIsEditable, cancelIsEditable, editProfile} = profileSlice.actions
