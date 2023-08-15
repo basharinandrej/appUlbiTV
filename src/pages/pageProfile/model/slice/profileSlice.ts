@@ -5,13 +5,21 @@ import {fetchDataProfile} from "@pages/pageProfile/model/asyncActions/fetchDataP
 const initialState: ProfileSchema = {
     data: null,
     isLoading: false,
+    isEditable: false,
     error: null
 }
 
 export const profileSlice = createSlice({
     name: 'profile',
     initialState,
-    reducers: {},
+    reducers: {
+        setIsEditable: (state) => {
+            state.isEditable = true
+        },
+        cancelIsEditable: (state) => {
+            state.isEditable = false
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchDataProfile.pending, (state) => {
@@ -29,3 +37,4 @@ export const profileSlice = createSlice({
 })
 
 export const profileReducer = profileSlice.reducer
+export const {setIsEditable, cancelIsEditable} = profileSlice.actions

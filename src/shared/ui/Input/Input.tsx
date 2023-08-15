@@ -43,7 +43,7 @@ interface InputProps extends HTMLInput {
     onChange: (value: string) => void
     className: string
     externalErr?: Array<string>
-    externalValue?: string
+    externalValue?: string | number
     placeholder?: string
     type?: HTMLInputTypeAttribute
 }

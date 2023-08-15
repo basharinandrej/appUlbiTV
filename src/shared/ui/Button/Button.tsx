@@ -13,7 +13,8 @@ export const Button:FC<ButtonProps> = props => {
             className={setClassNames(styles.Button, {
                 [styles.primary]: ButtonType.PRIMARY === buttonType,
                 [styles.secondary]: ButtonType.SECONDARY === buttonType,
-                [styles.ghost]: ButtonType.GHOST === buttonType
+                [styles.ghost]: ButtonType.GHOST === buttonType,
+                [styles.ghostCancel]: ButtonType.GHOST_CANCEL === buttonType
             }, [className])}
             onClick={onClick}
         >
