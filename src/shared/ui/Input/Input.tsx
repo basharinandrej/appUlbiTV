@@ -1,5 +1,6 @@
-import {VFC, ChangeEventHandler, useState, InputHTMLAttributes, useEffect, HTMLInputTypeAttribute} from 'react'
+import {ChangeEventHandler, HTMLInputTypeAttribute, InputHTMLAttributes, useEffect, useState, VFC} from 'react'
 import {setClassNames} from "@shared/libs/setClassNames"
+import {TypeInput} from "./types/enums";
 
 import cls from './Input.module.sass'
 
@@ -9,7 +10,8 @@ export const Input: VFC<InputProps> = ({
     externalErr,
     onChange,
     className,
-    type = 'text'
+    type = 'text',
+    typeInput = TypeInput.PRIMARY
 }) => {
     const [value, setValue] = useState(externalValue)
     const [errors, setErrors] = useState([])
@@ -25,7 +27,12 @@ export const Input: VFC<InputProps> = ({
         setValue(value)
     }
 
-    return <div className={setClassNames(cls.inputBox, {[cls.errInput]: !!errors?.length}, [className])}>
+    const mods: Record<string, boolean> = {
+        [cls.errInput]: !!errors?.length,
+        [cls.ghostInput]: typeInput === TypeInput.GHOST
+    }
+
+    return <div className={setClassNames(cls.inputBox, mods, [className])}>
         {isShowPlaceholder && <span className={cls.placeholder}>{placeholder}</span>}
 
         <input className={cls.input} type={type} value={value} onChange={handleChange} />
@@ -46,4 +53,5 @@ interface InputProps extends HTMLInput {
     externalValue?: string | number
     placeholder?: string
     type?: HTMLInputTypeAttribute
+    typeInput?: TypeInput
 }

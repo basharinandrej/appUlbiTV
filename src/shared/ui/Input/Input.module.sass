@@ -20,7 +20,7 @@
 
 .input 
     padding: functions.base(2) functions.base(4)
-    border-radius: functions.base(2)
+    border-radius: functions.base(1)
     
     border: 1px solid var(--color-main-border)
 
@@ -31,3 +31,8 @@
 .errNotice
     color: var(--color-danger)
     padding-bottom: functions.base(1)
+
+.ghostInput .input
+    background: transparent
+    color: var(--color-primitive-100)
+    border: 1px solid var(--color-primitive-100)
