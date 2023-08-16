@@ -3,6 +3,7 @@ import {Currency} from "@shared/index";
 
 export interface Profile {
     name?: string,
+    avatar?: string,
     surname?: string,
     age?: number,
     country?: Country,
