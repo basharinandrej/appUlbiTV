@@ -4,7 +4,7 @@ import {Loader, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {useSelector, useStore} from "react-redux";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 import {ProfileCard} from "@entities/profileCard";
-import {ProfileCardHeader} from "@entities/profileCard/ui/components/profileCardHeader";
+import {ProfileCardHeader} from "@entities/profileCard/ui/components/profileCardHeader/profileCardHeader";
 import {profileReducer, setIsEditable, editProfile, cancelIsEditable} from "../model/slice/profileSlice";
 import {Profile} from "../model/types/types";
 import {fetchDataProfile} from "../model/asyncActions/fetchDataProfile";
