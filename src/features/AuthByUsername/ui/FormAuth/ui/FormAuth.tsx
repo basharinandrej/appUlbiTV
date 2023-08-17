@@ -28,6 +28,7 @@ const FormAuth: FC<FormAuthProps> = ({
         store.reducerManager.add('login', loginReducer)
     })
     useUnMount(() => {
+        //@todo непроисходит размаунта
         dispatch({type: 'UNINIT_LoginReducer'})
         store.reducerManager.remove('login')
     })
