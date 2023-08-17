@@ -1,6 +1,5 @@
 import {Suspense} from 'react'
 import {useTheme} from '@app/providers/ThemeProvider'
-import {Navbar} from '@widgets/index'
 
 import {MainLayout} from '@widgets/MainLayout'
 import {AppRoutes} from '@app/providers/AppRoutes'
@@ -23,7 +22,6 @@ function App() {
         <Suspense fallback={<PageLoader type={PageLoaderType.SECONDARY}/>}>
             <div className={`app ${theme}`}>
                 <MainLayout>
-                    <Navbar />
                     <AppRoutes />
                 </MainLayout>
             </div>

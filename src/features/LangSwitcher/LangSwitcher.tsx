@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { Button } from '@shared/index'
+import {Button, setClassNames} from '@shared/index'
+import {FC} from "react";
 
-export const LangSwitcher = () => {
+export const LangSwitcher: FC<LangSwitcherProps> = ({className}) => {
     const { t, i18n } = useTranslation()
 
     const toggleHandler = () => {
@@ -12,8 +13,13 @@ export const LangSwitcher = () => {
     return (
         <Button
             onClick={toggleHandler}
+            className={setClassNames('', {}, [className])}
         >
             {t('Switch lang')}
         </Button>
     )
+}
+
+interface LangSwitcherProps {
+    className?: string
 }

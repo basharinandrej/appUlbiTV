@@ -12,7 +12,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
     const [isMounted, setIsMounted] = useState(false)
 
-    useEffect(() => isOpen && setIsMounted(true), [isOpen])
+    useEffect(() => setIsMounted(isOpen), [isOpen])
 
     const handlerKeyDown = useCallback((e: KeyboardEvent) => {
 

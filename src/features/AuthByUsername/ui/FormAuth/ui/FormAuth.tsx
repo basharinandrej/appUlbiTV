@@ -28,6 +28,7 @@ const FormAuth: FC<FormAuthProps> = ({
         store.reducerManager.add('login', loginReducer)
     })
     useUnMount(() => {
+        //@todo непроисходит размаунта
         dispatch({type: 'UNINIT_LoginReducer'})
         store.reducerManager.remove('login')
     })
@@ -50,7 +51,7 @@ const FormAuth: FC<FormAuthProps> = ({
             onSuccess()
         }
 
-    }, [username, password, dispatch, loginByUsername])
+    }, [onSuccess, username, password, dispatch, loginByUsername])
 
     return <form className={styles.form}>
         <Input
