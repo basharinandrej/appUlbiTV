@@ -1,8 +1,8 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
 import {counterReducer} from '@entities/counter'
-import {userReducer} from "@entities/user";
-import {createReducerManager} from "@app/providers/StoreProvider/config/storeManager";
-import {$api} from "@shared/index";
+import {userReducer} from '@entities/user'
+import {createReducerManager} from '@app/providers/StoreProvider/config/storeManager'
+import {$api} from '@shared/index'
 
 import {StateSchema} from './type'
 

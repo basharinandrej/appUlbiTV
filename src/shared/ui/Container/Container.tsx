@@ -1,6 +1,6 @@
-import {ReactNode, VFC} from "react"
-import {setClassNames} from "@shared/libs/setClassNames";
-import {ContainerSize} from './types/ContainerSize';
+import {ReactNode, VFC} from 'react'
+import {setClassNames} from '@shared/libs/setClassNames'
+import {ContainerSize} from './types/ContainerSize'
 
 import styles from './Container.module.sass'
 

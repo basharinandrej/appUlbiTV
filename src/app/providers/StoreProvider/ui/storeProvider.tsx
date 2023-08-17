@@ -1,8 +1,8 @@
 import {Provider} from 'react-redux'
 import {FC, ReactNode} from 'react'
 import {createReduxStore} from '../config/createStore'
-import {StateSchema} from "@app/providers/StoreProvider";
-import {DeepPartial} from "@reduxjs/toolkit";
+import {StateSchema} from '@app/providers/StoreProvider'
+import {DeepPartial} from '@reduxjs/toolkit'
 
 
 export const StoreProvider: FC<StoreProviderProps> = ({children, initialState}) => {

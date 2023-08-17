@@ -1,6 +1,6 @@
 import {ChangeEventHandler, HTMLInputTypeAttribute, InputHTMLAttributes, useEffect, useState, VFC} from 'react'
-import {setClassNames} from "@shared/libs/setClassNames"
-import {TypeInput} from "./types/enums";
+import {setClassNames} from '@shared/libs/setClassNames'
+import {TypeInput} from './types/enums'
 
 import cls from './Input.module.sass'
 
@@ -37,8 +37,8 @@ export const Input: VFC<InputProps> = ({
 
         <input className={cls.input} type={type} value={value} onChange={handleChange} />
 
-        {Array.isArray(errors) && errors.map((err) => {
-            return <span className={cls.errNotice}>{err}</span>
+        {Array.isArray(errors) && errors.map((err, idx) => {
+            return <span key={idx} className={cls.errNotice}>{err}</span>
         })}
     </div>
 }

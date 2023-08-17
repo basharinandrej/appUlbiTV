@@ -1,11 +1,11 @@
-import {memo, VFC} from "react"
-import {useTranslation} from "react-i18next"
-import {AppLink, setClassNames} from "@shared/index";
-import {sidebarItems} from "../../../model/sidebarItems";
+import {memo, VFC} from 'react'
+import {useTranslation} from 'react-i18next'
+import {AppLink, setClassNames} from '@shared/index'
+import {sidebarItems} from '../../../model/sidebarItems'
 
 import styles from './SidebarList.module.sass'
-import {useSelector} from "react-redux";
-import {getIsAuth} from "@entities/user";
+import {useSelector} from 'react-redux'
+import {getIsAuth} from '@entities/user'
 
 export const SidebarList: VFC<SidebarListProps> = memo((props) => {
     const {className} = props
@@ -19,9 +19,6 @@ export const SidebarList: VFC<SidebarListProps> = memo((props) => {
             return !sidebarItem.onlyAuth
         }
     })
-
-    console.log('>>> prepareSidebarItems', prepareSidebarItems);
-
 
     return (
         <ul className={setClassNames(styles.sidebarList, {}, [className])}>

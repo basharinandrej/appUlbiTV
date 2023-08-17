@@ -1,10 +1,10 @@
-import {memo, VFC} from "react"
-import {useTranslation} from "react-i18next"
-import {setClassNames} from "../../libs/setClassNames"
-import {Input} from "../Input/Input";
+import {memo, VFC} from 'react'
+import {useTranslation} from 'react-i18next'
+import {setClassNames} from '../../libs/setClassNames'
+import {Input} from '../Input/Input'
 
-import {onChangeFormProfile} from "@entities/profileCard";
-import {TypeInput} from "@shared/index";
+import {onChangeFormProfile} from '@entities/profileCard'
+import {TypeInput} from '@shared/index'
 
 import styles from './Avatar.module.sass'
 

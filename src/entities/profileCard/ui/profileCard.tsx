@@ -1,9 +1,9 @@
-import {VFC} from "react"
-import {setClassNames, Avatar} from "@shared/index";
-import {Profile} from "@pages/index";
-import {getProfileFields} from "../model/profileFields";
-import {onChangeFormProfile} from "../types/onChangeFormProfile";
-import { ProfileField } from "./components/profileField/profileField";
+import {VFC} from 'react'
+import {setClassNames, Avatar} from '@shared/index'
+import {Profile} from '@pages/index'
+import {getProfileFields} from '../model/profileFields'
+import {onChangeFormProfile} from '../types/onChangeFormProfile'
+import { ProfileField } from './components/profileField/profileField'
 
 import styles from './profileCard.module.sass'
 
@@ -13,14 +13,15 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
     return (
         <div className={setClassNames(styles.profileCard, {}, [className])}>
 
-            <Avatar
+            {profile?.avatar && <Avatar
                 isEditable={isEditable}
-                avatarSrc={profile?.avatar}
+                avatarSrc={profile.avatar}
                 onChangeFormProfile={onChangeFormProfile}
-            />
+            />}
 
-            {getProfileFields(profile).map((profileField) => {
+            {getProfileFields(profile).map((profileField, idx) => {
                 return <ProfileField
+                    key={idx}
                     isEditable={isEditable}
                     profileField={profileField}
                     onChangeFormProfile={onChangeFormProfile}

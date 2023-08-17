@@ -1,18 +1,18 @@
-import {useCallback, VFC} from "react"
-import {setClassNames} from "@shared/libs/setClassNames";
-import {Loader, useAppDispatch, useMount, useUnMount} from "@shared/index";
-import {useSelector, useStore} from "react-redux";
-import {StoreWithStoreManager} from "@app/providers/StoreProvider";
-import {ProfileCard} from "@entities/profileCard";
-import {ProfileCardHeader} from "@entities/profileCard/ui/components/profileCardHeader/profileCardHeader";
-import {profileReducer, setIsEditable, editProfile, cancelIsEditable} from "../model/slice/profileSlice";
-import {Profile} from "../model/types/types";
-import {fetchDataProfile} from "../model/asyncActions/fetchDataProfile";
-import { getProfileData } from "../model/selectors/getProfileData";
-import {getIsLoading} from "../model/selectors/getIsLoading";
-import {getEditable} from "../model/selectors/getEditable";
-import {getIsChangeValues} from "../model/selectors/getIsChangeValues";
-import {updateProfile} from "../model/asyncActions/updateProfile";
+import {useCallback, VFC} from 'react'
+import {setClassNames} from '@shared/libs/setClassNames'
+import {Loader, useAppDispatch, useMount, useUnMount} from '@shared/index'
+import {useSelector, useStore} from 'react-redux'
+import {StoreWithStoreManager} from '@app/providers/StoreProvider'
+import {ProfileCard} from '@entities/profileCard'
+import {ProfileCardHeader} from '@entities/profileCard/ui/components/profileCardHeader/profileCardHeader'
+import {profileReducer, setIsEditable, editProfile, cancelIsEditable} from '../model/slice/profileSlice'
+import {Profile} from '../model/types/types'
+import {fetchDataProfile} from '../model/asyncActions/fetchDataProfile'
+import { getProfileData } from '../model/selectors/getProfileData'
+import {getIsLoading} from '../model/selectors/getIsLoading'
+import {getEditable} from '../model/selectors/getEditable'
+import {getIsChangeValues} from '../model/selectors/getIsChangeValues'
+import {updateProfile} from '../model/asyncActions/updateProfile'
 
 const PageProfile: VFC<PageProfileProps> = (props) => {
     const {className} = props
@@ -63,19 +63,19 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
 
     return (
         <div className={setClassNames('', {}, [className])}>
-            <ProfileCardHeader
+            {isEditable && <ProfileCardHeader
                 isEditable={isEditable}
                 onEdit={onClickEditProfile}
                 onCancel={onClickCancelProfile}
                 onSave={onSaveProfile}
                 isChangeValues={isChangeValues}
-            />
+            />}
 
-            <ProfileCard
+            {profile && isEditable &&<ProfileCard
                 profile={profile}
                 isEditable={isEditable}
                 onChangeFormProfile={onChangeFormProfile}
-            />
+            />}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import {Button, setClassNames} from '@shared/index'
-import {FC} from "react";
+import {FC} from 'react'
 
 export const LangSwitcher: FC<LangSwitcherProps> = ({className}) => {
     const { t, i18n } = useTranslation()

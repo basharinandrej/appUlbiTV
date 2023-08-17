@@ -1,6 +1,6 @@
 import {Input} from '../Input'
 import {ComponentStory} from '@storybook/react'
-import {initialProps, controls} from "@shared/ui/Button/stories/constans";
+import {initialProps, controls} from '@shared/ui/Button/stories/constans'
 
 export default {
     title: 'SHARED/Input',

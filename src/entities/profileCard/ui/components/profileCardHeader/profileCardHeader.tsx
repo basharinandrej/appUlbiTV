@@ -1,7 +1,7 @@
-import {VFC} from "react"
-import {useTranslation} from "react-i18next"
-import {setClassNames} from "@shared/libs/setClassNames";
-import {Button, ButtonType} from "@shared/index";
+import {VFC} from 'react'
+import {useTranslation} from 'react-i18next'
+import {setClassNames} from '@shared/libs/setClassNames'
+import {Button, ButtonType} from '@shared/index'
 
 import styles from './profileCardHeader.module.sass'
 

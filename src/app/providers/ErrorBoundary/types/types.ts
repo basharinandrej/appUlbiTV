@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import {Nullable} from "@shared/index";
 
 export interface ErrorBoundaryProps {
     children: ReactNode
@@ -6,5 +7,5 @@ export interface ErrorBoundaryProps {
 
 export interface StateProps {
     hasError: boolean
-    error?: Error
+    error:  Nullable<Error>
 }

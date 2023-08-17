@@ -1,6 +1,6 @@
-import FormAuth from "../../FormAuth/ui/FormAuth";
-import {ComponentStory} from "@storybook/react";
-import {reduxDecorator} from "../../../../../../config/.storybook/decorators/reduxDecorator";
+import FormAuth from '../../FormAuth/ui/FormAuth'
+import {ComponentStory} from '@storybook/react'
+import {reduxDecorator} from '../../../../../../config/.storybook/decorators/reduxDecorator'
 
 
 export default {

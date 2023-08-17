@@ -1,8 +1,8 @@
-import {VFC} from "react"
-import {useTranslation} from "react-i18next"
-import {Input, TypeInput, setClassNames} from "@shared/index";
-import { ProfileField as IProfileField } from "../../../types/profileField";
-import {onChangeFormProfile} from "../../../types/onChangeFormProfile";
+import {VFC} from 'react'
+import {useTranslation} from 'react-i18next'
+import {Input, TypeInput, setClassNames} from '@shared/index'
+import { ProfileField as IProfileField } from '../../../types/profileField'
+import {onChangeFormProfile} from '../../../types/onChangeFormProfile'
 
 import styles from './profileField.module.sass'
 

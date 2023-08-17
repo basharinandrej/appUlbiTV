@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { UserSchema } from '../types/types'
-import {LOCALSTORAGE_USER_KEY} from "@shared/constans/constans";
+import {LOCALSTORAGE_USER_KEY} from '@shared/constans/constans'
 
 const initialState: UserSchema = {
     id: null,
@@ -16,7 +16,9 @@ export const userSlice = createSlice({
             state.username = action.payload.username
         },
         initUser: (state) => {
-            const user: UserSchema = JSON.parse(localStorage.getItem(LOCALSTORAGE_USER_KEY))
+            const userKey = localStorage.getItem(LOCALSTORAGE_USER_KEY)
+
+            const user: UserSchema = userKey && JSON.parse(userKey)
             state.id = user?.id
             state.username = user?.username
         },

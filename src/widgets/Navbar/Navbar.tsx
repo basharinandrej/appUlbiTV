@@ -2,9 +2,9 @@ import {useTranslation} from 'react-i18next'
 import {Fragment, useState} from 'react'
 import {Button, ButtonType, Container} from '@shared/index'
 import {LangSwitcher, ThemeSwitcher} from '@features/index'
-import {ModalAuth} from "@features/AuthByUsername";
-import {getIsAuth, logout} from "@entities/user";
-import {useDispatch, useSelector} from "react-redux";
+import {ModalAuth} from '@features/AuthByUsername'
+import {getIsAuth, logout} from '@entities/user'
+import {useDispatch, useSelector} from 'react-redux'
 
 import styles from './Navbar.module.sass'
 

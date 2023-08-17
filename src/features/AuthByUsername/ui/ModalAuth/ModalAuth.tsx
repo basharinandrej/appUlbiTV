@@ -1,6 +1,6 @@
-import {FC, Suspense} from "react";
-import FormAuth from "../FormAuth/ui/FormAuth.async";
-import {Loader, Modal} from "@shared/index"
+import {FC, Suspense} from 'react'
+import FormAuth from '../FormAuth/ui/FormAuth.async'
+import {Loader, Modal} from '@shared/index'
 
 
 export const ModalAuth: FC<ModalAuthProps> = (props) => {

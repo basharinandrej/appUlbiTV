@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import { mapRoutes } from '@app/providers/AppRoutes'
 import {PageLoader} from '@widgets/PageLoader/ui/PageLoader'
 import { Suspense, useMemo } from 'react'
-import {useSelector} from "react-redux";
-import {getIsAuth} from "@entities/user";
+import {useSelector} from 'react-redux'
+import {getIsAuth} from '@entities/user'
 
 export const AppRoutes = () => {
     const isAuth = useSelector(getIsAuth)
@@ -20,6 +20,7 @@ export const AppRoutes = () => {
         <Suspense fallback={<PageLoader />}>
             <Routes>
                 {Object.values(prepareRoutes).map(({element, path}, idx) => {
+                    if(!path) return
                     return <Route key={path+idx} path={path} element={element} />
                 })}
             </Routes>

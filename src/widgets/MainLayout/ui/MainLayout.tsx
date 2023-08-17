@@ -1,7 +1,7 @@
 import {FC, ReactNode} from 'react'
-import {Sidebar} from "@widgets/Sidebar";
-import {Navbar} from "@widgets/Navbar/Navbar";
-import {Container} from "@shared/index";
+import {Sidebar} from '@widgets/Sidebar'
+import {Navbar} from '@widgets/Navbar/Navbar'
+import {Container} from '@shared/index'
 
 import styles from './MainLayout.module.sass'
 

@@ -1,8 +1,8 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {Profile} from "@pages/pageProfile/model/types/types";
-import {ThunkApiConfig} from "@app/providers/StoreProvider";
-import {getProfileData} from "../selectors/getProfileData";
-import {getFormData} from "../selectors/getFormData";
+import {createAsyncThunk} from '@reduxjs/toolkit'
+import {Profile} from '@pages/pageProfile/model/types/types'
+import {ThunkApiConfig} from '@app/providers/StoreProvider'
+import {getProfileData} from '../selectors/getProfileData'
+import {getFormData} from '../selectors/getFormData'
 
 
 export const updateProfile = createAsyncThunk<Profile, void, ThunkApiConfig<string>>(

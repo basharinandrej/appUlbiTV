@@ -1,6 +1,6 @@
-import {VFC} from "react"
-import {setClassNames} from "@shared/index";
-import {SidebarList} from "../ui/components/SidebarList/SidebarList";
+import {VFC} from 'react'
+import {setClassNames} from '@shared/index'
+import {SidebarList} from '../ui/components/SidebarList/SidebarList'
 
 import styles from './Sidebar.module.sass'
 

@@ -1,7 +1,7 @@
 import {FC} from 'react'
 import {Theme, useTheme} from '@app/providers/ThemeProvider'
 import { Button, ButtonType } from '@shared/index'
-import {useTranslation} from "react-i18next";
+import {useTranslation} from 'react-i18next'
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
     const {className} = props

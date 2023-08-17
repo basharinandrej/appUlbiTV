@@ -1,4 +1,4 @@
-import {Profile} from "@pages/index";
+import {Profile} from '@pages/index'
 
 export interface ProfileField {
     label: string,

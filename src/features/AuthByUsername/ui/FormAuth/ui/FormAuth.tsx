@@ -1,20 +1,20 @@
-import {FC, MouseEventHandler, useCallback} from "react";
-import {Button, Input, useAppDispatch, RequestStatus, useMount, useUnMount} from "@shared/index";
-import {useTranslation} from "react-i18next";
-import {useSelector, useStore} from "react-redux"
-import {StoreWithStoreManager} from "@app/index";
-import {setUsername, setPassword, loginReducer} from "../../../model/slice/loginSlice";
-import {getUsername} from "../../../model/selectors/getUsername";
-import {getPassword} from "../../../model/selectors/getPassword";
-import {loginByUsername} from "../../../model/asyncActions/loginByUsername";
-import {getError} from "../../../model/selectors/getError";
+import {FC, MouseEventHandler, useCallback} from 'react'
+import {Button, Input, useAppDispatch, RequestStatus, useMount, useUnMount} from '@shared/index'
+import {useTranslation} from 'react-i18next'
+import {useSelector, useStore} from 'react-redux'
+import {StoreWithStoreManager} from '@app/index'
+import {setUsername, setPassword, loginReducer} from '../../../model/slice/loginSlice'
+import {getUsername} from '../../../model/selectors/getUsername'
+import {getPassword} from '../../../model/selectors/getPassword'
+import {loginByUsername} from '../../../model/asyncActions/loginByUsername'
+import {getError} from '../../../model/selectors/getError'
 
 import styles from './FormAuth.module.sass'
 
 const FormAuth: FC<FormAuthProps> = ({
   onSuccess
 }) => {
-    const { t } = useTranslation('formAuth');
+    const { t } = useTranslation('formAuth')
 
     const dispatch = useAppDispatch()
     const username = useSelector(getUsername)

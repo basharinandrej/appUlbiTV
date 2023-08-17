@@ -1,4 +1,4 @@
-import {FC, ReactNode, useCallback, useEffect, useState} from 'react'
+import {ReactNode, useCallback, useEffect, useState} from 'react'
 import {setClassNames} from '@shared/libs/setClassNames'
 import {Portal} from '@shared/ui/Portal/Portal'
 import {useUnMount} from '../../libs/hooks/useUnMount'
@@ -7,7 +7,7 @@ import {useMount} from '../../libs/hooks/useMount'
 import styles from './Modal.module.sass'
 
 
-export const Modal: FC<ModalProps> = (props) => {
+export const Modal = (props: ModalProps) => {
     const {children, isOpen, isLazy, onClose} = props
 
     const [isMounted, setIsMounted] = useState(false)

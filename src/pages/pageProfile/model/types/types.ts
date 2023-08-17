@@ -1,5 +1,5 @@
-import {Country} from "@shared/index";
-import {Currency} from "@shared/index";
+import {Country} from '@shared/index'
+import {Currency} from '@shared/index'
 
 export interface Profile {
     name?: string,

@@ -1,5 +1,5 @@
-import {ComponentStory} from "@storybook/react";
-import {Avatar} from "../Avatar";
+import {ComponentStory} from '@storybook/react'
+import {Avatar} from '../Avatar'
 
 import styles from './Avatar.module.sass'
 

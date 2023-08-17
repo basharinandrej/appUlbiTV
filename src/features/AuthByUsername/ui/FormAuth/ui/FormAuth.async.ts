@@ -1,10 +1,10 @@
-import {FC, lazy} from "react";
+import {FC, lazy} from 'react'
 import {FormAuthProps} from './FormAuth'
 
 const factory = (): Promise<{default: FC<FormAuthProps>}> => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(import('./FormAuth'));
+            resolve(import('./FormAuth'))
         }, 500)
     })
 }

@@ -1,5 +1,5 @@
-import {ProfileField } from "../types/profileField";
-import {Profile} from "@pages/index";
+import {ProfileField } from '../types/profileField'
+import {Profile} from '@pages/index'
 
 export const getProfileFields = (profile: Profile ): Array<ProfileField> => {
     return [

@@ -1,7 +1,7 @@
-import {Profile, ProfileSchema} from "@pages/pageProfile/model/types/types";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchDataProfile} from "../../model/asyncActions/fetchDataProfile";
-import {updateProfile} from "../../model/asyncActions/updateProfile";
+import {Profile, ProfileSchema} from '@pages/pageProfile/model/types/types'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {fetchDataProfile} from '../../model/asyncActions/fetchDataProfile'
+import {updateProfile} from '../../model/asyncActions/updateProfile'
 
 const initialState: ProfileSchema = {
     data: null,
