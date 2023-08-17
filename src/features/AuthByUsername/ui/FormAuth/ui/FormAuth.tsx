@@ -1,8 +1,8 @@
 import {FC, MouseEventHandler, useCallback} from "react";
-import {Button, Input, RequestStatus, useAppDispatch, useMount, useUnMount} from "@shared/index";
+import {Button, Input, useAppDispatch, RequestStatus, useMount, useUnMount} from "@shared/index";
 import {useTranslation} from "react-i18next";
-import {useSelector, useStore} from "react-redux";
-import {StoreWithStoreManager} from "@app/providers/StoreProvider/config/type";
+import {useSelector, useStore} from "react-redux"
+import {StoreWithStoreManager} from "@app/index";
 import {setUsername, setPassword, loginReducer} from "../../../model/slice/loginSlice";
 import {getUsername} from "../../../model/selectors/getUsername";
 import {getPassword} from "../../../model/selectors/getPassword";
