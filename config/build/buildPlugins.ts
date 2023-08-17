@@ -19,6 +19,7 @@ export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => 
         }),
         new BundleAnalyzerPlugin({
             openAnalyzer: false,
+            analyzerPort: 4201
         })
     ]
 }

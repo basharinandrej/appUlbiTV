@@ -6,15 +6,16 @@ import styles from './Button.module.sass'
 
 
 export const Button:FC<ButtonProps> = props => {
-    const { children, onClick, className, buttonType = ButtonType.PRIMARY } = props
+    const { children, onClick, disabled, className, buttonType = ButtonType.PRIMARY } = props
 
     return (
         <button
-            {...props}
+            disabled={disabled}
             className={setClassNames(styles.Button, {
                 [styles.primary]: ButtonType.PRIMARY === buttonType,
                 [styles.secondary]: ButtonType.SECONDARY === buttonType,
-                [styles.ghost]: ButtonType.GHOST === buttonType
+                [styles.ghost]: ButtonType.GHOST === buttonType,
+                [styles.ghostCancel]: ButtonType.GHOST_CANCEL === buttonType
             }, [className])}
             onClick={onClick}
         >
