@@ -3,7 +3,7 @@ import {ComponentStory} from '@storybook/react'
 import {ButtonType} from '@shared/ui/Button/types/interface'
 
 export default {
-    title: 'Button',
+    title: 'SHARED/Button',
     component: Button
 }
 
