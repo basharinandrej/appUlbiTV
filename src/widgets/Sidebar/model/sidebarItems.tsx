@@ -5,16 +5,19 @@ export const sidebarItems = [
     {
         path: '/',
         text: 'Home',
-        icon: <FontAwesomeIcon icon={faHome} />
+        icon: <FontAwesomeIcon icon={faHome} />,
+        onlyAuth: false
     },
     {
         path: '/about',
         text: 'About',
-        icon: <FontAwesomeIcon icon={faAddressCard} />
+        icon: <FontAwesomeIcon icon={faAddressCard} />,
+        onlyAuth: false
     },
     {
         path: '/profile',
         text: 'Profile',
-        icon: <FontAwesomeIcon icon={faUser} />
+        icon: <FontAwesomeIcon icon={faUser} />,
+        onlyAuth: true
     }
 ]

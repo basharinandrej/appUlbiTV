@@ -1,4 +1,4 @@
-import {VFC} from "react"
+import {memo, VFC} from "react"
 import {useTranslation} from "react-i18next"
 import {setClassNames} from "../../libs/setClassNames"
 import {Input} from "../Input/Input";
@@ -8,7 +8,7 @@ import {TypeInput} from "@shared/index";
 
 import styles from './Avatar.module.sass'
 
-export const Avatar: VFC<AvatarProps> = (props) => {
+export const Avatar: VFC<AvatarProps> = memo((props) => {
     const {className, isEditable, avatarSrc, onChangeFormProfile} = props
     const {t} = useTranslation('profile')
 
@@ -29,7 +29,7 @@ export const Avatar: VFC<AvatarProps> = (props) => {
             {!isEditable && <img className={styles.avatarImg} src={avatarSrc} alt="avatar"/>}
         </div>
     )
-}
+})
 
 interface AvatarProps {
     className?: string

@@ -1,12 +1,11 @@
 import {VFC} from "react"
-import {setClassNames} from "@shared/index";
+import {setClassNames, Avatar} from "@shared/index";
 import {Profile} from "@pages/index";
 import {getProfileFields} from "../model/profileFields";
 import {onChangeFormProfile} from "../types/onChangeFormProfile";
 import { ProfileField } from "./components/profileField/profileField";
 
 import styles from './profileCard.module.sass'
-import {Avatar} from "@shared/ui/Avatar/Avatar";
 
 export const ProfileCard: VFC<ProfileCardProps> = (props) => {
     const {className, profile, isEditable, onChangeFormProfile} = props
