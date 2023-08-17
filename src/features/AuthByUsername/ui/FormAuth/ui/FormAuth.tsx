@@ -7,7 +7,6 @@ import {getUsername} from "../../../model/selectors/getUsername";
 import {getPassword} from "../../../model/selectors/getPassword";
 import {loginByUsername} from "../../../model/asyncActions/loginByUsername";
 import {getError} from "../../../model/selectors/getError";
-import {StoreWithStoreManager} from "@app/providers/StoreProvider/config/type";
 
 import styles from './FormAuth.module.sass'
 
