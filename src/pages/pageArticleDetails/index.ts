@@ -1,0 +1,1 @@
+export {PageArticleDetailsAsync as PageArticleDetails } from './ui/PageArticleDetails.async'

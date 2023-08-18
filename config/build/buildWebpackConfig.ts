@@ -13,7 +13,8 @@ export const buildWebpackConfig = (options: BuildOptions): Configuration => {
         output: {
             filename: '[name].[contenthash:9].js',
             path: paths.output,
-            clean: true
+            clean: true,
+            publicPath: '/'
         },
         mode,
         module: {
