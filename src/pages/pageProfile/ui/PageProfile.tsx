@@ -63,15 +63,15 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
 
     return (
         <div className={setClassNames('', {}, [className])}>
-            {isEditable && <ProfileCardHeader
+            <ProfileCardHeader
                 isEditable={isEditable}
                 onEdit={onClickEditProfile}
                 onCancel={onClickCancelProfile}
                 onSave={onSaveProfile}
                 isChangeValues={isChangeValues}
-            />}
+            />
 
-            {profile && isEditable &&<ProfileCard
+            {profile &&<ProfileCard
                 profile={profile}
                 isEditable={isEditable}
                 onChangeFormProfile={onChangeFormProfile}

@@ -1,6 +1,7 @@
 export enum Theme {
     DARK = 'dark',
-    LIGHT = 'light'
+    LIGHT = 'light',
+    ORANGE = 'orange'
 }
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme'

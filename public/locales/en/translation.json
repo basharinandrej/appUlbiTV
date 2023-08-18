@@ -3,8 +3,10 @@
   "About": "About",
   "Profile": "Profile",
   "Switch lang": "Switch lang on ru",
-  "Light": "Light theme",
-  "Dark": "Dark theme",
+  "light": "light",
+  "dark": "dark",
+  "orange": "orange",
+  "Theme": "Theme",
   "Страница не найдена": "Not found page",
   "Выход": "Exit",
   "Вход": "Sign In"

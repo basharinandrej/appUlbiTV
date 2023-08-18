@@ -1,18 +1,27 @@
-import { useContext } from 'react' 
-import {
-    LOCAL_STORAGE_THEME_KEY,
-    Theme,
-    UseTheme
-} from '../types/contextTheme.types'
-import { ContextTheme } from './contextTheme'
+import {useContext} from 'react'
+import {LOCAL_STORAGE_THEME_KEY, Theme, UseTheme} from '../types/contextTheme.types'
+import {ContextTheme} from './contextTheme'
 
 export const useTheme: UseTheme = () => {
     const {setTheme, theme} = useContext(ContextTheme)
 
     const toggleTheme = () => {
-        const newState = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
-        setTheme?.(newState)
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newState)
+        let newTheme = null;
+
+        switch (theme) {
+            case Theme.DARK:
+                newTheme = Theme.LIGHT
+                break;
+            case Theme.LIGHT:
+                newTheme = Theme.ORANGE
+                break;
+            case Theme.ORANGE:
+                newTheme = Theme.DARK
+                break;
+        }
+
+        setTheme?.(newTheme)
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
     }
 
     return {toggleTheme, theme}

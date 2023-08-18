@@ -5,8 +5,20 @@ import {useTranslation} from 'react-i18next'
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
     const {className} = props
-    const {theme, toggleTheme} = useTheme()
+    let {theme, toggleTheme} = useTheme()
     const {t} = useTranslation()
+
+    switch (theme) {
+        case Theme.DARK:
+            theme = Theme.LIGHT
+            break;
+        case Theme.LIGHT:
+            theme = Theme.ORANGE
+            break;
+        case Theme.ORANGE:
+            theme = Theme.DARK
+            break;
+    }
 
     return(
         <Button
@@ -14,7 +26,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = props => {
             className={className}
             onClick={toggleTheme}
         >
-            {theme === Theme.DARK ? t('Light') : t('Dark')}
+            {`${t('Theme')} ${t(theme)}`}
         </Button>
     )
 }
