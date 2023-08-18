@@ -10,7 +10,7 @@ const PageArticleDetails: VFC<pageArticlesProps> = (props) => {
 
     return (
         <div className={setClassNames(styles.pageArticles, {}, [className])}>
-            <h1>{t('Articles')} 1</h1>
+            <h1>{t('Articles')} PageArticleDetails</h1>
         </div>
     )
 }

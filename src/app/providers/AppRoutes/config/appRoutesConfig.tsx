@@ -10,7 +10,7 @@ export const RoutePaths:Record<Routes,string> = {
     [Routes.ABOUT]: '/about',
     [Routes.PROFILE]: '/profile',
     [Routes.ARTICLES]: '/articles',
-    [Routes.ARTICLE_DETAILS]: '/article_details',
+    [Routes.ARTICLE_DETAILS]: '/articles/', // :id
     [Routes.NOT_FOUND_PAGE]: '*'
 }
 
@@ -36,7 +36,7 @@ export const mapRoutes: Record<Routes, AppRouteProps> = {
         onlyAuth: true
     },
     [Routes.ARTICLE_DETAILS]: {
-        path: `${RoutePaths.article_details}/:id`,
+        path: `${RoutePaths.articleDetails}:id`,
         element: <PageArticleDetails />,
         onlyAuth: true
     },
