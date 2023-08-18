@@ -3,7 +3,7 @@ import {PageHome, PageAbout, PageProfile, Page404} from '@pages/index'
 import {AppRouteProps, Routes} from '../types/index'
 
 
-const RoutePaths:Record<Routes,string> = {
+export const RoutePaths:Record<Routes,string> = {
     [Routes.HOME]: '/',
     [Routes.ABOUT]: '/about',
     [Routes.PROFILE]: '/profile',

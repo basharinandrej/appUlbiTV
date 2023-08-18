@@ -1,28 +1,34 @@
+import {Suspense, useCallback} from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { mapRoutes } from '@app/providers/AppRoutes'
-import {PageLoader} from '@widgets/PageLoader/ui/PageLoader'
-import { Suspense, useMemo } from 'react'
+import { mapRoutes } from '../../AppRoutes/index'
+import {PageLoader} from '@widgets/index'
 import {useSelector} from 'react-redux'
 import {getIsAuth} from '@entities/user'
+import {ProtectedRoute} from "../config/ProtectedRoute";
+import {AppRouteProps} from "../types/index";
 
 export const AppRoutes = () => {
     const isAuth = useSelector(getIsAuth)
 
-    const prepareRoutes = useMemo(() => Object.values(mapRoutes).filter((route) => {
-        if(isAuth) {
-            return route
-        } else {
-            return !route.onlyAuth
-        }
-    }), [isAuth])
+    const renderRoutes = useCallback(({element, path, onlyAuth}: AppRouteProps, idx: number) => {
+        if(!path) return
+        return (
+            <Route
+                key={path + idx}
+                path={path}
+                element={
+                    onlyAuth
+                        ?  <ProtectedRoute isAuth={isAuth} children={element as JSX.Element}/>
+                        : element
+                }
+            />
+        )
+    }, [isAuth])
 
     return (
         <Suspense fallback={<PageLoader />}>
             <Routes>
-                {Object.values(prepareRoutes).map(({element, path}, idx) => {
-                    if(!path) return
-                    return <Route key={path+idx} path={path} element={element} />
-                })}
+                {Object.values(mapRoutes).map(renderRoutes)}
             </Routes>
         </Suspense>
     )
