@@ -5,7 +5,7 @@ import {TypeInput} from './types/enums'
 import cls from './Input.module.sass'
 
 export const Input: VFC<InputProps> = ({
-    externalValue,
+    externalValue = '',
     placeholder,
     externalErr,
     onChange,
