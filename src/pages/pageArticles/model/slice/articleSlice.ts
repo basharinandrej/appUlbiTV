@@ -18,7 +18,8 @@ const initialState: ArticlesSchema = {
 const articlesSlice = createSlice({
     name: 'Articles',
     initialState,
-    reducers: {},
+    reducers: {
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticles.pending,  (state) => {

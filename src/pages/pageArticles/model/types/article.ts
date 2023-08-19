@@ -37,3 +37,5 @@ interface ArticleBlockImage extends ArticleBlockBase {
     title: string
     type: ArticleBlockType.IMAGE
 }
+
+export type ArticleWithoutBlocks = Omit<Article, 'blocks'>
