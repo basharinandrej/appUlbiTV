@@ -1,6 +1,7 @@
-import {VFC} from "react"
+import {VFC, MouseEvent} from "react"
 import {useTranslation} from "react-i18next"
-import {AppLink, useAppDispatch, useMount, setClassNames, useUnMount} from "@shared/index";
+import {useNavigate} from "react-router-dom";
+import {useAppDispatch, useMount, setClassNames, useUnMount} from "@shared/index";
 import {fetchArticles} from "../model/asyncActions/fetchArticles";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 import {useSelector, useStore} from "react-redux";
@@ -11,12 +12,14 @@ import {ArticleCardSkeleton} from "../ui/components/ArticleCardSkeleton/ArticleC
 import {getIsLoadingArticles} from "../model/selectors/getIsLoadingArticles";
 
 import styles from './PageArticles.module.sass'
+import {RoutePaths} from "@app/providers/AppRoutes/config/appRoutesConfig";
 
 const PageArticles: VFC<pageArticlesProps> = (props) => {
     const {className} = props
     const {t} = useTranslation('articles')
     const dispatch = useAppDispatch()
     const store = useStore() as StoreWithStoreManager
+    const navigate = useNavigate();
 
     const articleListing = useSelector(getListingArticles)
     const isLoadingArticles = useSelector(getIsLoadingArticles)
@@ -32,8 +35,18 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
         store.reducerManager.remove('articles')
     })
 
+    function onClickHandler(e: MouseEvent<HTMLDivElement>) {
+        const elementArticleCard = (e.target as HTMLElement).closest("[data-id]")
+        const idCard = elementArticleCard?.getAttribute('data-id')
+        navigate(RoutePaths.articleDetails + idCard)
+
+
+    }
     return (
-        <div className={setClassNames(styles.pageArticles, {}, [className])}>
+        <div
+            onClick={onClickHandler}
+            className={setClassNames(styles.pageArticles, {}, [className])}
+        >
             <h1 className={styles.title}>{t('Articles')}</h1>
 
             {isLoadingArticles

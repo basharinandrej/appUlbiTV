@@ -9,7 +9,7 @@ export const ArticleCard: VFC<articleCardProps> = memo((props) => {
     const {className, articleWithoutBlock} = props
     const {t} = useTranslation('articles')
     return (
-        <div className={setClassNames(styles.articleCard, {}, [className])}>
+        <div data-id={articleWithoutBlock.id} className={setClassNames(styles.articleCard, {}, [className])}>
             <img
                 className={styles.avatar}
                 src={articleWithoutBlock.img}
