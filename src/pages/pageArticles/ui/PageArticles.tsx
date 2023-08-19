@@ -4,12 +4,13 @@ import {AppLink, useAppDispatch, useMount, setClassNames, useUnMount} from "@sha
 import {fetchArticles} from "../model/asyncActions/fetchArticles";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 import {useSelector, useStore} from "react-redux";
-import {articleReducer} from "@pages/pageArticles";
+import {articleReducer} from "../model/slice/articleSlice";
 import {getListingArticles} from "../model/selectors/getListingArticles";
 import {ArticleCard} from "../ui/components/ArticleCard";
+import {ArticleCardSkeleton} from "../ui/components/ArticleCardSkeleton/ArticleCardSkeleton";
+import {getIsLoadingArticles} from "../model/selectors/getIsLoadingArticles";
 
 import styles from './PageArticles.module.sass'
-import {ArticleCardSkeleton} from "@pages/pageArticles/ui/components/ArticleCardSkeleton/ArticleCardSkeleton";
 
 const PageArticles: VFC<pageArticlesProps> = (props) => {
     const {className} = props
@@ -18,6 +19,7 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
     const store = useStore() as StoreWithStoreManager
 
     const articleListing = useSelector(getListingArticles)
+    const isLoadingArticles = useSelector(getIsLoadingArticles)
 
     useMount(() => {
         dispatch({type: 'INIT_Articles'})
@@ -34,11 +36,12 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
         <div className={setClassNames(styles.pageArticles, {}, [className])}>
             <h1 className={styles.title}>{t('Articles')}</h1>
 
-            <ArticleCardSkeleton />
-
-            {articleListing?.map((article) => (
-                <ArticleCard key={article.id} articleWithoutBlock={article} />
-            ))}
+            {isLoadingArticles
+                ? <ArticleCardSkeleton />
+                : articleListing?.map((article) => (
+                    <ArticleCard key={article.id} articleWithoutBlock={article} />
+                ))
+            }
         </div>
     )
 }

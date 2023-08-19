@@ -1,11 +1,11 @@
-import {VFC} from "react"
+import {VFC, memo} from "react"
 import {useTranslation} from "react-i18next"
 import {setClassNames} from "@shared/index";
 import {ArticleWithoutBlocks} from "../../model/types/article";
 
 import styles from './articleCard.module.sass'
 
-export const ArticleCard: VFC<articleCardProps> = (props) => {
+export const ArticleCard: VFC<articleCardProps> = memo((props) => {
     const {className, articleWithoutBlock} = props
     const {t} = useTranslation('articles')
     return (
@@ -33,7 +33,7 @@ export const ArticleCard: VFC<articleCardProps> = (props) => {
             </p>
         </div>
     )
-}
+})
 
 interface articleCardProps {
     className?: string
