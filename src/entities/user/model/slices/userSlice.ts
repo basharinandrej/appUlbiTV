@@ -4,7 +4,8 @@ import {LOCALSTORAGE_USER_KEY} from '@shared/constans/constans'
 
 const initialState: UserSchema = {
     id: null,
-    username: ''
+    username: '',
+    userWasInit: false
 }
 
 export const userSlice = createSlice({
@@ -21,6 +22,7 @@ export const userSlice = createSlice({
             const user: UserSchema = userKey && JSON.parse(userKey)
             state.id = user?.id
             state.username = user?.username
+            state.userWasInit = true
         },
         logout: (state) => {
             localStorage.removeItem(LOCALSTORAGE_USER_KEY)
