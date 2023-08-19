@@ -1,5 +1,4 @@
 import {Fragment, VFC} from "react"
-import {useTranslation} from "react-i18next"
 import {Loader, setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {useSelector, useStore} from "react-redux";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
@@ -14,7 +13,6 @@ import styles from './ArticleDetails.module.sass'
 
 export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
     const {className} = props
-    const {t} = useTranslation()
     const {id} = useParams()
 
     const dispatch = useAppDispatch()
