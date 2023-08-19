@@ -1,7 +1,7 @@
 import {VFC, memo} from "react"
 import {useTranslation} from "react-i18next"
 import {setClassNames} from "@shared/index";
-import {ArticleWithoutBlocks} from  "../../../../model/types/article"
+import {ArticleWithoutBlocks} from  "@entities/article"
 
 import styles from './articleCard.module.sass'
 

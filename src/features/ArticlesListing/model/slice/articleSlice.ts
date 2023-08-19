@@ -1,4 +1,4 @@
-import {Article} from "../types/article";
+import {Article} from "@entities/article";
 import {Nullable} from "@shared/index";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchArticles} from "@features/ArticlesListing/model/asyncActions/fetchArticles";
