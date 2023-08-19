@@ -8,6 +8,7 @@ import {AnyAction, Reducer} from '@reduxjs/toolkit'
 import {createReduxStore} from '@app/providers/StoreProvider/config/createStore'
 import {ProfileSchema} from '@pages/index'
 import {ArticlesSchema} from "@pages/pageArticles";
+import {ArticleDetailsSchema} from "@entities/article";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -15,6 +16,7 @@ export interface StateSchema {
     profile?: ProfileSchema
     login?: LoginSchema
     articles?: ArticlesSchema
+    articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

@@ -71,7 +71,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
                 isChangeValues={isChangeValues}
             />
 
-            {profile &&<ProfileCard
+            {profile && <ProfileCard
                 profile={profile}
                 isEditable={isEditable}
                 onChangeFormProfile={onChangeFormProfile}

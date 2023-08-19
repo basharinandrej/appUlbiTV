@@ -1,16 +1,13 @@
 import {VFC} from "react"
-import {useTranslation} from "react-i18next"
-import {setClassNames} from "@shared/libs/setClassNames";
-
-import styles from './PageArticleDetails.module.sass'
+import {setClassNames} from "@shared/index";
+import {ArticleDetails} from "@entities/article";
 
 const PageArticleDetails: VFC<pageArticlesProps> = (props) => {
     const {className} = props
-    const {t} = useTranslation('articles')
 
     return (
-        <div className={setClassNames(styles.pageArticles, {}, [className])}>
-            <h1>{t('Articles')} PageArticleDetails</h1>
+        <div className={setClassNames('', {}, [className])}>
+            <ArticleDetails />
         </div>
     )
 }

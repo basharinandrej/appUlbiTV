@@ -38,9 +38,7 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
     function onClickHandler(e: MouseEvent<HTMLDivElement>) {
         const elementArticleCard = (e.target as HTMLElement).closest("[data-id]")
         const idCard = elementArticleCard?.getAttribute('data-id')
-        navigate(RoutePaths.articleDetails + idCard)
-
-
+        idCard && navigate(RoutePaths.articleDetails + idCard)
     }
     return (
         <div
@@ -49,6 +47,7 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
         >
             <h1 className={styles.title}>{t('Articles')}</h1>
 
+            {/*добавить фичу листинг*/}
             {isLoadingArticles
                 ? <ArticleCardSkeleton />
                 : articleListing?.map((article) => (
