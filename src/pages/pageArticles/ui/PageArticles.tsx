@@ -6,8 +6,9 @@ import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 import {useSelector, useStore} from "react-redux";
 import {articleReducer} from "@pages/pageArticles";
 import {getListingArticles} from "../model/selectors/getListingArticles";
+import {ArticleCard} from "../ui/components/ArticleCard";
 
-import styles from './pageArticles.module.sass'
+import styles from './PageArticles.module.sass'
 
 const PageArticles: VFC<pageArticlesProps> = (props) => {
     const {className} = props
@@ -30,16 +31,10 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
 
     return (
         <div className={setClassNames(styles.pageArticles, {}, [className])}>
-            <h1>{t('Articles')}</h1>
+            <h1 className={styles.title}>{t('Articles')}</h1>
+
             {articleListing?.map((article) => (
-                <div key={article.id}>
-                    <h3>{article.title}</h3>
-                    <h6>{article.subtitle}</h6>
-                    <p>{article.createdAt}</p>
-                    <p>{article.views}</p>
-                    <p>{article.tags?.join(',')}</p>
-                    <img src={article.img} alt="avatar article"/>
-                </div>
+                <ArticleCard key={article.id} articleWithoutBlock={article} />
             ))}
         </div>
     )

@@ -1,3 +1,6 @@
 {
-  "Articles": "Articles"
+  "Articles": "Articles",
+  "CreatedAt": "CreatedAt",
+  "Views": "Views",
+  "Tags": "Tags"
 }
