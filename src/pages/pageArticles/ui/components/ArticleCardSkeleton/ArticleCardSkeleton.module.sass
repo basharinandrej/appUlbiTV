@@ -1,0 +1,29 @@
+.articleCardSkeleton
+  width: calc(100%/5)
+  height: 315px
+
+  background: var(--background-secondary-100)
+
+  overflow: hidden
+
+.loading
+  height: 100%
+  width: 100%
+  background: var(--gradient-secondary-100)
+
+  animation-name: loading
+  animation-duration: 1.3s
+  animation-iteration-count: infinite
+  animation-timing-function: linear
+  animation-fill-mode: forwards
+
+
+/* Keyframes */
+@keyframes loading
+  0%
+    transform: translateX(-100%)
+
+
+  100%
+    transform: translateX(100%)
+

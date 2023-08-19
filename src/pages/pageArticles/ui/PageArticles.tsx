@@ -9,6 +9,7 @@ import {getListingArticles} from "../model/selectors/getListingArticles";
 import {ArticleCard} from "../ui/components/ArticleCard";
 
 import styles from './PageArticles.module.sass'
+import {ArticleCardSkeleton} from "@pages/pageArticles/ui/components/ArticleCardSkeleton/ArticleCardSkeleton";
 
 const PageArticles: VFC<pageArticlesProps> = (props) => {
     const {className} = props
@@ -32,6 +33,8 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
     return (
         <div className={setClassNames(styles.pageArticles, {}, [className])}>
             <h1 className={styles.title}>{t('Articles')}</h1>
+
+            <ArticleCardSkeleton />
 
             {articleListing?.map((article) => (
                 <ArticleCard key={article.id} articleWithoutBlock={article} />
