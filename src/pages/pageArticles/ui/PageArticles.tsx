@@ -1,8 +1,10 @@
 import {VFC} from "react"
 import {useTranslation} from "react-i18next"
-import {setClassNames} from "@shared/libs/setClassNames";
-import {AppLink, useAppDispatch, useMount} from "@shared/index";
+import {AppLink, useAppDispatch, useMount, setClassNames, useUnMount} from "@shared/index";
 import {fetchArticles} from "../model/asyncActions/fetchArticles";
+import {StoreWithStoreManager} from "@app/providers/StoreProvider";
+import {useStore} from "react-redux";
+import {articleReducer} from "@pages/pageArticles";
 
 import styles from './pageArticles.module.sass'
 
@@ -10,9 +12,17 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
     const {className} = props
     const {t} = useTranslation('articles')
     const dispatch = useAppDispatch()
+    const store = useStore() as StoreWithStoreManager
 
     useMount(() => {
+        dispatch({type: 'INIT_Articles'})
+        store.reducerManager.add('articles', articleReducer)
         dispatch(fetchArticles())
+    })
+
+    useUnMount(() => {
+        dispatch({type: 'UNINIT_Articles'})
+        store.reducerManager.remove('articles')
     })
 
     return (

@@ -7,12 +7,14 @@ import {EnhancedStore} from '@reduxjs/toolkit/src/configureStore'
 import {AnyAction, Reducer} from '@reduxjs/toolkit'
 import {createReduxStore} from '@app/providers/StoreProvider/config/createStore'
 import {ProfileSchema} from '@pages/index'
+import {ArticlesSchema} from "@pages/pageArticles";
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
     profile?: ProfileSchema
     login?: LoginSchema
+    articles?: ArticlesSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
