@@ -6,7 +6,7 @@ import {Profile} from '@pages/pageProfile/model/types/types'
 export const fetchDataProfile = createAsyncThunk<Profile, void, ThunkApiConfig<string>>(
     'profile/fetchDataProfile',
     async (_, thunkAPI) => {
-        const {extra , rejectWithValue} = thunkAPI
+        const {extra, rejectWithValue} = thunkAPI
 
         try {
             const response = await extra.api.get<Profile>('/profile')
