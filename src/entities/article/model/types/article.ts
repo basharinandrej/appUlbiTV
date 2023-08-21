@@ -1,4 +1,4 @@
-const enum ArticleBlockType {
+export const enum ArticleBlockType {
     CODE = "CODE",
     TEXT = "TEXT",
     IMAGE = "IMAGE",
@@ -12,7 +12,7 @@ export interface Article {
     views: number
     createdAt: string
     tags: Array<string>
-    blocks: Array<ArticleBlockText | ArticleBlockCode | ArticleBlockImage>
+    blocks: Array<ArticleBlock>
 }
 
 interface ArticleBlockBase {
@@ -25,10 +25,12 @@ interface ArticleBlockText extends ArticleBlockBase {
     paragraphs: Array<string>
     type: ArticleBlockType.TEXT
 }
+
 interface ArticleBlockCode extends ArticleBlockBase {
     code: string
     type: ArticleBlockType.CODE
 }
+
 interface ArticleBlockImage extends ArticleBlockBase {
     src: string
     title: string
@@ -36,3 +38,5 @@ interface ArticleBlockImage extends ArticleBlockBase {
 }
 
 export type ArticleWithoutBlocks = Omit<Article, 'blocks'>
+
+export type ArticleBlock = ArticleBlockText | ArticleBlockCode | ArticleBlockImage

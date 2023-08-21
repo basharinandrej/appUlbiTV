@@ -1,5 +1,5 @@
 import {StateSchema} from "@app/providers/StoreProvider";
-import {ArticleWithoutBlocks} from "../types/article";
+import {ArticleWithoutBlocks} from "@entities/article";
 
 
 export const getListingArticles = (state: StateSchema) => {
