@@ -51,7 +51,7 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
             {isLoadingArticles
                 ? <ListingSkeletons />
                 : articleListing?.map((article) => (
-                    <ArticleCard key={article.id} articleWithoutBlock={article} />
+                    <ArticleCard className={styles.articleCard} key={article.id} articleWithoutBlock={article} />
                 ))
             }
         </div>
