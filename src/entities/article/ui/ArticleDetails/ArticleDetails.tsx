@@ -1,4 +1,4 @@
-import {Fragment, VFC} from "react"
+import {Fragment, useCallback, VFC} from "react"
 import {Loader, setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {useSelector, useStore} from "react-redux";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
@@ -36,7 +36,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
         store.reducerManager.remove('articleDetails')
     })
 
-    const renderBlocks = (block: ArticleBlock) => {
+    const renderBlocks = useCallback((block: ArticleBlock) => {
         switch (block.type) {
             case ArticleBlockType.TEXT:
                 return <ArticleBlockTextComponent key={block.id} title={block.title} paragraphs={block.paragraphs} />
@@ -47,7 +47,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
             default:
                 return ''
         }
-    }
+    }, [])
 
     return (
         <div className={setClassNames(styles.articleDetails, {}, [className])}>

@@ -19,6 +19,7 @@ export { Currency } from './types/enums/currency'
 export { TypeInput } from './ui/Input/types/enums'
 export { Avatar } from './ui/Avatar/Avatar'
 export { Nullable } from './types/types'
+export { Tag } from './ui/Tag/Tag'
 
 import i18n from './config/i18next'
 export {i18n}
