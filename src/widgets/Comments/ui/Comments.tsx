@@ -4,15 +4,17 @@ import {Comment} from "@entities/comment";
 
 import styles from './comments.module.sass'
 import {IComment} from "@entities/comment/ui/types/types";
+import {useTranslation} from "react-i18next";
 
 export const Comments: VFC<CommentsProps> = (props) => {
   const {className, comments} = props
+  const { t } = useTranslation('comments')
 
   const hasComments = Array.isArray(comments) && comments.length
 
   return (
       hasComments ? <div className={setClassNames(styles.comments, {}, [className])}>
-        <h2 className={styles.title}>Комментарий</h2>
+        <h2 className={styles.title}>{t('Комментарий')}</h2>
 
         {comments.map((comment) => {
           return (
