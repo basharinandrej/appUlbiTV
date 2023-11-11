@@ -5,15 +5,23 @@ import {Input} from '../Input/Input'
 
 import {onChangeFormProfile} from '@entities/profileCard'
 import {TypeInput} from '@shared/index'
+import {getClassNameForSize} from "@shared/ui/Avatar/utils/getClassNameForSize";
+import {SizeAvatar} from "@shared/ui/Avatar/enums/sizeAvatar";
 
 import styles from './Avatar.module.sass'
 
+
 export const Avatar: VFC<AvatarProps> = memo((props) => {
-    const {className, isEditable, avatarSrc, onChangeFormProfile} = props
+    const {className, isEditable, avatarSrc, onChangeFormProfile, size = SizeAvatar.MEDIUM} = props
     const {t} = useTranslation('profile')
 
     return (
-        <div className={setClassNames(styles.avatar, {}, [className])}>
+        <div className={setClassNames(
+            styles.avatar,
+            {
+                ...getClassNameForSize(size)
+            },
+            [className])}>
             {isEditable &&
                 <div className={styles.profileField}>
                     <strong>{t('Аватар')}</strong>:&nbsp;
@@ -35,5 +43,6 @@ interface AvatarProps {
     className?: string
     isEditable: boolean
     avatarSrc: string
-    onChangeFormProfile: onChangeFormProfile
+    size: SizeAvatar
+    onChangeFormProfile?: onChangeFormProfile
 }
