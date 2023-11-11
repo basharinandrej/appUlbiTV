@@ -11,12 +11,10 @@ import {ArticleBlockTextComponent} from "../ArticleBlockTextComponent/ArticleBlo
 import {ArticleBlockImageComponent} from "../ArticleBlockImageComponent/ArticleBlockImageComponent";
 import {ArticleBlockCodeComponent} from "../ArticleBlockCodeComponent/ArticleBlockCodeComponent";
 import {ArticleBlock, ArticleBlockType} from "../../model/types/article";
-import {Comment} from "@entities/comment";
+import { Comments } from "@widgets/Comments";
 
 
 import styles from './ArticleDetails.module.sass'
-
-const avatarSrc = 'https://cdn4.iconfinder.com/data/icons/profession-and-occupation-3/512/IT_specialist-occupation-avatar-job-character-profession-512.png'
 
 
 export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
@@ -68,19 +66,8 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
 
                     {articleDetails?.blocks?.map(renderBlocks)}
 
-
-                    {/*widget comment*/}
-                    <h3 className={styles.subtitle}>Комментарий</h3>
-                    <Comment
-                        avatarSrc={avatarSrc}
-                        name={'name'}
-                        textComment={'textComment'}
-                    />
-                    <br/>
-                    <Comment
-                        avatarSrc={avatarSrc}
-                        name={'name'}
-                        textComment={'textComment'}
+                    <Comments
+                        comments={articleDetails?.comments}
                     />
                 </Fragment>
             }

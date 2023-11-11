@@ -32,9 +32,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "tags": [
-        "IT"
-      ],
+      "tags": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -170,20 +168,18 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
+      "id": 1,
+      "avatarSrc": "https://cdn4.iconfinder.com/data/icons/profession-and-occupation-3/512/IT_specialist-occupation-avatar-job-character-profession-512.png",
+      "name": "Андрей Башарин",
+      "textComment": "textComment 1",
       "articleId": "1",
       "userId": "1"
     },
     {
-      "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
+      "id": 2,
+      "avatarSrc": "https://cdn4.iconfinder.com/data/icons/profession-and-occupation-3/512/IT_specialist-occupation-avatar-job-character-profession-512.png",
+      "name": "Noize MC",
+      "textComment": "textComment 2",
       "articleId": "1",
       "userId": "1"
     }

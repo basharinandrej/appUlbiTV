@@ -12,6 +12,7 @@ export const getListingArticles = (state: StateSchema) => {
             views: article.views,
             createdAt: article.createdAt,
             tags: article.tags,
+            comments: article.comments
         }
     })
 }

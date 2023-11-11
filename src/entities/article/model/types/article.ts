@@ -1,3 +1,5 @@
+import {IComment} from '@entities/comment'
+
 export const enum ArticleBlockType {
     CODE = "CODE",
     TEXT = "TEXT",
@@ -13,6 +15,7 @@ export interface Article {
     createdAt: string
     tags: Array<string>
     blocks: Array<ArticleBlock>
+    comments: Array<IComment>
 }
 
 interface ArticleBlockBase {
