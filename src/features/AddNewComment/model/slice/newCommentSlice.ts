@@ -1,8 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Nullable} from "@shared/types/types";
 
 export interface NewCommentSchema {
-  textComment: Nullable<string>
+  textComment: string
 }
 
 const initialState: NewCommentSchema = {
@@ -15,9 +14,12 @@ const newCommentSlice = createSlice({
   reducers: {
     setTextComment: (state: NewCommentSchema, action:PayloadAction<string>) => {
       state.textComment = action.payload
+    },
+    clearTextComment: (state:NewCommentSchema) => {
+      state.textComment = ''
     }
   }
 })
 
-export const {setTextComment} = newCommentSlice.actions
+export const {setTextComment, clearTextComment} = newCommentSlice.actions
 export const newCommentReducer = newCommentSlice.reducer

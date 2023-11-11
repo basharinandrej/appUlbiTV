@@ -19,17 +19,19 @@ export const Comments: VFC<CommentsProps> = (props) => {
 
         <AddNewComment />
 
-        { hasComments ? comments.map((comment) => {
-          return (
-            <Comment
-              key={comment.id}
-              avatarSrc={comment.avatarSrc}
-              name={comment.name}
-              textComment={comment.textComment}
-              className={styles.comment}
-            />
-          )
-        }): null }
+       { hasComments ? <div className={styles.commentsWrapper}>
+         {comments.map((comment) => {
+           return (
+             <Comment
+                 key={comment.id}
+                 avatarSrc={comment.avatarSrc}
+                 name={comment.name}
+                 textComment={comment.textComment}
+                 className={styles.comment}
+             />
+           )
+         })}
+       </div> : null }
       </div>
   )
 }

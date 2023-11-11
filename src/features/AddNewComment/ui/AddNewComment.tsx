@@ -1,12 +1,13 @@
 import {VFC} from "react"
-import {useStore} from "react-redux";
+import {useSelector, useStore} from "react-redux";
 import {Button, ButtonType, Input, setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {useTranslation} from "react-i18next";
-import {newCommentReducer, setTextComment} from "../model/slice/newCommentSlice";
+import {newCommentReducer, setTextComment, clearTextComment} from "../model/slice/newCommentSlice";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 
 import styles from './addNewComment.module.sass'
 import {sendNewComment} from "@features/AddNewComment/model/asyncAction/sendNewComment";
+import {getTextComment} from "@features/AddNewComment/model/selectors/selectors";
 
 
 export const AddNewComment: VFC<addNewCommentProps> = (props) => {
@@ -15,6 +16,8 @@ export const AddNewComment: VFC<addNewCommentProps> = (props) => {
 
   const dispatch = useAppDispatch()
   const store = useStore() as StoreWithStoreManager
+
+  const textComment = useSelector(getTextComment)
 
   useMount(() => {
     dispatch({type: 'INIT_NewComment'})
@@ -31,14 +34,21 @@ export const AddNewComment: VFC<addNewCommentProps> = (props) => {
 
   const onClickHandler = () => {
     dispatch(sendNewComment())
+    dispatch(clearTextComment())
   }
 
   return (
       <div className={setClassNames(styles.addNewComment, {}, [className])}>
-        <Input onChange={onChangeHandler} className={styles.input} placeholder={t('Введите новый комментарий')}/>
+        <Input
+          onChange={onChangeHandler}
+          className={styles.input}
+          placeholder={t('Введите новый комментарий')}
+          externalValue={textComment}
+        />
         <Button
             buttonType={ButtonType.PRIMARY}
             onClick={onClickHandler}
+            disabled={!textComment}
         >
           {t('Отправить комментарий')}
         </Button>
