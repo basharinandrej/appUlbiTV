@@ -1,0 +1,1 @@
+export {AddNewComment} from './ui/AddNewComment'
