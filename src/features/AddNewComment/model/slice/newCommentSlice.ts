@@ -14,7 +14,6 @@ const newCommentSlice = createSlice({
   initialState,
   reducers: {
     setTextComment: (state: NewCommentSchema, action:PayloadAction<string>) => {
-      console.log('>>>> action', action);
       state.textComment = action.payload
     }
   }

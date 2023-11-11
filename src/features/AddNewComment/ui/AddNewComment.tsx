@@ -6,6 +6,7 @@ import {newCommentReducer, setTextComment} from "../model/slice/newCommentSlice"
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 
 import styles from './addNewComment.module.sass'
+import {sendNewComment} from "@features/AddNewComment/model/asyncAction/sendNewComment";
 
 
 export const AddNewComment: VFC<addNewCommentProps> = (props) => {
@@ -30,6 +31,7 @@ export const AddNewComment: VFC<addNewCommentProps> = (props) => {
 
   const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
     console.log('>>>> onClickHandler', e.target)
+    dispatch(sendNewComment())
   }
 
   return (
