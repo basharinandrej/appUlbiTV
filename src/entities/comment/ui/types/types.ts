@@ -1,6 +1,8 @@
 export interface IComment {
-  id: string,
-  avatarSrc: string,
+  id: number,
+  avatarSrc?: string,
   name: string,
   textComment: string
+  userId: number
+  articleId: string
 }

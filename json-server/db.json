@@ -32,7 +32,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "tags": ["IT"],
+      "tags": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -182,6 +184,135 @@
       "textComment": "textComment 2",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "fsdfsdf",
+      "articleId": "1",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "DSDSD",
+      "articleId": "1",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "dsfsdf",
+      "articleId": "2",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "asdasd",
+      "articleId": "2",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "d",
+      "articleId": "2",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "czxczxczxczxc ",
+      "articleId": "2",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "dasdasd",
+      "articleId": "2",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "dasdasdasdasd",
+      "articleId": "2",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "ewrwre",
+      "articleId": "1",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "werwer",
+      "articleId": "1",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "asdasdasd",
+      "articleId": "1",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "asdasdasda ",
+      "articleId": "1",
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "sadasd",
+      "articleId": "1",
+      "id": 16
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "sadasd2222",
+      "articleId": "1",
+      "id": 17
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "sadasd22223",
+      "articleId": "1",
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "ff",
+      "articleId": "1",
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "dasd",
+      "articleId": "1",
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "name": "admin",
+      "textComment": "fdsfsdf",
+      "articleId": "1",
+      "id": 21
     }
   ]
 }

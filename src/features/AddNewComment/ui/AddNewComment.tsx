@@ -1,4 +1,4 @@
-import {VFC, MouseEvent} from "react"
+import {VFC} from "react"
 import {useStore} from "react-redux";
 import {Button, ButtonType, Input, setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {useTranslation} from "react-i18next";
@@ -29,8 +29,7 @@ export const AddNewComment: VFC<addNewCommentProps> = (props) => {
     dispatch(setTextComment(text))
   }
 
-  const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    console.log('>>>> onClickHandler', e.target)
+  const onClickHandler = () => {
     dispatch(sendNewComment())
   }
 

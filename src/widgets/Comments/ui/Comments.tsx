@@ -14,12 +14,12 @@ export const Comments: VFC<CommentsProps> = (props) => {
   const hasComments = Array.isArray(comments) && comments.length
 
   return (
-      hasComments ? <div className={setClassNames(styles.comments, {}, [className])}>
+     <div className={setClassNames(styles.comments, {}, [className])}>
         <h2 className={styles.title}>{t('Комментарий')}</h2>
 
         <AddNewComment />
 
-        {comments.map((comment) => {
+        { hasComments ? comments.map((comment) => {
           return (
             <Comment
               key={comment.id}
@@ -29,8 +29,8 @@ export const Comments: VFC<CommentsProps> = (props) => {
               className={styles.comment}
             />
           )
-        })}
-      </div> : null
+        }): null }
+      </div>
   )
 }
 

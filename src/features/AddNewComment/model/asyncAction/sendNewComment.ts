@@ -2,8 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkApiConfig} from "@app/providers/StoreProvider";
 import {IComment} from "@entities/comment";
 
-
-export const sendNewComment = createAsyncThunk<unknown, void, ThunkApiConfig<string>>(
+export const sendNewComment = createAsyncThunk<IComment, void, ThunkApiConfig<string>>(
     'comment/sentNewComment',
     async (_, thunkAPI ) => {
       const {extra, rejectWithValue, getState} = thunkAPI

@@ -33,6 +33,6 @@ export const Comment: VFC<commentProps> = (props) => {
   )
 }
 
-interface commentProps extends Omit<IComment, 'id'> {
+interface commentProps extends Omit<IComment, 'id' | 'userId' | 'articleId'> {
   className?: string
 }
