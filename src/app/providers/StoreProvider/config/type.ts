@@ -9,6 +9,7 @@ import {createReduxStore} from '@app/providers/StoreProvider/config/createStore'
 import {ProfileSchema} from '@pages/index'
 import {ArticlesSchema} from "@pages/pageArticles";
 import {ArticleDetailsSchema} from "@entities/article";
+import {NewCommentSchema} from "@features/AddNewComment";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -17,6 +18,7 @@ export interface StateSchema {
     login?: LoginSchema
     articles?: ArticlesSchema
     articleDetails?: ArticleDetailsSchema
+    newComment?: NewCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
