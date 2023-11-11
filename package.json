@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "npx kill-port 4200 && npx kill-port 4201 && npx webpack serve --env port=4200",
+    "start": "concurrently \"npm run start:client\" \"npm run start:dev:server\"",
+    "start:client": "npx kill-port 4200 && npx kill-port 4201 && npx webpack serve --env port=4200",
     "start:dev:server": "npx kill-port 8000 && node ./json-server/index.js",
     "build:dev": "npx kill-port 4201 && npx webpack --env mode=development",
     "build:prod": "npx webpack --env mode=production",
@@ -36,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "babel-loader": "^8.3.0",
+    "concurrently": "^8.2.2",
     "css-loader": "^6.6.0",
     "eslint": "^8.35.0",
     "eslint-plugin-i18next": "^6.0.1",
