@@ -43,6 +43,6 @@ interface AvatarProps {
     className?: string
     isEditable: boolean
     avatarSrc: string
-    size: SizeAvatar
+    size?: SizeAvatar
     onChangeFormProfile?: onChangeFormProfile
 }

@@ -11,8 +11,8 @@ export const ListingSkeletons: VFC<ListingSkeletonsProps> = (props) => {
 
     return (
         <div className={setClassNames(styles.listingSkeletons, {}, [className])}>
-            {totalCards.map(() => {
-                return <ArticleCardSkeleton />
+            {totalCards.map((_, idx) => {
+                return <ArticleCardSkeleton key={idx}/>
             })}
         </div>
     )
