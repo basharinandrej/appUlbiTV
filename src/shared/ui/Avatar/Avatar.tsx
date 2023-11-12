@@ -34,7 +34,8 @@ export const Avatar: VFC<AvatarProps> = memo((props) => {
                     />
                 </div>
             }
-            {!isEditable && <img className={styles.avatarImg} src={avatarSrc} alt="avatar"/>}
+            {!isEditable && avatarSrc && <img className={styles.avatarImg} src={avatarSrc} alt="avatar"/>}
+            {!isEditable && !avatarSrc && <div className={styles.stub} />}
         </div>
     )
 })
