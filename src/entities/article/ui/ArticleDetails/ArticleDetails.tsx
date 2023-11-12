@@ -12,6 +12,7 @@ import {ArticleBlockImageComponent} from '../ArticleBlockImageComponent/ArticleB
 import {ArticleBlockCodeComponent} from '../ArticleBlockCodeComponent/ArticleBlockCodeComponent'
 import {ArticleBlock, ArticleBlockType} from '../../model/types/article'
 import {sendNewCommentForArticle} from "../../model/asyncAction/sendNewCommentForArticle";
+import {fetchCommentsByArticleId} from "../../model/asyncAction/fetchCommentsByArticleId";
 import { Comments } from '@widgets/Comments'
 import {getCommentsForArticle} from "@features/CommentsListing";
 
@@ -32,6 +33,10 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
 
     const sendNewComment = useCallback(() => {
         dispatch(sendNewCommentForArticle())
+    },[dispatch])
+
+    const fetchComments = useCallback(() => {
+        dispatch(fetchCommentsByArticleId(id))
     },[dispatch])
 
     useMount(() => {
@@ -75,6 +80,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
 
                     <Comments
                         sendNewComment={sendNewComment}
+                        fetchComments={fetchComments}
                         comments={comments}
                     />
                 </Fragment>

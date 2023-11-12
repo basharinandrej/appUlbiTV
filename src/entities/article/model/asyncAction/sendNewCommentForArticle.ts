@@ -1,9 +1,9 @@
 import {createAsyncThunk} from '@reduxjs/toolkit'
 import {ThunkApiConfig} from '@app/providers/StoreProvider'
 import {IComment} from '@entities/comment'
-import {fetchCommentsByArticleId} from "@features/CommentsListing"
-import {getArticleDetailsData} from "../selectors/selectors";
 import {getProfileData} from "@pages/index";
+import {fetchCommentsByArticleId} from "../asyncAction/fetchCommentsByArticleId"
+import {getArticleDetailsData} from "../selectors/selectors";
 
 export const sendNewCommentForArticle = createAsyncThunk<IComment, void, ThunkApiConfig<string>>(
     'article/sentNewCommentForArticle',

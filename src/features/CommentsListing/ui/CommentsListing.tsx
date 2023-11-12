@@ -1,22 +1,16 @@
 import {VFC} from "react"
 import {useStore} from "react-redux";
-import {useParams, useLocation} from "react-router-dom";
 import {setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
 import {Comment, IComment} from "@entities/comment";
 import {commentsListingReducer} from "@features/CommentsListing";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
-import { mapRoutes } from "@app/providers/AppRoutes";
-import {fetchCommentsByArticleId} from "../model/asyncActions/fetchCommentsByArticleId";
 
 import styles from './commentsListing.module.sass'
 
 export const CommentsListing: VFC<CommentsListingProps> = (props) => {
-  const {className, comments} = props
+  const {className, comments, fetchComments} = props
   const dispatch = useAppDispatch()
   const store = useStore() as StoreWithStoreManager
-  const {id} = useParams()
-  const {pathname} = useLocation()
-
 
   const hasComments = Array.isArray(comments) && comments.length
 
@@ -24,10 +18,7 @@ export const CommentsListing: VFC<CommentsListingProps> = (props) => {
     dispatch({type: 'INIT_Comments'})
     store.reducerManager.add('comments', commentsListingReducer)
 
-
-    if(id && pathname === `${mapRoutes.articles.path}/${id}`) {
-      dispatch(fetchCommentsByArticleId(id))
-    }
+    fetchComments()
   })
 
   useUnMount(() => {
@@ -57,4 +48,5 @@ export const CommentsListing: VFC<CommentsListingProps> = (props) => {
 interface CommentsListingProps {
   className?: string
   comments: Array<IComment>
+  fetchComments: () => void
 }

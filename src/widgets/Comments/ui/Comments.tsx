@@ -8,7 +8,7 @@ import { CommentsListing } from "@features/CommentsListing";
 import styles from './comments.module.sass'
 
 export const Comments: VFC<CommentsProps> = (props) => {
-  const {className, comments, sendNewComment} = props
+  const {className, comments, sendNewComment, fetchComments} = props
   const { t } = useTranslation('comments')
 
   return (
@@ -17,7 +17,7 @@ export const Comments: VFC<CommentsProps> = (props) => {
 
         <AddNewComment sendNewComment={sendNewComment} />
 
-        <CommentsListing comments={comments} />
+        <CommentsListing fetchComments={fetchComments} comments={comments} />
       </div>
   )
 }
@@ -26,4 +26,5 @@ interface CommentsProps {
   className?: string
   comments: Array<IComment>
   sendNewComment: () => void
+  fetchComments: () => void
 }

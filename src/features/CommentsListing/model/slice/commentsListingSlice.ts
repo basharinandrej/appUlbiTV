@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {CommentsListingSliceSchema} from "../types/types";
-import {fetchCommentsByArticleId} from "@features/CommentsListing/model/asyncActions/fetchCommentsByArticleId";
+import {fetchCommentsByArticleId} from "@entities/article/model/asyncAction/fetchCommentsByArticleId";
 import {IComment} from "@entities/comment";
 
 const initialState: CommentsListingSliceSchema = {
