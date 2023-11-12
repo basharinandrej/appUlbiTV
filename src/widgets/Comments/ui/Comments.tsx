@@ -17,7 +17,7 @@ export const Comments: VFC<CommentsProps> = (props) => {
 
         <AddNewComment />
 
-       <CommentsListing comments={comments} />
+        <CommentsListing comments={comments} />
       </div>
   )
 }

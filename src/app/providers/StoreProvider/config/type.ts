@@ -10,15 +10,19 @@ import {ProfileSchema} from '@pages/index'
 import {ArticlesSchema} from '@pages/pageArticles'
 import {ArticleDetailsSchema} from '@entities/article'
 import {NewCommentSchema} from '@features/AddNewComment'
+import {CommentsListingSliceSchema} from "@features/CommentsListing";
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+
+    // Async reducers
     profile?: ProfileSchema
     login?: LoginSchema
     articles?: ArticlesSchema
     articleDetails?: ArticleDetailsSchema
     newComment?: NewCommentSchema
+    comments?: CommentsListingSliceSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

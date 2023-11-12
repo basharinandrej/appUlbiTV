@@ -12,6 +12,7 @@ import {ArticleBlockImageComponent} from '../ArticleBlockImageComponent/ArticleB
 import {ArticleBlockCodeComponent} from '../ArticleBlockCodeComponent/ArticleBlockCodeComponent'
 import {ArticleBlock, ArticleBlockType} from '../../model/types/article'
 import { Comments } from '@widgets/Comments'
+import {getCommentsForArticle} from "@features/CommentsListing";
 
 
 import styles from './ArticleDetails.module.sass'
@@ -26,6 +27,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
 
     const articleDetails = useSelector(getArticleDetailsData)
     const isLoading = useSelector(getArticleDetailsIsLoading)
+    const comments = useSelector(getCommentsForArticle)
 
     useMount(() => {
         dispatch({type: 'INIT_ArticleDetails'})
@@ -67,7 +69,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
                     {articleDetails?.blocks?.map(renderBlocks)}
 
                     <Comments
-                        comments={articleDetails?.comments}
+                        comments={comments}
                     />
                 </Fragment>
             }

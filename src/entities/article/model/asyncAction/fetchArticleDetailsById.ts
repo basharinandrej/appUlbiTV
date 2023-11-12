@@ -8,13 +8,7 @@ export const fetchArticleDetailsById = createAsyncThunk<Article, string, ThunkAp
         const {extra, rejectWithValue} = thunkAPI
 
         try {
-            const response = await extra.api.get<Article>('/articles/'+articleId, {
-              params: {
-                _embed: 'comments',
-                _sort: 'id',
-                _order: 'desc'
-              }
-            })
+            const response = await extra.api.get<Article>('/articles/'+articleId)
 
             return response.data
         } catch (err) {
