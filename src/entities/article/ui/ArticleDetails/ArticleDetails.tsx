@@ -1,17 +1,17 @@
-import {Fragment, useCallback, VFC} from "react"
-import {Loader, setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
-import {useSelector, useStore} from "react-redux";
-import {StoreWithStoreManager} from "@app/providers/StoreProvider";
-import {useParams} from "react-router-dom";
-import {articleDetailsReducer} from "../../model/slice/articleDetailsSlice";
-import {fetchArticleDetailsById} from "../../model/asyncAction/fetchArticleDetailsById";
-import {getArticleDetailsData, getArticleDetailsIsLoading} from "../../model/selectors/selectors";
-import {AvatarArticleDetails} from "./components/AvatarArticleDetails/AvatarArticleDetails";
-import {ArticleBlockTextComponent} from "../ArticleBlockTextComponent/ArticleBlockTextComponent";
-import {ArticleBlockImageComponent} from "../ArticleBlockImageComponent/ArticleBlockImageComponent";
-import {ArticleBlockCodeComponent} from "../ArticleBlockCodeComponent/ArticleBlockCodeComponent";
-import {ArticleBlock, ArticleBlockType} from "../../model/types/article";
-import { Comments } from "@widgets/Comments";
+import {Fragment, useCallback, VFC} from 'react'
+import {Loader, setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index'
+import {useSelector, useStore} from 'react-redux'
+import {StoreWithStoreManager} from '@app/providers/StoreProvider'
+import {useParams} from 'react-router-dom'
+import {articleDetailsReducer} from '../../model/slice/articleDetailsSlice'
+import {fetchArticleDetailsById} from '../../model/asyncAction/fetchArticleDetailsById'
+import {getArticleDetailsData, getArticleDetailsIsLoading} from '../../model/selectors/selectors'
+import {AvatarArticleDetails} from './components/AvatarArticleDetails/AvatarArticleDetails'
+import {ArticleBlockTextComponent} from '../ArticleBlockTextComponent/ArticleBlockTextComponent'
+import {ArticleBlockImageComponent} from '../ArticleBlockImageComponent/ArticleBlockImageComponent'
+import {ArticleBlockCodeComponent} from '../ArticleBlockCodeComponent/ArticleBlockCodeComponent'
+import {ArticleBlock, ArticleBlockType} from '../../model/types/article'
+import { Comments } from '@widgets/Comments'
 
 
 import styles from './ArticleDetails.module.sass'

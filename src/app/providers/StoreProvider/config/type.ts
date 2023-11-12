@@ -7,9 +7,9 @@ import {EnhancedStore} from '@reduxjs/toolkit/src/configureStore'
 import {AnyAction, Reducer} from '@reduxjs/toolkit'
 import {createReduxStore} from '@app/providers/StoreProvider/config/createStore'
 import {ProfileSchema} from '@pages/index'
-import {ArticlesSchema} from "@pages/pageArticles";
-import {ArticleDetailsSchema} from "@entities/article";
-import {NewCommentSchema} from "@features/AddNewComment";
+import {ArticlesSchema} from '@pages/pageArticles'
+import {ArticleDetailsSchema} from '@entities/article'
+import {NewCommentSchema} from '@features/AddNewComment'
 
 export interface StateSchema {
     counter: CounterSchema

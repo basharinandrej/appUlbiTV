@@ -1,9 +1,9 @@
 import {IComment} from '@entities/comment'
 
 export const enum ArticleBlockType {
-    CODE = "CODE",
-    TEXT = "TEXT",
-    IMAGE = "IMAGE",
+    CODE = 'CODE',
+    TEXT = 'TEXT',
+    IMAGE = 'IMAGE',
 }
 
 export interface Article {

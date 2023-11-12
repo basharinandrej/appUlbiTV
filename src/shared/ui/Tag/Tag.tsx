@@ -1,5 +1,5 @@
-import {VFC} from "react"
-import {setClassNames} from "@shared/index";
+import {VFC} from 'react'
+import {setClassNames} from '@shared/index'
 
 import styles from './Tag.module.sass'
 

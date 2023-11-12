@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import {Article} from "@entities/article";
-import {ThunkApiConfig} from "@app/providers/StoreProvider";
+import {Article} from '@entities/article'
+import {ThunkApiConfig} from '@app/providers/StoreProvider'
 
 export const fetchArticles = createAsyncThunk<Array<Article>, void, ThunkApiConfig<string>>(
     'articles/fetchArticles',
@@ -8,7 +8,12 @@ export const fetchArticles = createAsyncThunk<Array<Article>, void, ThunkApiConf
         const {extra, rejectWithValue} = thunkAPI
 
         try {
-            const response = await extra.api.get<Array<Article>>('/articles')
+            const response = await extra.api.get<Array<Article>>('/articles', {
+              params: {
+                _sort: 'id',
+                _order: 'desc'
+              }
+            })
 
             return response.data
         } catch (err) {

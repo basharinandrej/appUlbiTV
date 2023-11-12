@@ -1,4 +1,4 @@
-import {Nullable} from "@shared/index";
+import {Nullable} from '@shared/index'
 
 
 export const setClassNames = (className: string, mods: Record<string, boolean> = {}, addClassNames: Array<Nullable<string>> = []): string => {

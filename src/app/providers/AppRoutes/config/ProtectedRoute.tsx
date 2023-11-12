@@ -1,7 +1,7 @@
-import {Navigate} from "react-router-dom";
-import {RoutePaths} from "./appRoutesConfig";
-import {useSelector} from "react-redux";
-import {getIsAuth, getIsInitUser} from "@entities/user";
+import {Navigate} from 'react-router-dom'
+import {RoutePaths} from './appRoutesConfig'
+import {useSelector} from 'react-redux'
+import {getIsAuth, getIsInitUser} from '@entities/user'
 
 export const ProtectedRoute = ({children}: ProtectedRouteProps): JSX.Element => {
     const isAuth = useSelector(getIsAuth)

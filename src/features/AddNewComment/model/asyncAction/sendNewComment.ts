@@ -1,6 +1,6 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ThunkApiConfig} from "@app/providers/StoreProvider";
-import {IComment} from "@entities/comment";
+import {createAsyncThunk} from '@reduxjs/toolkit'
+import {ThunkApiConfig} from '@app/providers/StoreProvider'
+import {IComment} from '@entities/comment'
 
 export const sendNewComment = createAsyncThunk<IComment, void, ThunkApiConfig<string>>(
     'comment/sentNewComment',

@@ -1,7 +1,7 @@
-import {VFC} from "react"
-import {useTranslation} from "react-i18next"
-import {setClassNames } from "@shared/index";
-import {ArticleListing} from "@features/ArticlesListing";
+import {VFC} from 'react'
+import {useTranslation} from 'react-i18next'
+import {setClassNames } from '@shared/index'
+import {ArticleListing} from '@features/ArticlesListing'
 
 import styles from './PageArticles.module.sass'
 

@@ -1,9 +1,9 @@
-import {Nullable} from "@shared/index";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchArticleDetailsById} from "../asyncAction/fetchArticleDetailsById";
-import {Article} from "../types/article";
-import {sendNewComment} from "@features/AddNewComment/model/asyncAction/sendNewComment";
-import {IComment} from "@entities/comment";
+import {Nullable} from '@shared/index'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {fetchArticleDetailsById} from '../asyncAction/fetchArticleDetailsById'
+import {Article} from '../types/article'
+import {sendNewComment} from '@features/AddNewComment/model/asyncAction/sendNewComment'
+import {IComment} from '@entities/comment'
 
 export interface ArticleDetailsSchema {
     data: Nullable<Article>

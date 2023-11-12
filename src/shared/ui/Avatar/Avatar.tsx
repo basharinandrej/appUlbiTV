@@ -5,8 +5,8 @@ import {Input} from '../Input/Input'
 
 import {onChangeFormProfile} from '@entities/profileCard'
 import {TypeInput} from '@shared/index'
-import {getClassNameForSize} from "@shared/ui/Avatar/utils/getClassNameForSize";
-import {SizeAvatar} from "@shared/ui/Avatar/enums/sizeAvatar";
+import {getClassNameForSize} from '@shared/ui/Avatar/utils/getClassNameForSize'
+import {SizeAvatar} from '@shared/ui/Avatar/enums/sizeAvatar'
 
 import styles from './Avatar.module.sass'
 
@@ -14,6 +14,9 @@ import styles from './Avatar.module.sass'
 export const Avatar: VFC<AvatarProps> = memo((props) => {
     const {className, isEditable, avatarSrc, onChangeFormProfile, size = SizeAvatar.MEDIUM} = props
     const {t} = useTranslation('profile')
+
+    const showAvatar = !isEditable && avatarSrc
+    const hideAvatar = !showAvatar
 
     return (
         <div className={setClassNames(
@@ -34,8 +37,8 @@ export const Avatar: VFC<AvatarProps> = memo((props) => {
                     />
                 </div>
             }
-            {!isEditable && avatarSrc && <img className={styles.avatarImg} src={avatarSrc} alt="avatar"/>}
-            {!isEditable && !avatarSrc && <div className={styles.stub} />}
+            {showAvatar && <img className={styles.avatarImg} src={avatarSrc} alt="avatar"/>}
+            {hideAvatar && <div className={styles.stub} />}
         </div>
     )
 })

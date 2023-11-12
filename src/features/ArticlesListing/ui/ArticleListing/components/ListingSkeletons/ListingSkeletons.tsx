@@ -1,5 +1,5 @@
-import {VFC} from "react"
-import {setClassNames} from "@shared/index";
+import {VFC} from 'react'
+import {setClassNames} from '@shared/index'
 import {ArticleCardSkeleton} from './ArticleCardSkeleton/ArticleCardSkeleton'
 
 import styles from './ListingSkeletons.module.sass'

@@ -1,13 +1,13 @@
-import {VFC} from "react"
-import {useSelector, useStore} from "react-redux";
-import {Button, ButtonType, Input, setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
-import {useTranslation} from "react-i18next";
-import {newCommentReducer, setTextComment, clearTextComment} from "../model/slice/newCommentSlice";
-import {StoreWithStoreManager} from "@app/providers/StoreProvider";
+import {VFC} from 'react'
+import {useSelector, useStore} from 'react-redux'
+import {Button, ButtonType, Input, setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index'
+import {useTranslation} from 'react-i18next'
+import {newCommentReducer, setTextComment, clearTextComment} from '../model/slice/newCommentSlice'
+import {StoreWithStoreManager} from '@app/providers/StoreProvider'
 
 import styles from './addNewComment.module.sass'
-import {sendNewComment} from "@features/AddNewComment/model/asyncAction/sendNewComment";
-import {getTextComment} from "@features/AddNewComment/model/selectors/selectors";
+import {sendNewComment} from '@features/AddNewComment/model/asyncAction/sendNewComment'
+import {getTextComment} from '@features/AddNewComment/model/selectors/selectors'
 
 
 export const AddNewComment: VFC<addNewCommentProps> = (props) => {

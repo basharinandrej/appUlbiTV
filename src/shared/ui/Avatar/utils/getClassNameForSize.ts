@@ -1,4 +1,4 @@
-import {SizeAvatar} from "../enums/sizeAvatar";
+import {SizeAvatar} from '../enums/sizeAvatar'
 
 import styles from '../Avatar.module.sass'
 

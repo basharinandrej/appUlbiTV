@@ -6,18 +6,18 @@ export const useTheme: UseTheme = () => {
     const {setTheme, theme} = useContext(ContextTheme)
 
     const toggleTheme = () => {
-        let newTheme: Theme | null = null;
+        let newTheme: Theme | null
 
         switch (theme) {
             case Theme.DARK:
                 newTheme = Theme.LIGHT
-                break;
+                break
             case Theme.LIGHT:
                 newTheme = Theme.ORANGE
-                break;
+                break
             case Theme.ORANGE:
                 newTheme = Theme.DARK
-                break;
+                break
             default:
                 newTheme = Theme.LIGHT
         }

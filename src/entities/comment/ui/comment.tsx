@@ -1,6 +1,6 @@
-import {VFC} from "react"
-import {Avatar, setClassNames, SizeAvatar} from "@shared/index";
-import {IComment} from "./types/types";
+import {VFC} from 'react'
+import {Avatar, setClassNames, SizeAvatar} from '@shared/index'
+import {IComment} from './types/types'
 
 import styles from './comment.module.sass'
 

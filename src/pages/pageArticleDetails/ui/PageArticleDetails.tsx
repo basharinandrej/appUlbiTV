@@ -1,6 +1,6 @@
-import {VFC} from "react"
-import {setClassNames} from "@shared/index";
-import {ArticleDetails} from "@entities/article";
+import {VFC} from 'react'
+import {setClassNames} from '@shared/index'
+import {ArticleDetails} from '@entities/article'
 
 const PageArticleDetails: VFC<pageArticlesProps> = (props) => {
     const {className} = props

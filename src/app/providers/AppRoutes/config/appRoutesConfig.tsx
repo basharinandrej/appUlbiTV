@@ -1,6 +1,6 @@
 import {PageHome, PageAbout, PageProfile, Page404} from '@pages/index'
-import {PageArticles} from "@pages/pageArticles";
-import {PageArticleDetails} from "@pages/pageArticleDetails";
+import {PageArticles} from '@pages/pageArticles'
+import {PageArticleDetails} from '@pages/pageArticleDetails'
 
 import {AppRouteProps, Routes} from '../types/index'
 

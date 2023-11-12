@@ -1,7 +1,7 @@
-import {Article} from "@entities/article";
-import {Nullable} from "@shared/index";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {fetchArticles} from "@features/ArticlesListing/model/asyncActions/fetchArticles";
+import {Article} from '@entities/article'
+import {Nullable} from '@shared/index'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {fetchArticles} from '@features/ArticlesListing/model/asyncActions/fetchArticles'
 
 export interface ArticlesSchema {
     data: Nullable<Array<Article>>

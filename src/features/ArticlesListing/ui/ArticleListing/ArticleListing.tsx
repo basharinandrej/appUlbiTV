@@ -1,23 +1,23 @@
-import {MouseEvent, VFC} from "react"
-import {useSelector, useStore} from "react-redux";
-import {useNavigate} from "react-router-dom";
-import {setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index";
-import {getListingArticles} from "../../model/selectors/getListingArticles"
-import {getIsLoadingArticles} from "../../model/selectors/getIsLoadingArticles"
+import {MouseEvent, VFC} from 'react'
+import {useSelector, useStore} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
+import {setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index'
+import {getListingArticles} from '../../model/selectors/getListingArticles'
+import {getIsLoadingArticles} from '../../model/selectors/getIsLoadingArticles'
 import {
     ListingSkeletons
-} from "./components/ListingSkeletons/ListingSkeletons";
-import { ArticleCard } from "./components/ArticleCard/ArticleCard";
-import {articleReducer} from "../../model/slice/articleSlice";
-import {fetchArticles} from "../../model/asyncActions/fetchArticles";
-import {StoreWithStoreManager} from "@app/providers/StoreProvider";
-import {RoutePaths} from "@app/providers/AppRoutes/config/appRoutesConfig";
+} from './components/ListingSkeletons/ListingSkeletons'
+import { ArticleCard } from './components/ArticleCard/ArticleCard'
+import {articleReducer} from '../../model/slice/articleSlice'
+import {fetchArticles} from '../../model/asyncActions/fetchArticles'
+import {StoreWithStoreManager} from '@app/providers/StoreProvider'
+import {RoutePaths} from '@app/providers/AppRoutes/config/appRoutesConfig'
 
 import styles from './articleListing.module.sass'
 
 export const ArticleListing: VFC<ArticleListingProps> = (props) => {
     const {className} = props
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const dispatch = useAppDispatch()
     const store = useStore() as StoreWithStoreManager
@@ -38,7 +38,7 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
     })
 
     function onClickHandler(e: MouseEvent<HTMLDivElement>) {
-        const elementArticleCard = (e.target as HTMLElement).closest("[data-id]")
+        const elementArticleCard = (e.target as HTMLElement).closest('[data-id]')
         const idCard = elementArticleCard?.getAttribute('data-id')
         idCard && navigate(RoutePaths.articleDetails + idCard)
     }
