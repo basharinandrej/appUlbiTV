@@ -4,6 +4,7 @@ import PageProfile from './pageProfile/ui/pageProfile.async'
 import {fetchDataProfile} from './pageProfile/model/asyncActions/fetchDataProfile'
 import {ProfileSchema} from './pageProfile/model/types/types'
 import {Profile} from '@pages/pageProfile/model/types/types'
+import {getProfileData} from './pageProfile/model/selectors/getProfileData'
 
 import Page404 from './404/ui/404'
 
@@ -15,5 +16,6 @@ export {
     PageProfile,
     Profile,
     ProfileSchema,
-    fetchDataProfile
+    fetchDataProfile,
+    getProfileData
 }

@@ -47,7 +47,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     }, [dispatch, cancelIsEditable])
 
     const onChangeFormProfile = useCallback((key: keyof Profile, value: Profile[keyof Profile]) => {
-        const form: Profile = {
+        const form: Partial<Profile> = {
             [key]: value
         }
         dispatch(editProfile(form))

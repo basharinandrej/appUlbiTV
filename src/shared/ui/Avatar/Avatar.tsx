@@ -16,7 +16,7 @@ export const Avatar: VFC<AvatarProps> = memo((props) => {
     const {t} = useTranslation('profile')
 
     const showAvatar = !isEditable && avatarSrc
-    const hideAvatar = !showAvatar
+    const hideAvatar = !avatarSrc
 
     return (
         <div className={setClassNames(

@@ -1,17 +1,16 @@
-import {VFC} from 'react'
+import {useCallback, VFC} from 'react'
 import {useSelector, useStore} from 'react-redux'
 import {Button, ButtonType, Input, setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index'
 import {useTranslation} from 'react-i18next'
 import {newCommentReducer, setTextComment, clearTextComment} from '../model/slice/newCommentSlice'
 import {StoreWithStoreManager} from '@app/providers/StoreProvider'
+import {getTextComment} from '../model/selectors/selectors'
 
 import styles from './addNewComment.module.sass'
-import {sendNewComment} from '@features/AddNewComment/model/asyncAction/sendNewComment'
-import {getTextComment} from '@features/AddNewComment/model/selectors/selectors'
 
 
 export const AddNewComment: VFC<addNewCommentProps> = (props) => {
-  const {className} = props
+  const {className, sendNewComment} = props
   const { t } = useTranslation('comments')
 
   const dispatch = useAppDispatch()
@@ -28,12 +27,12 @@ export const AddNewComment: VFC<addNewCommentProps> = (props) => {
     store.reducerManager.remove('newComment')
   })
 
-  const onChangeHandler = (text: string) => {
+  const onChangeHandler = useCallback((text: string) => {
     dispatch(setTextComment(text))
-  }
+  }, [])
 
   const onClickHandler = () => {
-    dispatch(sendNewComment())
+    sendNewComment()
     dispatch(clearTextComment())
   }
 
@@ -58,4 +57,5 @@ export const AddNewComment: VFC<addNewCommentProps> = (props) => {
 
 interface addNewCommentProps {
   className?: string
+  sendNewComment: () => void
 }

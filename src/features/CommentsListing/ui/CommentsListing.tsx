@@ -5,6 +5,7 @@ import {setClassNames, useAppDispatch, useMount, useUnMount} from "@shared/index
 import {Comment, IComment} from "@entities/comment";
 import {commentsListingReducer} from "@features/CommentsListing";
 import {StoreWithStoreManager} from "@app/providers/StoreProvider";
+import { mapRoutes } from "@app/providers/AppRoutes";
 import {fetchCommentsByArticleId} from "../model/asyncActions/fetchCommentsByArticleId";
 
 import styles from './commentsListing.module.sass'
@@ -24,7 +25,7 @@ export const CommentsListing: VFC<CommentsListingProps> = (props) => {
     store.reducerManager.add('comments', commentsListingReducer)
 
 
-    if(id && pathname === `/articles/${id}`) {
+    if(id && pathname === `${mapRoutes.articles.path}/${id}`) {
       dispatch(fetchCommentsByArticleId(id))
     }
   })

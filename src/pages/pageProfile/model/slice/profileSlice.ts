@@ -22,7 +22,7 @@ export const profileSlice = createSlice({
             state.isEditable = false
             state.form = state.data
         },
-        editProfile: (state, action: PayloadAction<Profile>) => {
+        editProfile: (state, action: PayloadAction<Partial<Profile>>) => {
             state.form = {
                 ...state.form,
                 ...action.payload,

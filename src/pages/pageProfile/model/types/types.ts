@@ -2,6 +2,7 @@ import {Country} from '@shared/index'
 import {Currency} from '@shared/index'
 
 export interface Profile {
+    id: string,
     name?: string,
     avatar?: string,
     surname?: string,

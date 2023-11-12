@@ -11,6 +11,7 @@ import {ArticleBlockTextComponent} from '../ArticleBlockTextComponent/ArticleBlo
 import {ArticleBlockImageComponent} from '../ArticleBlockImageComponent/ArticleBlockImageComponent'
 import {ArticleBlockCodeComponent} from '../ArticleBlockCodeComponent/ArticleBlockCodeComponent'
 import {ArticleBlock, ArticleBlockType} from '../../model/types/article'
+import {sendNewCommentForArticle} from "../../model/asyncAction/sendNewCommentForArticle";
 import { Comments } from '@widgets/Comments'
 import {getCommentsForArticle} from "@features/CommentsListing";
 
@@ -28,6 +29,10 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
     const articleDetails = useSelector(getArticleDetailsData)
     const isLoading = useSelector(getArticleDetailsIsLoading)
     const comments = useSelector(getCommentsForArticle)
+
+    const sendNewComment = useCallback(() => {
+        dispatch(sendNewCommentForArticle())
+    },[dispatch])
 
     useMount(() => {
         dispatch({type: 'INIT_ArticleDetails'})
@@ -69,6 +74,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
                     {articleDetails?.blocks?.map(renderBlocks)}
 
                     <Comments
+                        sendNewComment={sendNewComment}
                         comments={comments}
                     />
                 </Fragment>

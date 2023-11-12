@@ -2,6 +2,7 @@ import {Nullable} from '@shared/index'
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {fetchArticleDetailsById} from '../asyncAction/fetchArticleDetailsById'
 import {Article} from '../types/article'
+import {sendNewCommentForArticle} from "../asyncAction/sendNewCommentForArticle";
 
 export interface ArticleDetailsSchema {
     data: Nullable<Article>
@@ -30,6 +31,10 @@ const articleDetailsSlice = createSlice({
                 state.data = action.payload
             })
             .addCase(fetchArticleDetailsById.rejected,  (state, action: PayloadAction<{msg: string}>) => {
+                state.isLoading = false
+                state.error = action.payload.msg
+            })
+            .addCase(sendNewCommentForArticle.rejected,  (state, action: PayloadAction<{msg: string}>) => {
                 state.isLoading = false
                 state.error = action.payload.msg
             })
