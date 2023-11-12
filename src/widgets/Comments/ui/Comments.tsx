@@ -1,9 +1,9 @@
 import {VFC} from "react"
 import {setClassNames} from "@shared/index";
-import {Comment} from "@entities/comment";
-import {IComment} from "@entities/comment/ui/types/types";
+import {IComment} from "@entities/comment";
 import {useTranslation} from "react-i18next";
 import {AddNewComment} from "@features/AddNewComment";
+import { CommentsListing } from "@features/CommentsListing";
 
 import styles from './comments.module.sass'
 
@@ -11,27 +11,13 @@ export const Comments: VFC<CommentsProps> = (props) => {
   const {className, comments} = props
   const { t } = useTranslation('comments')
 
-  const hasComments = Array.isArray(comments) && comments.length
-
   return (
      <div className={setClassNames(styles.comments, {}, [className])}>
         <h2 className={styles.title}>{t('Комментарий')}</h2>
 
         <AddNewComment />
 
-       { hasComments ? <div className={styles.commentsWrapper}>
-         {comments.map((comment) => {
-           return (
-             <Comment
-                 key={comment.id}
-                 avatarSrc={comment.avatarSrc}
-                 name={comment.name}
-                 textComment={comment.textComment}
-                 className={styles.comment}
-             />
-           )
-         })}
-       </div> : null }
+       <CommentsListing comments={comments} />
       </div>
   )
 }
