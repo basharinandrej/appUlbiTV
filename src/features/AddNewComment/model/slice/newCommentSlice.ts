@@ -5,7 +5,7 @@ export interface NewCommentSchema {
 }
 
 const initialState: NewCommentSchema = {
-  textComment: null
+  textComment: ''
 }
 
 const newCommentSlice = createSlice({
