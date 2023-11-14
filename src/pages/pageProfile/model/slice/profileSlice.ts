@@ -7,7 +7,7 @@ const initialState: ProfileSchema = {
     data: null,
     form: null,
     isLoading: false,
-    isEditable: false,
+    isEditingMode: false,
     error: null
 }
 
@@ -15,11 +15,11 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
-        setIsEditable: (state) => {
-            state.isEditable = true
+        setisEditingMode: (state) => {
+            state.isEditingMode = true
         },
         cancelIsEditable: (state) => {
-            state.isEditable = false
+            state.isEditingMode = false
             state.form = state.data
         },
         editProfile: (state, action: PayloadAction<Partial<Profile>>) => {
@@ -47,7 +47,7 @@ export const profileSlice = createSlice({
                 state.isLoading = true
             })
             .addCase(updateProfile.fulfilled, (state, action: PayloadAction<Profile>) => {
-                state.isEditable = false
+                state.isEditingMode = false
                 state.isLoading = false
                 state.data = action.payload
                 state.form = null
@@ -60,4 +60,4 @@ export const profileSlice = createSlice({
 })
 
 export const profileReducer = profileSlice.reducer
-export const {setIsEditable, cancelIsEditable, editProfile} = profileSlice.actions
+export const {setisEditingMode, cancelIsEditable, editProfile} = profileSlice.actions

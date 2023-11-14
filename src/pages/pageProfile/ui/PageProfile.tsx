@@ -6,12 +6,12 @@ import {useSelector, useStore} from 'react-redux'
 import {StoreWithStoreManager} from '@app/providers/StoreProvider'
 import {ProfileCard} from '@entities/profileCard'
 import {ProfileCardHeader} from '@entities/profileCard/ui/components/profileCardHeader/profileCardHeader'
-import {profileReducer, setIsEditable, editProfile, cancelIsEditable} from '../model/slice/profileSlice'
+import {profileReducer, setisEditingMode, editProfile, cancelIsEditable} from '../model/slice/profileSlice'
 import {Profile} from '../model/types/types'
 import {fetchDataProfile} from '../model/asyncActions/fetchDataProfile'
 import { getProfileData } from '../model/selectors/getProfileData'
 import {getIsLoading} from '../model/selectors/getIsLoading'
-import {getEditable} from '../model/selectors/getEditable'
+import {getisEditingMode} from '../model/selectors/getEditing'
 import {getIsChangeValues} from '../model/selectors/getIsChangeValues'
 import {updateProfile} from '../model/asyncActions/updateProfile'
 
@@ -23,7 +23,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
 
     const profile = useSelector(getProfileData)
     const isLoading = useSelector(getIsLoading)
-    const isEditable = useSelector(getEditable)
+    const isEditingMode = useSelector(getisEditingMode)
     const isChangeValues = useSelector(getIsChangeValues)
 
     useMount(() => {
@@ -41,8 +41,8 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     }, [dispatch])
 
     const onClickEditProfile = useCallback(() => {
-        dispatch(setIsEditable())
-    }, [dispatch, setIsEditable])
+        dispatch(setisEditingMode())
+    }, [dispatch, setisEditingMode])
 
     const onClickCancelProfile = useCallback(() => {
         dispatch(cancelIsEditable())
@@ -66,7 +66,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     return (
         <div className={setClassNames('', {}, [className])}>
             <ProfileCardHeader
-                isEditable={isEditable}
+                isEditingMode={isEditingMode}
                 onEdit={onClickEditProfile}
                 onCancel={onClickCancelProfile}
                 onSave={onSaveProfile}
@@ -75,7 +75,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
 
             {profile && <ProfileCard
                 profile={profile}
-                isEditable={isEditable}
+                isEditingMode={isEditingMode}
                 onChangeFormProfile={onChangeFormProfile}
             />}
         </div>

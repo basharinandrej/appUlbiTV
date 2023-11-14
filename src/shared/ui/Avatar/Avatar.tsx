@@ -12,10 +12,10 @@ import styles from './Avatar.module.sass'
 
 
 export const Avatar: VFC<AvatarProps> = memo((props) => {
-    const {className, isEditable = false, avatarSrc, onChangeFormProfile, size = SizeAvatar.MEDIUM} = props
+    const {className, isEditingMode = false, avatarSrc, onChangeFormProfile, size = SizeAvatar.MEDIUM} = props
     const {t} = useTranslation('profile')
 
-    const showAvatar = !isEditable && avatarSrc
+    const showAvatar = !isEditingMode && avatarSrc
     const hideAvatar = !avatarSrc
 
     return (
@@ -25,7 +25,7 @@ export const Avatar: VFC<AvatarProps> = memo((props) => {
                 ...getClassNameForSize(size)
             },
             [className])}>
-            {isEditable &&
+            {isEditingMode &&
                 <div className={styles.profileField}>
                     <strong>{t('Аватар')}</strong>:&nbsp;
 
@@ -45,7 +45,7 @@ export const Avatar: VFC<AvatarProps> = memo((props) => {
 
 interface AvatarProps {
     className?: string
-    isEditable?: boolean
+    isEditingMode?: boolean
     avatarSrc: string
     size?: SizeAvatar
     onChangeFormProfile?: onChangeFormProfile

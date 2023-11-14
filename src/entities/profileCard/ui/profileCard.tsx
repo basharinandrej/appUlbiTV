@@ -8,13 +8,13 @@ import { ProfileField } from './components/profileField/profileField'
 import styles from './profileCard.module.sass'
 
 export const ProfileCard: VFC<ProfileCardProps> = (props) => {
-    const {className, profile, isEditable, onChangeFormProfile} = props
+    const {className, profile, isEditingMode, onChangeFormProfile} = props
 
     return (
         <div className={setClassNames(styles.profileCard, {}, [className])}>
 
             {profile?.avatar && <Avatar
-                isEditable={isEditable}
+                isEditingMode={isEditingMode}
                 avatarSrc={profile.avatar}
                 onChangeFormProfile={onChangeFormProfile}
             />}
@@ -22,7 +22,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
             {getProfileFields(profile).map((profileField, idx) => {
                 return <ProfileField
                     key={idx}
-                    isEditable={isEditable}
+                    isEditable={isEditingMode}
                     profileField={profileField}
                     onChangeFormProfile={onChangeFormProfile}
                 />
@@ -35,6 +35,6 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
 interface ProfileCardProps {
     className?: string
     profile: Profile
-    isEditable: boolean
+    isEditingMode: boolean
     onChangeFormProfile: onChangeFormProfile
 }
