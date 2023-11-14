@@ -1,7 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit'
 import {ThunkApiConfig} from '@app/providers/StoreProvider'
 import {Profile} from '@pages/pageProfile/model/types/types'
-import {setIsEditable} from "../slice/profileSlice";
+import {setCanEditable} from "../slice/profileSlice";
 import {getUserData} from "@entities/user";
 
 
@@ -21,7 +21,7 @@ export const fetchDataProfile = createAsyncThunk<Profile, string, ThunkApiConfig
       const user = getUserData(getState())
 
       if(profile.id === user.id) {
-        dispatch(setIsEditable())
+        dispatch(setCanEditable())
       }
       return profile
     } catch (err) {
