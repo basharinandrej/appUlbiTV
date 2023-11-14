@@ -29,7 +29,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     useMount(() => {
         dispatch({type: 'INIT_ProfileReducer'})
         store.reducerManager.add('profile', profileReducer)
-        dispatch(fetchDataProfile(user.id.toString()))
+        dispatch(fetchDataProfile(user?.id.toString()))
     })
     useUnMount(() => {
         dispatch({type: 'UNINIT_ProfileReducer'})
@@ -37,7 +37,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     })
 
     const onSaveProfile = useCallback(() => {
-        dispatch(updateProfile())
+        dispatch(updateProfile(profile?.id.toString()))
     }, [dispatch])
 
     const onClickEditProfile = useCallback(() => {

@@ -5,9 +5,9 @@ import {getProfileData} from '../selectors/getProfileData'
 import {getFormData} from '../selectors/getFormData'
 
 
-export const updateProfile = createAsyncThunk<Profile, void, ThunkApiConfig<string>>(
+export const updateProfile = createAsyncThunk<Profile, string, ThunkApiConfig<string>>(
     'profile/updateProfile',
-    async (_, thunkAPI) => {
+    async (profileId, thunkAPI) => {
         const {extra, rejectWithValue, getState} = thunkAPI
 
         const profile = getProfileData(getState())
@@ -19,7 +19,11 @@ export const updateProfile = createAsyncThunk<Profile, void, ThunkApiConfig<stri
         }
 
         try {
-            const response = await extra.api.put<Profile>('/profile', profileData)
+            const response = await extra.api.put<Profile>('/profiles', profileData, {
+              params: {
+                id: profileId
+              }
+            })
 
             return response.data
         } catch (err) {
