@@ -7,7 +7,7 @@ import styles from './comment.module.sass'
 export const Comment: VFC<commentProps> = (props) => {
   const {
     name,
-    avatarSrc,
+    avatar,
     textComment,
     className
   } = props
@@ -17,7 +17,7 @@ export const Comment: VFC<commentProps> = (props) => {
         <div className={styles.wrapper}>
           <Avatar
               isEditable={false}
-              avatarSrc={avatarSrc}
+              avatarSrc={avatar}
               size={SizeAvatar.SMALL}
               className={styles.avatar}
           />

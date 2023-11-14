@@ -33,8 +33,7 @@ export const CommentsListing: VFC<CommentsListingProps> = (props) => {
           return (
             <Comment
               key={comment.id}
-              //@ts-ignore
-              avatarSrc={comment.user.avatarSrc}
+              avatar={comment?.user.avatar}
               name={comment.name}
               textComment={comment.textComment}
               className={styles.comment}

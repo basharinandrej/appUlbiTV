@@ -1,8 +1,11 @@
+import {UserSchema} from "@entities/user";
+
 export interface IComment {
   id: number,
-  avatarSrc?: string,
+  avatar?: string,
   name: string,
   textComment: string
   userId: number
   articleId: string
+  user?: UserSchema
 }
