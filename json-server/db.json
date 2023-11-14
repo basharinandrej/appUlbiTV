@@ -25,20 +25,21 @@
       "avatarSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm1D3AABh8CReeB3mR_p04cFcbJBGdKV8SYw&usqp=CAU"
     }
   ],
-  "profile": [
-    {
-      "id": "1",
-      "avatar": "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/4:3/w_1800,h_1350,c_limit/security_hacker_names.jpg",
-      "name": "andrejdв",
-      "surname": "Basharinasdkjklk",
-      "age": "24"
-    },
+  "profiles": [
     {
       "id": "2",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm1D3AABh8CReeB3mR_p04cFcbJBGdKV8SYw&usqp=CAU",
       "name": "angelina",
       "surname": "koleva",
       "age": "28"
+    },
+    {
+      "id": "1",
+      "avatar": "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/4:3/w_1800,h_1350,c_limit/security_hacker_names.jpg",
+      "name": "andrejdв",
+      "surname": "Basharinasdkjklk",
+      "age": "24",
+      "city": "REWRWER"
     }
   ],
   "articles": [
