@@ -6,9 +6,12 @@ import {Button, ButtonType} from '@shared/index'
 import styles from './profileCardHeader.module.sass'
 
 export const ProfileCardHeader: VFC<ProfileCardHeaderProps> = (props) => {
-    const {className, isEditingMode, isChangeValues, onEdit, onCancel, onSave} = props
+    const {className, isEditingMode, canEditable, isChangeValues, onEdit, onCancel, onSave} = props
     const {t} = useTranslation('profile')
 
+    if(!canEditable) {
+        return null
+    }
     return (
         <div className={setClassNames(styles.profileCardHeader, {}, [className])}>
             {!isEditingMode && <Button
@@ -40,6 +43,7 @@ export const ProfileCardHeader: VFC<ProfileCardHeaderProps> = (props) => {
 
 interface ProfileCardHeaderProps {
     isEditingMode: boolean
+    canEditable: boolean
     onEdit: () => void
     onCancel: () => void
     onSave: () => void

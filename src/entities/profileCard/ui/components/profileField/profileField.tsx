@@ -7,13 +7,13 @@ import {onChangeFormProfile} from '../../../types/onChangeFormProfile'
 import styles from './profileField.module.sass'
 
 export const ProfileField: VFC<profileFieldProps> = (props) => {
-    const {className, canEditable, profileField, onChangeFormProfile} = props
+    const {className, isEditingMode, profileField, onChangeFormProfile} = props
     const {t} = useTranslation('profile')
 
     return (
         <div className={setClassNames(styles.profileField, {}, [className])}>
             <strong>{t(profileField.label)}</strong>:&nbsp;
-            {canEditable
+            {isEditingMode
                 ? <Input
                     className={''}
                     onChange={(value) => onChangeFormProfile(profileField.key, value)}
@@ -28,7 +28,7 @@ export const ProfileField: VFC<profileFieldProps> = (props) => {
 
 interface profileFieldProps {
     className?: string
-    canEditable: boolean
+    isEditingMode: boolean
     profileField: IProfileField
     onChangeFormProfile: onChangeFormProfile
 }

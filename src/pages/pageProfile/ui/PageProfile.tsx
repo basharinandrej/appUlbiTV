@@ -13,6 +13,7 @@ import { getProfileData } from '../model/selectors/getProfileData'
 import {getIsLoading} from '../model/selectors/getIsLoading'
 import {getIsEditingMode} from '../model/selectors/getIsEditing'
 import {getIsChangeValues} from '../model/selectors/getIsChangeValues'
+import {getCanEditable} from "../model/selectors/getCanEditable";
 import {updateProfile} from '../model/asyncActions/updateProfile'
 
 const PageProfile: VFC<PageProfileProps> = (props) => {
@@ -24,6 +25,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     const profile = useSelector(getProfileData)
     const isLoading = useSelector(getIsLoading)
     const isEditingMode = useSelector(getIsEditingMode)
+    const canEditable = useSelector(getCanEditable)
     const isChangeValues = useSelector(getIsChangeValues)
 
     useMount(() => {
@@ -67,6 +69,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
         <div className={setClassNames('', {}, [className])}>
             <ProfileCardHeader
                 isEditingMode={isEditingMode}
+                canEditable={canEditable}
                 onEdit={onClickEditProfile}
                 onCancel={onClickCancelProfile}
                 onSave={onSaveProfile}

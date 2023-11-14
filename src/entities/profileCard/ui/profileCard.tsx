@@ -22,7 +22,7 @@ export const ProfileCard: VFC<ProfileCardProps> = (props) => {
             {getProfileFields(profile).map((profileField, idx) => {
                 return <ProfileField
                     key={idx}
-                    canEditable={isEditingMode}
+                    isEditingMode={isEditingMode}
                     profileField={profileField}
                     onChangeFormProfile={onChangeFormProfile}
                 />
