@@ -13,7 +13,8 @@ export const fetchCommentsByArticleId = createAsyncThunk<IComment[], string, Thu
           params: {
             articleId,
             _sort: 'id',
-            _order: 'desc'
+            _order: 'desc',
+            _expand: 'user'
           }
         })
 

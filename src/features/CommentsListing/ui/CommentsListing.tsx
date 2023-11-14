@@ -32,11 +32,12 @@ export const CommentsListing: VFC<CommentsListingProps> = (props) => {
         {comments.map((comment) => {
           return (
             <Comment
-                key={comment.id}
-                avatarSrc={comment.avatarSrc}
-                name={comment.name}
-                textComment={comment.textComment}
-                className={styles.comment}
+              key={comment.id}
+              //@ts-ignore
+              avatarSrc={comment.user.avatarSrc}
+              name={comment.name}
+              textComment={comment.textComment}
+              className={styles.comment}
             />
           )
         })}

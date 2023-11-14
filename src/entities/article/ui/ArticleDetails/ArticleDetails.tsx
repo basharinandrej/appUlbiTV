@@ -37,7 +37,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
 
     const fetchComments = useCallback(() => {
         dispatch(fetchCommentsByArticleId(id))
-    },[dispatch])
+    },[dispatch, id])
 
     useMount(() => {
         dispatch({type: 'INIT_ArticleDetails'})
@@ -75,14 +75,13 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
                     <h1 className={styles.title}>{articleDetails?.title}</h1>
                     <h3 className={styles.subtitle}>{articleDetails?.subtitle}</h3>
 
-
-                    {articleDetails?.blocks?.map(renderBlocks)}
-
                     <Comments
                         sendNewComment={sendNewComment}
                         fetchComments={fetchComments}
                         comments={comments}
                     />
+
+                    {articleDetails?.blocks?.map(renderBlocks)}
                 </Fragment>
             }
         </div>

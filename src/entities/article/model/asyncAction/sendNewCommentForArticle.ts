@@ -17,7 +17,7 @@ export const sendNewCommentForArticle = createAsyncThunk<IComment, void, ThunkAp
 
       try {
         const response = await extra.api.post<IComment>('/comments/', {
-          userId: user?.id,
+          userId: user?.id.toString(),
           name: user?.name,
           textComment: newComment.textComment,
           articleId
