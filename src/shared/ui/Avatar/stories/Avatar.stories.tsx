@@ -16,5 +16,5 @@ export const AvatarPrimary = AvatarTemplate.bind({}) as typeof AvatarTemplate
 
 AvatarPrimary.args = {
     avatarSrc: 'https://cdn4.iconfinder.com/data/icons/profession-and-occupation-3/512/IT_specialist-occupation-avatar-job-character-profession-512.png',
-    isEditable: false
+    isEditingMode: false
 }

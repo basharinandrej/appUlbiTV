@@ -1,9 +1,9 @@
 import {VFC, Fragment} from 'react'
 import {AppLink, Avatar, setClassNames, SizeAvatar} from '@shared/index'
 import {IComment} from './types/types'
+import {RoutePaths} from "@app/providers/AppRoutes";
 
 import styles from './comment.module.sass'
-import {RoutePaths} from "@app/providers/AppRoutes";
 
 export const Comment: VFC<commentProps> = (props) => {
   const {
@@ -19,7 +19,7 @@ export const Comment: VFC<commentProps> = (props) => {
         <AppLink to={`${RoutePaths.profile}${userId}`}  className={styles.wrapper}>
           <Fragment>
             <Avatar
-                isEditable={false}
+                isEditingMode={false}
                 avatarSrc={avatar}
                 size={SizeAvatar.SMALL}
                 className={styles.avatar}
@@ -39,5 +39,4 @@ export const Comment: VFC<commentProps> = (props) => {
 
 interface commentProps extends Omit<IComment, 'id' | 'articleId'> {
   className?: string
-
 }

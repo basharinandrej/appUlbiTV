@@ -11,7 +11,7 @@ import {Profile} from '../model/types/types'
 import {fetchDataProfile} from '../model/asyncActions/fetchDataProfile'
 import { getProfileData } from '../model/selectors/getProfileData'
 import {getIsLoading} from '../model/selectors/getIsLoading'
-import {getisEditingMode} from '../model/selectors/getEditing'
+import {getIsEditingMode} from '../model/selectors/getIsEditing'
 import {getIsChangeValues} from '../model/selectors/getIsChangeValues'
 import {updateProfile} from '../model/asyncActions/updateProfile'
 
@@ -23,7 +23,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
 
     const profile = useSelector(getProfileData)
     const isLoading = useSelector(getIsLoading)
-    const isEditingMode = useSelector(getisEditingMode)
+    const isEditingMode = useSelector(getIsEditingMode)
     const isChangeValues = useSelector(getIsChangeValues)
 
     useMount(() => {
