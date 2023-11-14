@@ -16,27 +16,33 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "avatarSrc": "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/4:3/w_1800,h_1350,c_limit/security_hacker_names.jpg"
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/4:3/w_1800,h_1350,c_limit/security_hacker_names.jpg"
     },
     {
       "id": "2",
       "username": "girl",
       "password": "123",
-      "avatarSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm1D3AABh8CReeB3mR_p04cFcbJBGdKV8SYw&usqp=CAU"
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm1D3AABh8CReeB3mR_p04cFcbJBGdKV8SYw&usqp=CAU"
     }
   ],
   "profiles": [
     {
       "id": "2",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm1D3AABh8CReeB3mR_p04cFcbJBGdKV8SYw&usqp=CAU",
-      "name": "angelina",
+      "name": "angelinadr",
       "surname": "koleva",
       "age": "28"
     },
     {
       "id": "1",
       "avatar": "https://media.wired.com/photos/644318b17b25a434b1f3bbd7/4:3/w_1800,h_1350,c_limit/security_hacker_names.jpg",
-      "name": "andrejdв",
+      "name": "andrejwd",
       "surname": "Basharinasdkjklk",
       "age": "24",
       "city": "REWRWER"
@@ -188,46 +194,51 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "avatarSrc": "https://cdn4.iconfinder.com/data/icons/profession-and-occupation-3/512/IT_specialist-occupation-avatar-job-character-profession-512.png",
-      "name": "Андрей Башарин",
-      "textComment": "textComment 1",
-      "articleId": "1",
-      "userId": "1"
+      "userId": "2",
+      "name": "girl",
+      "textComment": "s",
+      "articleId": "2",
+      "id": 1
     },
     {
-      "id": 2,
-      "avatarSrc": "https://cdn4.iconfinder.com/data/icons/profession-and-occupation-3/512/IT_specialist-occupation-avatar-job-character-profession-512.png",
-      "name": "Noize MC",
-      "textComment": "textComment 2",
+      "userId": "2",
+      "name": "girl",
+      "textComment": "ssaq",
       "articleId": "1",
-      "userId": "1"
+      "id": 2
     },
     {
       "userId": "1",
       "name": "admin",
-      "textComment": "fsdfsdf",
+      "textComment": "lox",
+      "articleId": "2",
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "name": "admin",
+      "textComment": "loxx",
       "articleId": "1",
       "id": 4
     },
     {
       "userId": "1",
       "name": "admin",
-      "textComment": "DSDSD",
+      "textComment": "1",
       "articleId": "1",
       "id": 5
     },
     {
-      "userId": "1",
-      "name": "admin",
-      "textComment": "dsfsdf",
+      "userId": "2",
+      "name": "girl",
+      "textComment": "asdasdasd",
       "articleId": "2",
       "id": 6
     },
     {
-      "userId": "1",
-      "name": "admin",
-      "textComment": "asdasd",
+      "userId": "2",
+      "name": "girl",
+      "textComment": "dfgdfg",
       "articleId": "2",
       "id": 7
     },
