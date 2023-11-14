@@ -13,6 +13,7 @@ import {ArticleBlockCodeComponent} from '../ArticleBlockCodeComponent/ArticleBlo
 import {ArticleBlock, ArticleBlockType} from '../../model/types/article'
 import {sendNewCommentForArticle} from "../../model/asyncAction/sendNewCommentForArticle";
 import {fetchCommentsByArticleId} from "../../model/asyncAction/fetchCommentsByArticleId";
+import {deleteCommentForArticle} from "../../model/asyncAction/deleteCommentForArticle";
 import { Comments } from '@widgets/Comments'
 import {getCommentsForArticle} from "@features/CommentsListing";
 
@@ -38,6 +39,10 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
     const fetchComments = useCallback(() => {
         id && dispatch(fetchCommentsByArticleId(id))
     },[dispatch, id])
+
+    const onDeleteCommentHandler = useCallback((commentId: string) => {
+        dispatch(deleteCommentForArticle(commentId))
+    },[dispatch, deleteCommentForArticle])
 
     useMount(() => {
         dispatch({type: 'INIT_ArticleDetails'})
@@ -78,6 +83,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
                     <Comments
                         sendNewComment={sendNewComment}
                         fetchComments={fetchComments}
+                        deleteComment={onDeleteCommentHandler}
                         comments={comments}
                     />
 

@@ -3,4 +3,10 @@ export interface UserSchema {
     username: string
     userWasInit: boolean
     avatar?: string
+    roles: Roles[]
+}
+
+export enum Roles {
+    USER='USER',
+    ADMIN='ADMIN'
 }

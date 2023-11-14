@@ -8,7 +8,7 @@ import {StoreWithStoreManager} from "@app/providers/StoreProvider";
 import styles from './commentsListing.module.sass'
 
 export const CommentsListing: VFC<CommentsListingProps> = (props) => {
-  const {className, comments, fetchComments} = props
+  const {className, comments, fetchComments, deleteComment} = props
   const dispatch = useAppDispatch()
   const store = useStore() as StoreWithStoreManager
 
@@ -32,12 +32,15 @@ export const CommentsListing: VFC<CommentsListingProps> = (props) => {
         {comments.map((comment) => {
           return (
             <Comment
+              id={comment.id}
               key={comment.id}
               avatar={comment?.user.avatar}
               name={comment.name}
               textComment={comment.textComment}
               className={styles.comment}
               userId={comment.userId}
+              onDeleteComment={deleteComment}
+              canDelete={comment.canDelete}
             />
           )
         })}
@@ -50,4 +53,5 @@ interface CommentsListingProps {
   className?: string
   comments: Array<IComment>
   fetchComments: () => void
+  deleteComment: (commentId: string) => void
 }

@@ -6,7 +6,8 @@ const initialState: UserSchema = {
     id: null,
     username: '',
     userWasInit: false,
-    avatar: ''
+    avatar: '',
+    roles: []
 }
 
 export const userSlice = createSlice({
@@ -17,21 +18,24 @@ export const userSlice = createSlice({
             state.id = action.payload.id
             state.username = action.payload.username
             state.avatar = action.payload.avatar
+            state.roles = action.payload.roles
         },
         initUser: (state) => {
             const userKey = localStorage.getItem(LOCALSTORAGE_USER_KEY)
 
             const user: UserSchema = userKey && JSON.parse(userKey)
+            state.userWasInit = true
             state.id = user?.id
             state.username = user?.username
-            state.userWasInit = true
             state.avatar = user.avatar
+            state.roles = user.roles
         },
         logout: (state) => {
             localStorage.removeItem(LOCALSTORAGE_USER_KEY)
             state.id = null
             state.username = ''
             state.avatar = ''
+            state.roles = []
         }
     }
 })
