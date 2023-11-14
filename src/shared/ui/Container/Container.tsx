@@ -8,12 +8,14 @@ export const Container: VFC<ContainerProps> = ({
     children,
     size = ContainerSize.LARGE,
     className,
-    directionChildren = 'row'
+    directionChildren = 'row',
+    alignItems = null
 }) => {
     return (
         <div className={setClassNames(styles.container, {
             [styles.large]: size === ContainerSize.LARGE,
-            [styles.column]: directionChildren === 'column'
+            [styles.column]: directionChildren === 'column',
+            [styles.alignItems]: alignItems === 'center'
         }, [className])}>
             {children}
         </div>
@@ -25,4 +27,5 @@ interface ContainerProps {
     className?: string
     size?: ContainerSize
     directionChildren?: 'row' | 'column'
+    alignItems?: 'center' | null
 }

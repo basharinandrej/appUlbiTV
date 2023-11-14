@@ -1,6 +1,6 @@
 import {useTranslation} from 'react-i18next'
 import {Fragment, useState} from 'react'
-import {Avatar, Button, ButtonType, Container, ContainerSize, SizeAvatar} from '@shared/index'
+import {Avatar, Button, ButtonType, Container, SizeAvatar} from '@shared/index'
 import {LangSwitcher, ThemeSwitcher} from '@features/index'
 import {ModalAuth} from '@features/AuthByUsername'
 import {getIsAuth, getUserData, logout} from '@entities/user'
@@ -30,7 +30,7 @@ export const Navbar = () => {
     if(isAuth) {
         return (
             <div className={styles.navbar}>
-                <Container>
+                <Container alignItems={'center'}>
                     <div className={styles.info}>
                       <Avatar
                           avatarSrc={userData.avatar}
