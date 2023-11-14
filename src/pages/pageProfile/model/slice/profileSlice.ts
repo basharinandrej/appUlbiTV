@@ -8,6 +8,7 @@ const initialState: ProfileSchema = {
     form: null,
     isLoading: false,
     isEditingMode: false,
+    isEditable: false,
     error: null
 }
 
@@ -15,10 +16,13 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
-        setisEditingMode: (state) => {
+        setIsEditingMode: (state) => {
             state.isEditingMode = true
         },
-        cancelIsEditable: (state) => {
+        setIsEditable: (state) => {
+            state.isEditable = true
+        },
+        cancelIsEditingMode: (state) => {
             state.isEditingMode = false
             state.form = state.data
         },
@@ -60,4 +64,4 @@ export const profileSlice = createSlice({
 })
 
 export const profileReducer = profileSlice.reducer
-export const {setisEditingMode, cancelIsEditable, editProfile} = profileSlice.actions
+export const {setIsEditingMode, cancelIsEditingMode, editProfile, setIsEditable} = profileSlice.actions

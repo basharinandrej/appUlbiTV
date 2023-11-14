@@ -1,5 +1,5 @@
 export interface UserSchema {
-    id: number | null
+    id: string | null
     username: string
     userWasInit: boolean
     avatar?: string

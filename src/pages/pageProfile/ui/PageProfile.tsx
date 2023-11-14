@@ -6,7 +6,7 @@ import {useSelector, useStore} from 'react-redux'
 import {StoreWithStoreManager} from '@app/providers/StoreProvider'
 import {ProfileCard} from '@entities/profileCard'
 import {ProfileCardHeader} from '@entities/profileCard/ui/components/profileCardHeader/profileCardHeader'
-import {profileReducer, setisEditingMode, editProfile, cancelIsEditable} from '../model/slice/profileSlice'
+import {profileReducer, setIsEditingMode, editProfile, cancelIsEditingMode} from '../model/slice/profileSlice'
 import {Profile} from '../model/types/types'
 import {fetchDataProfile} from '../model/asyncActions/fetchDataProfile'
 import { getProfileData } from '../model/selectors/getProfileData'
@@ -41,12 +41,12 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     }, [dispatch])
 
     const onClickEditProfile = useCallback(() => {
-        dispatch(setisEditingMode())
-    }, [dispatch, setisEditingMode])
+        dispatch(setIsEditingMode())
+    }, [dispatch, setIsEditingMode])
 
     const onClickCancelProfile = useCallback(() => {
-        dispatch(cancelIsEditable())
-    }, [dispatch, cancelIsEditable])
+        dispatch(cancelIsEditingMode())
+    }, [dispatch, cancelIsEditingMode])
 
     const onChangeFormProfile = useCallback((key: keyof Profile, value: Profile[keyof Profile]) => {
         const form: Partial<Profile> = {
