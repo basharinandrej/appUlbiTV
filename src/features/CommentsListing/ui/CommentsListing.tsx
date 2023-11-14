@@ -37,6 +37,7 @@ export const CommentsListing: VFC<CommentsListingProps> = (props) => {
               name={comment.name}
               textComment={comment.textComment}
               className={styles.comment}
+              userId={comment.userId}
             />
           )
         })}

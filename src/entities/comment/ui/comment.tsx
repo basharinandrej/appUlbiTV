@@ -1,30 +1,34 @@
-import {VFC} from 'react'
-import {Avatar, setClassNames, SizeAvatar} from '@shared/index'
+import {VFC, Fragment} from 'react'
+import {AppLink, Avatar, setClassNames, SizeAvatar} from '@shared/index'
 import {IComment} from './types/types'
 
 import styles from './comment.module.sass'
+import {RoutePaths} from "@app/providers/AppRoutes";
 
 export const Comment: VFC<commentProps> = (props) => {
   const {
     name,
     avatar,
     textComment,
-    className
+    className,
+    userId
   } = props
 
   return (
       <div className={setClassNames(styles.comment, {}, [className])}>
-        <div className={styles.wrapper}>
-          <Avatar
-              isEditable={false}
-              avatarSrc={avatar}
-              size={SizeAvatar.SMALL}
-              className={styles.avatar}
-          />
-          <p className={styles.text}>
-            {name}
-          </p>
-        </div>
+        <AppLink to={`${RoutePaths.profile}${userId}`}  className={styles.wrapper}>
+          <Fragment>
+            <Avatar
+                isEditable={false}
+                avatarSrc={avatar}
+                size={SizeAvatar.SMALL}
+                className={styles.avatar}
+            />
+            <p className={styles.text}>
+              {name}
+            </p>
+          </Fragment>
+        </AppLink>
 
         <p className={styles.text}>
           {textComment}
@@ -33,6 +37,7 @@ export const Comment: VFC<commentProps> = (props) => {
   )
 }
 
-interface commentProps extends Omit<IComment, 'id' | 'userId' | 'articleId'> {
+interface commentProps extends Omit<IComment, 'id' | 'articleId'> {
   className?: string
+
 }

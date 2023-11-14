@@ -37,7 +37,7 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     })
 
     const onSaveProfile = useCallback(() => {
-        dispatch(updateProfile(profile?.id.toString()))
+        dispatch(updateProfile(id))
     }, [dispatch])
 
     const onClickEditProfile = useCallback(() => {
