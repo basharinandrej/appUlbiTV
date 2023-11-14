@@ -19,11 +19,7 @@ export const updateProfile = createAsyncThunk<Profile, string, ThunkApiConfig<st
         }
 
         try {
-            const response = await extra.api.put<Profile>('/profiles', profileData, {
-              params: {
-                id: profileId
-              }
-            })
+            const response = await extra.api.put<Profile>(`/profiles/${profileId}`, profileData)
 
             return response.data
         } catch (err) {

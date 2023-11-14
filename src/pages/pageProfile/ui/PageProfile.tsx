@@ -1,10 +1,10 @@
 import {useCallback, VFC} from 'react'
+import {useParams} from "react-router-dom";
 import {setClassNames} from '@shared/libs/setClassNames'
 import {Loader, useAppDispatch, useMount, useUnMount} from '@shared/index'
 import {useSelector, useStore} from 'react-redux'
 import {StoreWithStoreManager} from '@app/providers/StoreProvider'
 import {ProfileCard} from '@entities/profileCard'
-import {getUserData} from "@entities/user";
 import {ProfileCardHeader} from '@entities/profileCard/ui/components/profileCardHeader/profileCardHeader'
 import {profileReducer, setIsEditable, editProfile, cancelIsEditable} from '../model/slice/profileSlice'
 import {Profile} from '../model/types/types'
@@ -17,6 +17,7 @@ import {updateProfile} from '../model/asyncActions/updateProfile'
 
 const PageProfile: VFC<PageProfileProps> = (props) => {
     const {className} = props
+    const {id} = useParams()
     const dispatch = useAppDispatch()
     const store = useStore() as StoreWithStoreManager
 
@@ -24,12 +25,11 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     const isLoading = useSelector(getIsLoading)
     const isEditable = useSelector(getEditable)
     const isChangeValues = useSelector(getIsChangeValues)
-    const user = useSelector(getUserData)
 
     useMount(() => {
         dispatch({type: 'INIT_ProfileReducer'})
         store.reducerManager.add('profile', profileReducer)
-        dispatch(fetchDataProfile(user?.id.toString()))
+        dispatch(fetchDataProfile(id))
     })
     useUnMount(() => {
         dispatch({type: 'UNINIT_ProfileReducer'})

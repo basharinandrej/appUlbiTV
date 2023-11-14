@@ -36,7 +36,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
     },[dispatch])
 
     const fetchComments = useCallback(() => {
-        dispatch(fetchCommentsByArticleId(id))
+        id && dispatch(fetchCommentsByArticleId(id))
     },[dispatch, id])
 
     useMount(() => {

@@ -8,7 +8,7 @@ import {AppRouteProps, Routes} from '../types/index'
 export const RoutePaths:Record<Routes,string> = {
     [Routes.HOME]: '/',
     [Routes.ABOUT]: '/about',
-    [Routes.PROFILE]: '/profile',
+    [Routes.PROFILE]: '/profile/', // :id
     [Routes.ARTICLES]: '/articles',
     [Routes.ARTICLE_DETAILS]: '/articles/', // :id
     [Routes.NOT_FOUND_PAGE]: '*'
@@ -26,7 +26,7 @@ export const mapRoutes: Record<Routes, AppRouteProps> = {
         onlyAuth: false
     },
     [Routes.PROFILE]: {
-        path: RoutePaths.profile,
+        path: `${RoutePaths.profile}:id`,
         element: <PageProfile />,
         onlyAuth: true
     },
