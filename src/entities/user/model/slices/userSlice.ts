@@ -5,7 +5,8 @@ import {LOCALSTORAGE_USER_KEY} from '@shared/constans/constans'
 const initialState: UserSchema = {
     id: null,
     username: '',
-    userWasInit: false
+    userWasInit: false,
+    avatar: ''
 }
 
 export const userSlice = createSlice({
@@ -15,6 +16,7 @@ export const userSlice = createSlice({
         setUser: (state, action) => {
             state.id = action.payload.id
             state.username = action.payload.username
+            state.avatar = action.payload.avatar
         },
         initUser: (state) => {
             const userKey = localStorage.getItem(LOCALSTORAGE_USER_KEY)
@@ -23,11 +25,13 @@ export const userSlice = createSlice({
             state.id = user?.id
             state.username = user?.username
             state.userWasInit = true
+            state.avatar = user.avatar
         },
         logout: (state) => {
             localStorage.removeItem(LOCALSTORAGE_USER_KEY)
             state.id = null
             state.username = ''
+            state.avatar = ''
         }
     }
 })
