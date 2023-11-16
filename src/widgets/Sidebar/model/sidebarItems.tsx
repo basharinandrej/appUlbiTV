@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faAddressCard, faFileText } from '@fortawesome/free-solid-svg-icons'
+import {SidebarItem} from "../model/types/types";
 
-export const sidebarItems = [
+export const sidebarItems: Array<SidebarItem> = [
     {
         path: '/',
         text: 'Home',
@@ -15,7 +16,7 @@ export const sidebarItems = [
         onlyAuth: false
     },
     {
-        path: '/profile',
+        path: '/profile/',
         text: 'Profile',
         icon: <FontAwesomeIcon icon={faUser} />,
         onlyAuth: true
