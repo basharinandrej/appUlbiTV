@@ -7,11 +7,10 @@ import {getIsLoadingArticles} from '../../model/selectors/getIsLoadingArticles'
 import {
     ListingSkeletons
 } from './components/ListingSkeletons/ListingSkeletons'
-import {ArticleCard, ArticleCardType} from './components/ArticleCard/ArticleCard'
 import {articleReducer} from '../../model/slice/articleSlice'
 import {fetchArticles} from '../../model/asyncActions/fetchArticles'
-import {StoreWithStoreManager} from '@app/providers/StoreProvider'
-import {RoutePaths} from '@app/providers/AppRoutes/config/appRoutesConfig'
+import {RoutePaths, StoreWithStoreManager} from '@app/index'
+import {ArticleCard, ArticleCardType} from '@entities/article'
 
 import styles from './articleListing.module.sass'
 

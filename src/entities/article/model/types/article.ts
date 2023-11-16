@@ -6,6 +6,11 @@ export const enum ArticleBlockType {
     IMAGE = 'IMAGE',
 }
 
+export enum ArticleCardType {
+    GRID = 'grid',
+    ROW = 'row'
+}
+
 export interface Article {
     id: string
     title: string

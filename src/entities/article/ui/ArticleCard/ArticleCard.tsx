@@ -1,7 +1,7 @@
 import {VFC, memo, Fragment} from 'react'
 import {useTranslation} from 'react-i18next'
 import {setClassNames, Tag} from '@shared/index'
-import {Article} from  '@entities/article'
+import {ArticleCardType, Article} from '../../model/types/article'
 
 import styles from './articleCard.module.sass'
 
@@ -67,9 +67,4 @@ interface ArticleCardProps {
   className?: string
   article: Article
   type: ArticleCardType
-}
-
-export enum ArticleCardType {
-  GRID = 'grid',
-  ROW = 'row'
 }
