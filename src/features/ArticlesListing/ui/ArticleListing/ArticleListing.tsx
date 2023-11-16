@@ -7,7 +7,7 @@ import {getIsLoadingArticles} from '../../model/selectors/getIsLoadingArticles'
 import {
     ListingSkeletons
 } from './components/ListingSkeletons/ListingSkeletons'
-import { ArticleCard } from './components/ArticleCard/ArticleCard'
+import {ArticleCard, ArticleCardType} from './components/ArticleCard/ArticleCard'
 import {articleReducer} from '../../model/slice/articleSlice'
 import {fetchArticles} from '../../model/asyncActions/fetchArticles'
 import {StoreWithStoreManager} from '@app/providers/StoreProvider'
@@ -43,15 +43,23 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
         idCard && navigate(RoutePaths.articleDetails + idCard)
     }
 
+    const mods = {
+        [styles.row]: true
+    }
+
     return (
         <div
             onClick={onClickHandler}
-            className={setClassNames(styles.articleListing, {}, [className])}
+            className={setClassNames(styles.articleListing, mods, [className])}
         >
             {isLoadingArticles
                 ? <ListingSkeletons />
                 : articleListing?.map((article) => (
-                    <ArticleCard className={styles.articleCard} key={article.id} articleWithoutBlock={article} />
+                    <ArticleCard
+                        type={ArticleCardType.ROW}
+                        key={article.id}
+                        article={article}
+                    />
                 ))
             }
         </div>

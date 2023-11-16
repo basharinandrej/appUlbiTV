@@ -1,4 +1,4 @@
-import {useCallback, VFC} from 'react'
+import {useCallback, useEffect, VFC} from 'react'
 import {useParams} from "react-router-dom";
 import {setClassNames} from '@shared/libs/setClassNames'
 import {Loader, useAppDispatch, useMount, useUnMount} from '@shared/index'
@@ -28,10 +28,13 @@ const PageProfile: VFC<PageProfileProps> = (props) => {
     const canEditable = useSelector(getCanEditable)
     const isChangeValues = useSelector(getIsChangeValues)
 
+    useEffect(() => {
+        dispatch(fetchDataProfile(id))
+    }, [id])
+
     useMount(() => {
         dispatch({type: 'INIT_ProfileReducer'})
         store.reducerManager.add('profile', profileReducer)
-        dispatch(fetchDataProfile(id))
     })
     useUnMount(() => {
         dispatch({type: 'UNINIT_ProfileReducer'})

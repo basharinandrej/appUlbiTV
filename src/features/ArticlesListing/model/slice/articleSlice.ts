@@ -2,6 +2,7 @@ import {Article} from '@entities/article'
 import {Nullable} from '@shared/index'
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {fetchArticles} from '@features/ArticlesListing/model/asyncActions/fetchArticles'
+import {ArticleBlockType} from "@entities/article";
 
 export interface ArticlesSchema {
     data: Nullable<Array<Article>>
@@ -27,7 +28,12 @@ const articlesSlice = createSlice({
             })
             .addCase(fetchArticles.fulfilled,  (state, action: PayloadAction<Array<Article>>) => {
                 state.isLoading = false
-                state.data = action.payload
+                state.data = action.payload.map((article) => {
+                    return {
+                        ...article,
+                        blocks: [article.blocks.find((block) => block.type === ArticleBlockType.TEXT)]
+                    }
+                })
             })
             .addCase(fetchArticles.rejected,  (state, action: PayloadAction<{msg: string}>) => {
                 state.isLoading = false

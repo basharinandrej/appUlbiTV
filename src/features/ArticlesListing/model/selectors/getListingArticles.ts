@@ -1,9 +1,9 @@
 import {StateSchema} from '@app/providers/StoreProvider'
-import {ArticleWithoutBlocks} from '@entities/article'
+import {Article} from '@entities/article'
 
 
 export const getListingArticles = (state: StateSchema) => {
-    return state.articles?.data?.map((article): ArticleWithoutBlocks => {
+    return state.articles?.data?.map((article): Article => {
         return {
             id: article.id,
             title: article.title,
@@ -12,7 +12,8 @@ export const getListingArticles = (state: StateSchema) => {
             views: article.views,
             createdAt: article.createdAt,
             tags: article.tags,
-            comments: article.comments
+            comments: article.comments,
+            blocks: article.blocks
         }
     })
 }
