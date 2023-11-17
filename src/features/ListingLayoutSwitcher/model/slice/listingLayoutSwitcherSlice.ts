@@ -1,12 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {ViewListing} from "../enums/enums";
+import {LISTING_VIEW_KEY} from "@shared/index";
 
 export interface ListingLayoutSwitcherSliceSchema {
   viewListing: ViewListing
 }
 
 const initialState:ListingLayoutSwitcherSliceSchema = {
-  viewListing: ViewListing.ROW
+  viewListing: JSON.parse(localStorage.getItem(LISTING_VIEW_KEY) as ViewListing)
 }
 
 const listingLayoutSwitcherSlice = createSlice({
@@ -14,7 +15,10 @@ const listingLayoutSwitcherSlice = createSlice({
   initialState,
   reducers: {
     toggleViewListing: (state) => {
-      state.viewListing = state.viewListing === ViewListing.GRID ? ViewListing.ROW : ViewListing.GRID
+      const viewListing = state.viewListing === ViewListing.GRID ? ViewListing.ROW : ViewListing.GRID
+      localStorage.setItem(LISTING_VIEW_KEY, JSON.stringify(viewListing))
+
+      state.viewListing = viewListing
     }
   },
 })

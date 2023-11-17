@@ -1,13 +1,13 @@
 import {MouseEvent, VFC} from 'react'
-import {useSelector, useStore} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-import {setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index'
+import {setClassNames, useAppDispatch, useDynamicLoaderReducers, useMount} from '@shared/index'
 import {getListingArticles} from '../../model/selectors/getListingArticles'
 import {getIsLoadingArticles} from '../../model/selectors/getIsLoadingArticles'
 import {ListingSkeletons} from './components/ListingSkeletons/ListingSkeletons'
 import {articleReducer} from '../../model/slice/articlesSlice'
 import {fetchArticles} from '../../model/asyncActions/fetchArticles'
-import {RoutePaths, StoreWithStoreManager} from '@app/index'
+import {RoutePaths} from '@app/index'
 import {ArticleCard, ArticleCardType} from '@entities/article'
 import {getViewListing} from "@features/ListingLayoutSwitcher";
 import {ViewListing} from '../../../ListingLayoutSwitcher/model/enums/enums'
@@ -19,7 +19,7 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
     const navigate = useNavigate()
 
     const dispatch = useAppDispatch()
-    const store = useStore() as StoreWithStoreManager
+    useDynamicLoaderReducers({'articles': articleReducer})
 
     const articleListing = useSelector(getListingArticles)
     const isLoadingArticles = useSelector(getIsLoadingArticles)
@@ -28,14 +28,7 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
     const typeCard = viewListing === ViewListing.GRID ? ArticleCardType.GRID : ArticleCardType.ROW
 
     useMount(() => {
-        dispatch({type: 'INIT_Articles'})
-        store.reducerManager.add('articles', articleReducer)
         dispatch(fetchArticles())
-    })
-
-    useUnMount(() => {
-        dispatch({type: 'UNINIT_Articles'})
-        store.reducerManager.remove('articles')
     })
 
     function onClickHandler(e: MouseEvent<HTMLDivElement>) {
