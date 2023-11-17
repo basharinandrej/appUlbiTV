@@ -7,29 +7,19 @@ export interface ArticlesSchema {
     data: Nullable<Array<Article>>
     isLoading: boolean
     error: Nullable<string>
-    viewListing: ViewListing
 }
 
-export enum ViewListing {
-    GRID = 'grid',
-    ROW = 'row'
-}
 
 const initialState: ArticlesSchema = {
     data: null,
     isLoading: false,
     error: null,
-    viewListing: ViewListing.GRID
 }
 
 const articlesSlice = createSlice({
     name: 'Articles',
     initialState,
-    reducers: {
-        toggleViewListing: (state) => {
-            state.viewListing = state.viewListing === ViewListing.GRID ? ViewListing.ROW : ViewListing.GRID
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticles.pending,  (state) => {
@@ -53,4 +43,3 @@ const articlesSlice = createSlice({
 })
 
 export const articleReducer = articlesSlice.reducer
-export const {toggleViewListing} = articlesSlice.actions

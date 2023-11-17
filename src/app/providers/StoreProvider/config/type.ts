@@ -11,6 +11,7 @@ import {ArticlesSchema} from '@pages/pageArticles'
 import {ArticleDetailsSchema} from '@entities/article'
 import {NewCommentSchema} from '@features/AddNewComment'
 import {CommentsListingSliceSchema} from "@features/CommentsListing";
+import {ListingLayoutSwitcherSliceSchema} from "@features/ListingLayoutSwitcher";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -23,6 +24,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema
     newComment?: NewCommentSchema
     comments?: CommentsListingSliceSchema
+    listingLayoutSwitcher?: ListingLayoutSwitcherSliceSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

@@ -5,11 +5,12 @@ import {setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index
 import {getListingArticles} from '../../model/selectors/getListingArticles'
 import {getIsLoadingArticles} from '../../model/selectors/getIsLoadingArticles'
 import {ListingSkeletons} from './components/ListingSkeletons/ListingSkeletons'
-import {articleReducer, ViewListing} from '../../model/slice/articlesSlice'
+import {articleReducer} from '../../model/slice/articlesSlice'
 import {fetchArticles} from '../../model/asyncActions/fetchArticles'
 import {RoutePaths, StoreWithStoreManager} from '@app/index'
 import {ArticleCard, ArticleCardType} from '@entities/article'
-import {getViewListing} from "@features/ArticlesListing";
+import {getViewListing} from "@features/ListingLayoutSwitcher";
+import {ViewListing} from '../../../ListingLayoutSwitcher/model/enums/enums'
 
 import styles from './articleListing.module.sass'
 

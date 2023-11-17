@@ -21,6 +21,8 @@ export { Avatar } from './ui/Avatar/Avatar'
 export { SizeAvatar } from './ui/Avatar/enums/sizeAvatar'
 export { Nullable } from './types/types'
 export { Tag } from './ui/Tag/Tag'
+export {ReducersList} from './libs/hooks/useDynamicLoaderReducers'
+export {useDynamicLoaderReducers} from './libs/hooks/useDynamicLoaderReducers'
 
 import i18n from './config/i18next'
 export {i18n}
