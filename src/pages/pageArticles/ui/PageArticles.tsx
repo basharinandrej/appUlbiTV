@@ -2,6 +2,7 @@ import {VFC} from 'react'
 import {useTranslation} from 'react-i18next'
 import {setClassNames} from '@shared/index'
 import {ArticleListing} from '@features/ArticlesListing'
+import {ListingLayoutSwitcher} from "@features/index";
 
 import styles from './PageArticles.module.sass'
 
@@ -11,8 +12,11 @@ const PageArticles: VFC<pageArticlesProps> = (props) => {
 
   return (
       <div className={setClassNames(styles.pageArticles, {}, [className])}>
-        <h1 className={styles.title}>{t('Articles')}</h1>
-        <button>вид статей</button>
+        <div className={styles.box}>
+          <h1 className={styles.title}>{t('Articles')}</h1>
+          <ListingLayoutSwitcher />
+        </div>
+
         <ArticleListing />
       </div>
   )

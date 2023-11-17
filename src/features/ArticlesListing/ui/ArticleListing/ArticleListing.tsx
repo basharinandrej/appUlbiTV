@@ -4,13 +4,12 @@ import {useNavigate} from 'react-router-dom'
 import {setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index'
 import {getListingArticles} from '../../model/selectors/getListingArticles'
 import {getIsLoadingArticles} from '../../model/selectors/getIsLoadingArticles'
-import {
-    ListingSkeletons
-} from './components/ListingSkeletons/ListingSkeletons'
-import {articleReducer} from '../../model/slice/articleSlice'
+import {ListingSkeletons} from './components/ListingSkeletons/ListingSkeletons'
+import {articleReducer, ViewListing} from '../../model/slice/articlesSlice'
 import {fetchArticles} from '../../model/asyncActions/fetchArticles'
 import {RoutePaths, StoreWithStoreManager} from '@app/index'
 import {ArticleCard, ArticleCardType} from '@entities/article'
+import {getViewListing} from "@features/ArticlesListing";
 
 import styles from './articleListing.module.sass'
 
@@ -23,7 +22,9 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
 
     const articleListing = useSelector(getListingArticles)
     const isLoadingArticles = useSelector(getIsLoadingArticles)
+    const viewListing = useSelector(getViewListing)
 
+    const typeCard = viewListing === ViewListing.GRID ? ArticleCardType.GRID : ArticleCardType.ROW
 
     useMount(() => {
         dispatch({type: 'INIT_Articles'})
@@ -55,7 +56,7 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
                 ? <ListingSkeletons />
                 : articleListing?.map((article) => (
                     <ArticleCard
-                        type={ArticleCardType.ROW}
+                        type={typeCard}
                         key={article.id}
                         article={article}
                     />

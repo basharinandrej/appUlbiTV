@@ -1,25 +1,34 @@
-import {Article} from '@entities/article'
+import {Article, ArticleBlockType} from '@entities/article'
 import {Nullable} from '@shared/index'
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {fetchArticles} from '@features/ArticlesListing/model/asyncActions/fetchArticles'
-import {ArticleBlockType} from "@entities/article";
+import {fetchArticles} from '../../model/asyncActions/fetchArticles'
 
 export interface ArticlesSchema {
     data: Nullable<Array<Article>>
     isLoading: boolean
     error: Nullable<string>
+    viewListing: ViewListing
+}
+
+export enum ViewListing {
+    GRID = 'grid',
+    ROW = 'row'
 }
 
 const initialState: ArticlesSchema = {
     data: null,
     isLoading: false,
-    error: null
+    error: null,
+    viewListing: ViewListing.GRID
 }
 
 const articlesSlice = createSlice({
     name: 'Articles',
     initialState,
     reducers: {
+        toggleViewListing: (state) => {
+            state.viewListing = state.viewListing === ViewListing.GRID ? ViewListing.ROW : ViewListing.GRID
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -44,3 +53,4 @@ const articlesSlice = createSlice({
 })
 
 export const articleReducer = articlesSlice.reducer
+export const {toggleViewListing} = articlesSlice.actions

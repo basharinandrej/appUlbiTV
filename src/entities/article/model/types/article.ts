@@ -28,7 +28,7 @@ interface ArticleBlockBase {
     type: ArticleBlockType
 }
 
-interface ArticleBlockText extends ArticleBlockBase {
+export interface ArticleBlockText extends ArticleBlockBase {
     title: string
     paragraphs: Array<string>
     type: ArticleBlockType.TEXT
@@ -44,6 +44,5 @@ interface ArticleBlockImage extends ArticleBlockBase {
     title: string
     type: ArticleBlockType.IMAGE
 }
-
 
 export type ArticleBlock = ArticleBlockText | ArticleBlockCode | ArticleBlockImage

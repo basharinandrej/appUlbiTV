@@ -1,7 +1,7 @@
 import {VFC, memo, Fragment} from 'react'
 import {useTranslation} from 'react-i18next'
 import {setClassNames, Tag} from '@shared/index'
-import {ArticleCardType, Article} from '../../model/types/article'
+import {ArticleCardType, Article, ArticleBlockText} from '../../model/types/article'
 
 import styles from './articleCard.module.sass'
 
@@ -32,7 +32,7 @@ export const ArticleCard: VFC<ArticleCardProps> = memo((props) => {
   )
 
   if(type === ArticleCardType.ROW) {
-    const blockText = article.blocks[0] as any // todo перенести в сущности
+    const blockText = article.blocks[0] as ArticleBlockText
     const mods = {
       [styles.row]: true
     }
@@ -42,7 +42,7 @@ export const ArticleCard: VFC<ArticleCardProps> = memo((props) => {
       {avatar}
 
       <div className={styles.blockParagraph}>
-        {blockText.paragraphs.map((paragraph: string, idx: string) => {
+        {blockText.paragraphs.map((paragraph, idx) => {
           return <p key={idx} className={styles.paragraph}>{paragraph}</p>
         })}
       </div>
