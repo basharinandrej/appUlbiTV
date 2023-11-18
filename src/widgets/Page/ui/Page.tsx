@@ -3,12 +3,12 @@ import {useInfinityScroll} from "@shared/index";
 import styles from './page.module.sass'
 
 export const Page: VFC<PageProps> = memo((props) => {
-  const {children} = props
+  const {children, onScrollEnd} = props
   const refRootElement = useRef<HTMLDivElement | null>()
   const refTargetElement = useRef<HTMLDivElement | null>()
 
   useInfinityScroll({
-    callback: () => console.log('>>>> callback'),
+    callback: onScrollEnd,
     refRootElement,
     refTargetElement
   })
@@ -25,4 +25,5 @@ export const Page: VFC<PageProps> = memo((props) => {
 interface PageProps {
   className?: string
   children: ReactNode
+  onScrollEnd: () => void
 }

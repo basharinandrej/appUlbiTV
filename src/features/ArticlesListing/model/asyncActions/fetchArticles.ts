@@ -11,7 +11,9 @@ export const fetchArticles = createAsyncThunk<Array<Article>, void, ThunkApiConf
             const response = await extra.api.get<Array<Article>>('/articles', {
               params: {
                 _sort: 'id',
-                _order: 'desc'
+                _order: 'desc',
+                _page: 1,
+                _limit: 4
               }
             })
 
