@@ -22,7 +22,7 @@ export const useDynamicLoaderReducers = (reducers: ReducersList) => {
 
       return () => {
         dispatch({type: `@UNINIT_${key}`})
-        store.reducerManager.remove('listingLayoutSwitcher')
+        store.reducerManager.remove(key)
       }
     }, [])
   })

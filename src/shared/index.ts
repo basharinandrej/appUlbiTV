@@ -23,6 +23,7 @@ export { Nullable } from './types/types'
 export { Tag } from './ui/Tag/Tag'
 export {ReducersList} from './libs/hooks/useDynamicLoaderReducers'
 export {useDynamicLoaderReducers} from './libs/hooks/useDynamicLoaderReducers'
+export {useInfinityScroll} from './libs/hooks/useInfinityScroll'
 
 import i18n from './config/i18next'
 export {i18n}
