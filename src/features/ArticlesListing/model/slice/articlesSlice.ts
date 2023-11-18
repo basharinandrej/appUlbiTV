@@ -48,12 +48,14 @@ const articlesSlice = createSlice({
             .addCase(fetchArticlesNextPart.fulfilled,  (state, action: PayloadAction<Array<Article>>) => {
                 const articles = action.payload
 
+                state.hasMore = articles.length > 0
                 state.isLoading = false
-                state.data = [...state.data, ...mapArticlesToArticlesWithOnlyOneTextBlock(articles)]
+
                 if(articles.length) {
+                    state.data = state.data.concat(mapArticlesToArticlesWithOnlyOneTextBlock(articles))
                     state.currentPage = state.currentPage + 1
-                    state.hasMore = articles.length > 0
                 }
+
             })
 
     }

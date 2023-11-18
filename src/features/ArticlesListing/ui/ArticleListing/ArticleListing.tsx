@@ -1,35 +1,42 @@
-import {MouseEvent, VFC} from 'react'
+import {MouseEvent, useCallback, VFC} from 'react'
 import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {setClassNames, useAppDispatch, useDynamicLoaderReducers, useMount} from '@shared/index'
+import {RoutePaths} from '@app/index'
+import {ArticleCard, ArticleCardType} from '@entities/article'
+import {getViewListing} from "@features/ListingLayoutSwitcher";
+import {MainContentContainer} from '@widgets/MainContentContainer'
 import {getListingArticles} from '../../model/selectors/getListingArticles'
 import {getIsLoadingArticles} from '../../model/selectors/getIsLoadingArticles'
 import {ListingSkeletons} from './components/ListingSkeletons/ListingSkeletons'
 import {articleReducer} from '../../model/slice/articlesSlice'
+import {getCurrentPage, getHasMore} from "../../model/selectors/selectors"
+import {fetchArticlesNextPart} from "../../model/asyncActions/fetchArticlesNextPart"
 import {fetchArticles} from '../../model/asyncActions/fetchArticles'
-import {RoutePaths} from '@app/index'
-import {ArticleCard, ArticleCardType} from '@entities/article'
-import {getViewListing} from "@features/ListingLayoutSwitcher";
 import {ViewListing} from '../../../ListingLayoutSwitcher/model/enums/enums'
 
 import styles from './articleListing.module.sass'
 
-export const ArticleListing: VFC<ArticleListingProps> = (props) => {
-    const {className} = props
+export const ArticleListing: VFC<ArticleListingProps> = () => {
     const navigate = useNavigate()
-
     const dispatch = useAppDispatch()
     useDynamicLoaderReducers({'articles': articleReducer})
 
     const articleListing = useSelector(getListingArticles)
     const isLoadingArticles = useSelector(getIsLoadingArticles)
     const viewListing = useSelector(getViewListing)
+    const currentPage = useSelector(getCurrentPage)
+    const hasMore = useSelector(getHasMore)
 
     const typeCard = viewListing === ViewListing.GRID ? ArticleCardType.GRID : ArticleCardType.ROW
 
-    useMount(() => {
-        dispatch(fetchArticles())
-    })
+    useMount(() => dispatch(fetchArticles()))
+
+    const onScrollEndHandler = useCallback(() => {
+        const nextPage = currentPage + 1
+
+        hasMore && dispatch(fetchArticlesNextPart(nextPage))
+    },[currentPage, hasMore, dispatch, fetchArticlesNextPart])
 
     function onClickHandler(e: MouseEvent<HTMLDivElement>) {
         const elementArticleCard = (e.target as HTMLElement).closest('[data-id]')
@@ -42,9 +49,10 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
     }
 
     return (
-        <div
+        <MainContentContainer
+            onScrollEnd={onScrollEndHandler}
             onClick={onClickHandler}
-            className={setClassNames(styles.articleListing, mods, [className])}
+            className={setClassNames(styles.articleListing, mods)}
         >
             {isLoadingArticles
                 ? <ListingSkeletons />
@@ -56,7 +64,7 @@ export const ArticleListing: VFC<ArticleListingProps> = (props) => {
                     />
                 ))
             }
-        </div>
+        </MainContentContainer>
     )
 }
 
