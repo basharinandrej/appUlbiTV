@@ -4,6 +4,8 @@ import {Input, setClassNames, useAppDispatch} from "@shared/index";
 import {useSelector} from "react-redux";
 import {getSearch} from "../../model/selectors/selectors";
 import {actionFiltersArticle} from "../../model/slice/filterForArticlesListingSlice";
+import {fetchArticles} from "@features/ArticlesListing/model/asyncActions/fetchArticles";
+import {actionsArticleListing} from "@features/ArticlesListing/model/slice/articlesSlice";
 
 import styles from './search.module.sass'
 
@@ -16,8 +18,14 @@ export const Search: VFC<searchProps> = () => {
 
   const search = useSelector(getSearch)
 
+  const fetchArticleListing = () => {
+    dispatch(fetchArticles())
+  }
+
   const onChangeHandler = useCallback((value) => {
     dispatch(actionFiltersArticle.setSearch(value))
+    dispatch(actionsArticleListing.resetCurrentPage())
+    fetchArticleListing()
   }, [])
 
   return (
