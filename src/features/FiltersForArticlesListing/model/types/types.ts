@@ -1,5 +1,5 @@
 
 export enum TypeSort {
-  VIEW = 'view',
+  VIEW = 'views',
   CREATED_AT = 'createdAt'
 }

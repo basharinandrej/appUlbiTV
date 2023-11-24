@@ -9,6 +9,7 @@ export const ArticleCard: VFC<ArticleCardProps> = memo((props) => {
   const {article, type} = props
   const {t} = useTranslation('articles')
 
+  const views = <p className={styles.views}>{article.views}</p>
   const avatar = <img className={styles.avatar} src={article.img} alt="avatar article"/>
   const titles = (
       <Fragment>
@@ -56,6 +57,7 @@ export const ArticleCard: VFC<ArticleCardProps> = memo((props) => {
   return (
     <div data-id={article.id} className={setClassNames(styles.articleCard, {}, [])}>
       {avatar}
+      {views}
       {titles}
       {tags}
       {createdAt}

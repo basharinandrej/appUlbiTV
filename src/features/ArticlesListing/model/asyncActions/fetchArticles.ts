@@ -18,7 +18,7 @@ export const fetchArticles = createAsyncThunk<Array<Article>, void, ThunkApiConf
             _sort: typeSort,
             _order: orderSort,
             _page: 1,
-            _limit: 4
+            _limit: 8
           }
         })
 
