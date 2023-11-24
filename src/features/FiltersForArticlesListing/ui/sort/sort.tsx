@@ -2,9 +2,11 @@ import {useCallback, useMemo, VFC} from "react"
 import {useTranslation} from "react-i18next"
 import {useSelector} from "react-redux";
 import {OrderSort, Select, SelectOption, setClassNames, useAppDispatch, useDynamicLoaderReducers} from "@shared/index";
-import {filterArticlesReducer, setOrderSort, setTypeSort} from "../../model/slice/filterForArticlesListingSlice";
+import {filterArticlesReducer, actionFiltersArticle} from "../../model/slice/filterForArticlesListingSlice";
 import {TypeSort} from "../../model/types/types";
 import {getTypeSort, getOrderSort} from "../../model/selectors/selectors";
+import {fetchArticles} from "@features/ArticlesListing/model/asyncActions/fetchArticles";
+import {actionsArticleListing} from "@features/ArticlesListing/model/slice/articlesSlice";
 
 import styles from './sort.module.sass'
 
@@ -14,6 +16,7 @@ const reducers = {
 
 export const Sort: VFC<SortingByViewsProps> = (props) => {
   const {className} = props
+
   const {t} = useTranslation()
   const dispatch = useAppDispatch()
   useDynamicLoaderReducers(reducers)
@@ -46,14 +49,20 @@ export const Sort: VFC<SortingByViewsProps> = (props) => {
     ]
   ), [t])
 
-  const onChangeTypeSortHandler = useCallback((newTypeSort: TypeSort) => {
-    dispatch(setTypeSort(newTypeSort))
+  const fetchArticleListing = () => {
+    dispatch(fetchArticles())
+  }
 
+  const onChangeTypeSortHandler = useCallback((newTypeSort: TypeSort) => {
+    dispatch(actionFiltersArticle.setTypeSort(newTypeSort))
+    dispatch(actionsArticleListing.resetCurrentPage())
+    fetchArticleListing()
   }, [dispatch])
 
   const onChangeOrderSortHandler = useCallback((newOrderSort: OrderSort) => {
-    dispatch(setOrderSort(newOrderSort))
-
+    dispatch(actionFiltersArticle.setOrderSort(newOrderSort))
+    dispatch(actionsArticleListing.resetCurrentPage())
+    fetchArticleListing()
   },[dispatch])
 
   return (

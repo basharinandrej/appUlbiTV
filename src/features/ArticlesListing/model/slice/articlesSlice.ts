@@ -24,7 +24,11 @@ const initialState: ArticlesSchema = {
 const articlesSlice = createSlice({
     name: 'Articles',
     initialState,
-    reducers: {},
+    reducers: {
+        resetCurrentPage: (state) => {
+            state.currentPage = 1
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticles.pending,  (state) => {
@@ -62,3 +66,4 @@ const articlesSlice = createSlice({
 })
 
 export const articleReducer = articlesSlice.reducer
+export const actionsArticleListing = articlesSlice.actions

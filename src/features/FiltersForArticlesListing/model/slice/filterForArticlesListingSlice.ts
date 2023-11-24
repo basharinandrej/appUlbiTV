@@ -32,4 +32,4 @@ const filterArticlesSlice = createSlice({
 })
 
 export const filterArticlesReducer = filterArticlesSlice.reducer
-export const {setOrderSort, setTypeSort, setSearch} = filterArticlesSlice.actions
+export const actionFiltersArticle = filterArticlesSlice.actions

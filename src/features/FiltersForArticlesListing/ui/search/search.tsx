@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next"
 import {Input, setClassNames, useAppDispatch} from "@shared/index";
 import {useSelector} from "react-redux";
 import {getSearch} from "../../model/selectors/selectors";
-import {setSearch} from "../../model/slice/filterForArticlesListingSlice";
+import {actionFiltersArticle} from "../../model/slice/filterForArticlesListingSlice";
 
 import styles from './search.module.sass'
 
@@ -17,7 +17,7 @@ export const Search: VFC<searchProps> = () => {
   const search = useSelector(getSearch)
 
   const onChangeHandler = useCallback((value) => {
-    dispatch(setSearch(value))
+    dispatch(actionFiltersArticle.setSearch(value))
   }, [])
 
   return (
