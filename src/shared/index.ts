@@ -24,6 +24,8 @@ export { Tag } from './ui/Tag/Tag'
 export {ReducersList} from './libs/hooks/useDynamicLoaderReducers'
 export {useDynamicLoaderReducers} from './libs/hooks/useDynamicLoaderReducers'
 export {useInfinityScroll} from './libs/hooks/useInfinityScroll'
+export {Select, SelectOption} from './ui/Select/Select'
+export {OrderSort} from './types/types'
 
 import i18n from './config/i18next'
 export {i18n}

@@ -48,7 +48,7 @@ type HTMLInput = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value
 
 interface InputProps extends HTMLInput {
     onChange: (value: string) => void
-    className: string
+    className?: string
     externalErr?: Array<string>
     externalValue?: string | number
     placeholder?: string

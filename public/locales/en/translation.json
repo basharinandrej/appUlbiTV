@@ -10,5 +10,12 @@
   "Theme": "Theme",
   "Страница не найдена": "Not found page",
   "Выход": "Exit",
-  "Вход": "Sign In"
+  "Вход": "Sign In",
+  "кол-ву просмотров": "views",
+  "дате создания": "createdAt",
+  "сортировать по": "sort by",
+  "по убыванию": "by descending",
+  "по возрастанию": "by ascending",
+  "по": "by",
+  "Поиск": "Search"
 }
