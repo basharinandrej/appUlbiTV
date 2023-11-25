@@ -39,7 +39,7 @@ export const fetchArticles = createAsyncThunk<Array<Article>, void, ThunkApiConf
             _order: orderSort,
             q: search,
             _page: 1,
-            _limit: 8
+            _limit: 4
           }
         })
 
