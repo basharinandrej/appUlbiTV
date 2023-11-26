@@ -2,6 +2,7 @@ import {VFC, memo, Fragment} from 'react'
 import {useTranslation} from 'react-i18next'
 import {setClassNames, Tag} from '@shared/index'
 import {ArticleCardType, Article, ArticleBlockText} from '../../model/types/article'
+import moment from "moment";
 
 import styles from './articleCard.module.sass'
 
@@ -28,7 +29,7 @@ export const ArticleCard: VFC<ArticleCardProps> = memo((props) => {
 
   const createdAt = (
       <p className={styles.createdAt}>
-        {t('CreatedAt')}:&nbsp;<br/>{article.createdAt}
+        {t('CreatedAt')}:&nbsp;<br/>{moment(article.createdAt).format('ll')}
       </p>
   )
 
