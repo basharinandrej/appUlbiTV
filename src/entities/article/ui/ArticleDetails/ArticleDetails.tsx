@@ -1,7 +1,6 @@
 import {Fragment, useCallback, VFC} from 'react'
-import {Loader, setClassNames, useAppDispatch, useMount, useUnMount} from '@shared/index'
-import {useSelector, useStore} from 'react-redux'
-import {StoreWithStoreManager} from '@app/providers/StoreProvider'
+import {Loader, setClassNames, useAppDispatch, useDynamicLoaderReducers, useMount} from '@shared/index'
+import {useSelector} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import {articleDetailsReducer} from '../../model/slice/articleDetailsSlice'
 import {fetchArticleDetailsById} from '../../model/asyncAction/fetchArticleDetailsById'
@@ -16,6 +15,7 @@ import {fetchCommentsByArticleId} from "../../model/asyncAction/fetchCommentsByA
 import {deleteCommentForArticle} from "../../model/asyncAction/deleteCommentForArticle";
 import { Comments } from '@widgets/Comments'
 import {getCommentsForArticle} from "@features/CommentsListing";
+import {BackButton} from "@features/BackButton";
 
 
 import styles from './ArticleDetails.module.sass'
@@ -26,7 +26,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
     const {id} = useParams()
 
     const dispatch = useAppDispatch()
-    const store = useStore() as StoreWithStoreManager
+    useDynamicLoaderReducers({articleDetails: articleDetailsReducer})
 
     const articleDetails = useSelector(getArticleDetailsData)
     const isLoading = useSelector(getArticleDetailsIsLoading)
@@ -45,14 +45,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
     },[dispatch, deleteCommentForArticle])
 
     useMount(() => {
-        dispatch({type: 'INIT_ArticleDetails'})
-        store.reducerManager.add('articleDetails', articleDetailsReducer)
         id && dispatch(fetchArticleDetailsById(id))
-    })
-
-    useUnMount(() => {
-        dispatch({type: 'UNINIT_ArticleDetails'})
-        store.reducerManager.remove('articleDetails')
     })
 
     const renderBlocks = useCallback((block: ArticleBlock) => {
@@ -73,6 +66,7 @@ export const ArticleDetails: VFC<ArticleDetailsProps> = (props) => {
             {isLoading
                 ? <Loader />
                 : <Fragment>
+                    <BackButton />
                     <AvatarArticleDetails
                         className={styles.avatar}
                         src={articleDetails?.img}
