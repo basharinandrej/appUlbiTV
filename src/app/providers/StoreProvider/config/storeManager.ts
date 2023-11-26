@@ -39,6 +39,8 @@ export function createReducerManager (initialReducers: ReducersMapObject<StateSc
             keysToRemove.push(key)
 
             combinedReducer = combineReducers(reducers)
-        }
+        },
+
+        has: (key) => !!reducers[key]
     }
 }

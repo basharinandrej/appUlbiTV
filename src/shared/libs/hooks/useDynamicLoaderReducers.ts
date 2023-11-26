@@ -11,18 +11,24 @@ export type ReducersList = {
 type ReducersListEntry = [StateSchemaKey, Reducer]
 
 
-export const useDynamicLoaderReducers = (reducers: ReducersList) => {
+export const useDynamicLoaderReducers = (reducers: ReducersList, removeAfterUnmount = true) => {
   const dispatch = useAppDispatch()
   const store = useStore() as StoreWithStoreManager
 
   Object.entries(reducers).forEach(([key, reducer]: ReducersListEntry) => {
     useEffect(() => {
-      dispatch({type: `@INIT_${key}`})
-      store.reducerManager.add(key, reducer)
+      const hasReducer = store.reducerManager.has(key)
+
+      if(!hasReducer) {
+        dispatch({type: `@INIT_${key}`})
+        store.reducerManager.add(key, reducer)
+      }
 
       return () => {
-        dispatch({type: `@UNINIT_${key}`})
-        store.reducerManager.remove(key)
+        if(removeAfterUnmount) {
+          dispatch({type: `@UNINIT_${key}`})
+          store.reducerManager.remove(key)
+        }
       }
     }, [])
   })

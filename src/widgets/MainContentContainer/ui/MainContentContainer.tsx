@@ -15,7 +15,7 @@ export const MainContentContainer: VFC<PageProps> = memo((props) => {
 
   const location = useLocation()
   const dispatch = useAppDispatch()
-  useDynamicLoaderReducers(reducers)
+  useDynamicLoaderReducers(reducers, false)
 
   useInfinityScroll({
     callback: onScrollEnd,

@@ -37,6 +37,7 @@ export interface ReducerManager {
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>,
     add:(key: StateSchemaKey, reducer: Reducer) => void,
     remove:(key: StateSchemaKey) => void
+    has: (key: StateSchemaKey) => boolean
 }
 
 export interface StoreWithStoreManager extends EnhancedStore<StateSchema> {
