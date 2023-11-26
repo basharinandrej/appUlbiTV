@@ -18,7 +18,7 @@ const addQueryParams = (params: Record<string, string>) => {
 
 export const fetchArticles = createAsyncThunk<Array<Article>, void, ThunkApiConfig<string>>(
     'articles/fetchArticles',
-    async (_, thunkAPI ) => {
+    async (arg, thunkAPI ) => {
       const {extra, rejectWithValue, getState} = thunkAPI
       const state = getState()
 

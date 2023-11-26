@@ -25,7 +25,8 @@ export {ReducersList} from './libs/hooks/useDynamicLoaderReducers'
 export {useDynamicLoaderReducers} from './libs/hooks/useDynamicLoaderReducers'
 export {useInfinityScroll} from './libs/hooks/useInfinityScroll'
 export {Select, SelectOption} from './ui/Select/Select'
-export {OrderSort} from './types/types'
+export {OrderSort, VoidFunction} from './types/types'
+export {useDebounce} from './libs/hooks/useDebounce'
 
 import i18n from './config/i18next'
 export {i18n}
