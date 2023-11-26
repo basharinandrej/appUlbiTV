@@ -1,14 +1,15 @@
 import {VFC} from 'react'
 import {setClassNames} from '@shared/index'
 import {ArticleDetails} from '@entities/article'
+import {MainContentContainer} from "@widgets/MainContentContainer";
 
 const PageArticleDetails: VFC<pageArticlesProps> = (props) => {
     const {className} = props
 
     return (
-        <div className={setClassNames('', {}, [className])}>
+        <MainContentContainer className={setClassNames('', {}, [className])}>
             <ArticleDetails />
-        </div>
+        </MainContentContainer>
     )
 }
 

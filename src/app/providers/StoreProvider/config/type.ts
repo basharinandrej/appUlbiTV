@@ -13,6 +13,7 @@ import {NewCommentSchema} from '@features/AddNewComment'
 import {CommentsListingSliceSchema} from "@features/CommentsListing";
 import {ListingLayoutSwitcherSliceSchema} from "@features/ListingLayoutSwitcher";
 import {filterArticlesSchema} from "@features/FiltersForArticlesListing";
+import {KeepScrollPositionSliceSchema} from "@features/KeepScrollPosition";
 
 export interface StateSchema {
     counter: CounterSchema
@@ -27,6 +28,7 @@ export interface StateSchema {
     comments?: CommentsListingSliceSchema
     listingLayoutSwitcher?: ListingLayoutSwitcherSliceSchema
     filterArticles?: filterArticlesSchema
+    keepScrollPosition?: KeepScrollPositionSliceSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

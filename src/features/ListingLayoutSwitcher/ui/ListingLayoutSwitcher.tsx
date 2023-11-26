@@ -3,12 +3,12 @@ import {Button, ReducersList, useDynamicLoaderReducers, useAppDispatch} from "@s
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList, faTableCellsLarge} from "@fortawesome/free-solid-svg-icons";
 import {useSelector} from "react-redux";
-import {getViewListing} from "./model/selectors/getViewListing";
-import {ViewListing} from './model/enums/enums'
-import {listingLayoutSwitcherReducer, toggleViewListing} from './model/slice/listingLayoutSwitcherSlice'
+import {getViewListing} from "../model/selectors/getViewListing";
+import {ViewListing} from '../model/enums/enums'
+import {listingLayoutSwitcherReducer, toggleViewListing} from '../model/slice/listingLayoutSwitcherSlice'
 
 const reducers: ReducersList = {
-  'listingLayoutSwitcher': listingLayoutSwitcherReducer
+  'listingLayoutSwitcher': listingLayoutSwitcherReducer,
 }
 
 export const ListingLayoutSwitcher: VFC<ListingLayoutSwitcherProps> = () => {

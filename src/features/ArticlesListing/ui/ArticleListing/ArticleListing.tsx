@@ -17,10 +17,14 @@ import {ViewListing} from '../../../ListingLayoutSwitcher/model/enums/enums'
 
 import styles from './articleListing.module.sass'
 
+const reducers = {
+    'articles': articleReducer
+}
+
 export const ArticleListing: VFC<ArticleListingProps> = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
-    useDynamicLoaderReducers({'articles': articleReducer})
+    useDynamicLoaderReducers(reducers)
 
     const articleListing = useSelector(getListingArticles)
     const isLoadingArticles = useSelector(getIsLoadingArticles)
@@ -30,7 +34,9 @@ export const ArticleListing: VFC<ArticleListingProps> = () => {
 
     const typeCard = viewListing === ViewListing.GRID ? ArticleCardType.GRID : ArticleCardType.ROW
 
-    useMount(() => dispatch(fetchArticles()))
+    useMount(() => {
+        dispatch(fetchArticles())
+    })
 
     const onScrollEndHandler = useCallback(() => {
         const nextPage = currentPage + 1
