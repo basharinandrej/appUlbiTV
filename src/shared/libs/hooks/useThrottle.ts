@@ -1,19 +1,16 @@
 import {useCallback, useRef} from "react";
 
-//todo check on correct func
-export const useThrottle = (cb: (...args: any[]) => void, delay = 500) => {
-  const ref = useRef<boolean>(true)
+export function useThrottle(callback: (...args: any[]) => void, delay: number) {
+  const throttleRef = useRef(false);
 
+  return useCallback((...args: any[]) => {
+    if (!throttleRef.current) {
+      callback(...args);
+      throttleRef.current = true;
 
-  return useCallback((...args) => {
-    if(ref.current) {
-      cb(...args)
-      ref.current = false
+      setTimeout(() => {
+        throttleRef.current = false;
+      }, delay);
     }
-
-    setTimeout(() => {
-      ref.current = true
-    }, delay)
-
-  }, [ref])
+  }, [callback, delay]);
 }

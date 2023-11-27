@@ -28,6 +28,7 @@ export {Select, SelectOption} from './ui/Select/Select'
 export {OrderSort, VoidFunction} from './types/types'
 export {useDebounce} from './libs/hooks/useDebounce'
 export {useThrottle} from './libs/hooks/useThrottle'
+export {isMounted} from './libs/isMounted'
 
 import i18n from './config/i18next'
 export {i18n}
